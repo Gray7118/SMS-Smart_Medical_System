@@ -1,0 +1,13 @@
+CREATE DATABASE studentdb;
+USE studentdb;
+
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT,
+    major VARCHAR(50),
+    sid INT                -- 存储会话 ID (CONNECTION_ID)
+);
+CREATE USER 'qtuser'@'localhost' IDENTIFIED BY '12345678';
+GRANT ALL PRIVILEGES ON studentdb.* TO 'qtuser'@'localhost';
+FLUSH PRIVILEGES;
