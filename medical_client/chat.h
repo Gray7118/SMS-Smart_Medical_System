@@ -11,6 +11,15 @@
 #include "message.h"
 #include "messagetype.h"
 
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrlQuery>
+#include <QCryptographicHash>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+
 
 namespace Ui {
 class Chat;
@@ -30,6 +39,8 @@ public:
 
     QString getLine(QString content, QString chatDate, QString isRead, QString sender);
 
+    void translateText(const QString &text, const QString &from, const QString &to, std::function<void(QString)> callback);
+
 signals:
     void returnToProfile();
 
@@ -43,6 +54,8 @@ private:
     User *user;
     QTcpSocket *socket;
     QString receiver;
+
+    QNetworkAccessManager *manager;  // 网络请求管理器
 };
 
 #endif // CHAT_H
