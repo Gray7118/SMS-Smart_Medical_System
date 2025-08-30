@@ -1,0 +1,383 @@
+﻿   Qt/MSBuild: 3.4.1.0
+  Reading Qt configuration (D:/Qt/Qt5.12.8/5.12.8/msvc2017_64/bin/qmake)
+   Qt: 5.12.8
+  appointmentchoose.cpp
+  chat.cpp
+  department_choose.cpp
+  departmentchoose.cpp
+  doctor_choose.cpp
+  doctor_individualinfo.cpp
+  doctorcase.cpp
+  doctorprofile.cpp
+  healthtest.cpp
+  healthtestoutcome.cpp
+  main.cpp
+  message.cpp
+  messagetype.cpp
+  patient_individualinfo.cpp
+  patientcase.cpp
+  patientprofile.cpp
+  schedule_choose.cpp
+  schedulechoose.cpp
+  seedoctorinfo.cpp
+  seepatientinfo.cpp
+  selectreceiver.cpp
+  signup.cpp
+  user.cpp
+  utils.cpp
+  widget.cpp
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctor_choose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\selectreceiver.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 messagetype.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedulechoose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 user.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorcase.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\departmentchoose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seedoctorinfo.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedule_choose.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctor_individualinfo.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 utils.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 chat.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedulechoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedulechoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 message.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 message.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtestoutcome.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtestoutcome.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtestoutcome.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtestoutcome.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 selectreceiver.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 selectreceiver.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seepatientinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 signup.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seepatientinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 signup.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 signup.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seepatientinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patientprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 signup.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seepatientinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedulechoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorcase.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedule_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 department_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 department_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 department_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedule_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 departmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedule_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 departmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedulechoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patient_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 departmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctor_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 widget.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 widget.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patient_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 widget.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 chat.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 appointmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 appointmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 chat.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 doctorprofile.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 appointmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patient_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 widget.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 patient_individualinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 department_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtest.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtest.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 schedule_choose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\user.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seedoctorinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seedoctorinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtest.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\messagetype.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seedoctorinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 healthtest.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 seedoctorinfo.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 appointmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\utils.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 departmentchoose.cpp)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2017: 非法的转义序列
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(66): error C2969: 语法错误:“;”: 成员函数定义应以“}”结尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(37): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorcase.cpp(66): error C2017: 非法的转义序列
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorcase.cpp(66): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorcase.cpp(139): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorcase.cpp(139): fatal error C1075: “{”: 未找到匹配令牌
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(43): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(43): error C2065: “__this”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\selectreceiver.cpp(32): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\selectreceiver.cpp(33): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\selectreceiver.cpp(38): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(50): error C2065: “ui”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\selectreceiver.cpp(33): fatal error C1075: “{”: 未找到匹配令牌
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(61): error C2065: “ui”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(62): error C2146: 语法错误: 缺少“)”(在标识符“灏辫瘖鏃ユ湡锛”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(62): error C2146: 语法错误: 缺少“;”(在标识符“灏辫瘖鏃ユ湡锛”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(61): error C2065: “灏辫瘖鏃ユ湡锛”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(62): error C2146: 语法错误: 缺少“;”(在标识符“鐥囩姸锛”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(62): error C2065: “鐥囩姸锛”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2146: 语法错误: 缺少“;”(在标识符“澶勬柟鍙婄即璐癸細”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2065: “澶勬柟鍙婄即璐癸細”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2143: 语法错误: 缺少“;”(在“字符串”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2146: 语法错误: 缺少“;”(在标识符“n”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(63): error C2065: “n”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(64): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(66): error C2059: 语法错误:“)”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seepatientinfo.cpp(68): fatal error C1004: 发现意外的文件尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(23): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(24): error C2146: 语法错误: 缺少“)”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(24): error C2146: 语法错误: 缺少“;”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2017: 非法的转义序列
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(102): error C3688: 文本后缀“瀵规柟涓嶅湪绾匡紝鎴戜滑浼氬湪瀵规柟鐧诲綍鏃惰浆鍙戞偍鐨勬秷鎭”无效；未找到文文本运算符或文本运算符模板“operator """"瀵规柟涓嶅湪绾匡紝鎴戜滑浼氬湪瀵规柟鐧诲綍鏃惰浆鍙戞偍鐨勬秷鎭”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(63): error C2969: 语法错误:“;”: 成员函数定义应以“}”结尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(102): error C2661: “QMessageBox::information”: 没有重载函数接受 2 个参数
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(35): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(41): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(41): error C2065: “__this”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(47): error C2065: “ui”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2065: “ui”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2146: 语法错误: 缺少“)”(在标识符“灏辫瘖鏃ユ湡”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2146: 语法错误: 缺少“;”(在标识符“灏辫瘖鏃ユ湡”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2065: “灏辫瘖鏃ユ湡”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(58): error C2143: 语法错误: 缺少“;”(在“字符串”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(59): error C2146: 语法错误: 缺少“;”(在标识符“鐥囩姸锛”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(59): error C2065: “鐥囩姸锛”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2146: 语法错误: 缺少“;”(在标识符“澶勬柟鍙婄即璐癸細”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2065: “澶勬柟鍙婄即璐癸細”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2143: 语法错误: 缺少“;”(在“字符串”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2146: 语法错误: 缺少“;”(在标识符“n”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(60): error C2065: “n”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(61): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(63): error C2059: 语法错误:“)”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientcase.cpp(65): fatal error C1004: 发现意外的文件尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(152): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(153): error C3688: 文本后缀“鑷冲皯鍐欑偣浠€涔堝啀鍙戝惂”无效；未找到文文本运算符或文本运算符模板“operator """"鑷冲皯鍐欑偣浠€涔堝啀鍙戝惂”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(153): error C2143: 语法错误: 缺少“)”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(152): error C2661: “QMessageBox::warning”: 没有重载函数接受 2 个参数
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(153): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(166): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(167): error C2146: 语法错误: 缺少“)”(在标识符“fullname”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(167): error C2146: 语法错误: 缺少“;”(在标识符“fullname”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(185): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\chat.cpp(188): error C2143: 语法错误: 缺少“)”(在“;”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(37): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(38): error C2143: 语法错误: 缺少“)”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(38): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(50): error C3688: 文本后缀“濂”无效；未找到文文本运算符或文本运算符模板“operator """"濂”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(51): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(52): error C2143: 语法错误: 缺少“)”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(52): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(71): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(78): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(83): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\signup.cpp(83): fatal error C1075: “{”: 未找到匹配令牌
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedulechoose.cpp(27): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedulechoose.cpp(28): error C2146: 语法错误: 缺少“)”(在标识符“appcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedulechoose.cpp(28): error C2146: 语法错误: 缺少“;”(在标识符“appcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(51): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(52): error C2146: 语法错误: 缺少“)”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(52): error C2146: 语法错误: 缺少“;”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(60): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(61): error C2146: 语法错误: 缺少“)”(在标识符“schcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(61): error C2146: 语法错误: 缺少“;”(在标识符“schcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(69): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(70): error C2146: 语法错误: 缺少“)”(在标识符“doccho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\department_choose.cpp(70): error C2146: 语法错误: 缺少“;”(在标识符“doccho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(21): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(22): error C2146: 语法错误: 缺少“)”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(22): error C2146: 语法错误: 缺少“;”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(40): error C3688: 文本后缀“濂”无效；未找到文文本运算符或文本运算符模板“operator """"濂”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(41): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(42): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(47): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(48): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(51): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(52): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(55): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(56): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(59): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(60): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(63): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(64): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(67): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(68): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(71): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(72): error C2143: 语法错误: 缺少“;”(在“return”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(79): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(82): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(84): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(86): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(80): error C2143: 语法错误: 缺少“;”(在“case”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(80): error C2429: 语言功能 "if/switch 中的 init-statement" 需要编译器标志 "/std:c++17"
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(80): error C2143: 语法错误: 缺少“)”(在“:”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(80): error C2059: 语法错误:“:”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(81): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(83): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(83): error C2181: 没有匹配 if 的非法 else
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(85): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(87): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(89): error C2046: 非法的 case
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(91): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(92): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(81): warning C4060: switch 语句没有包含“case”或“default”标签
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(88): error C2043: 非法 break
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(97): error C2043: 非法 break
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(101): error C2059: 语法错误:“switch”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(101): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(103): error C2059: 语法错误:“if”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(103): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(103): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(105): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(105): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(105): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(107): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(107): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(107): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(22): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(109): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(23): error C2146: 语法错误: 缺少“)”(在标识符“depcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(109): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp(74): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(23): error C2146: 语法错误: 缺少“;”(在标识符“depcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(109): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp(84): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(30): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(112): error C2059: 语法错误:“break”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(48): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp(95): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(31): error C2146: 语法错误: 缺少“)”(在标识符“schcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(113): error C2059: 语法错误:“case”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(49): error C2146: 语法错误: 缺少“)”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp(102): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(31): error C2146: 语法错误: 缺少“;”(在标识符“schcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(114): error C2059: 语法错误:“if”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\widget.cpp(102): fatal error C1075: “{”: 未找到匹配令牌
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(38): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(114): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(49): error C2146: 语法错误: 缺少“;”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(39): error C2146: 语法错误: 缺少“)”(在标识符“patfill”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(114): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(80): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(115): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\appointmentchoose.cpp(39): error C2146: 语法错误: 缺少“;”(在标识符“patfill”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(88): error C2969: 语法错误:“;”: 成员函数定义应以“}”结尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(116): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(68): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(116): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(116): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\departmentchoose.cpp(22): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(117): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(74): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\departmentchoose.cpp(23): error C2146: 语法错误: 缺少“)”(在标识符“appcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(118): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(74): error C2065: “__this”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\departmentchoose.cpp(23): error C2146: 语法错误: 缺少“;”(在标识符“appcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedule_choose.cpp(130): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(118): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedule_choose.cpp(134): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(118): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(79): error C2065: “socket”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\schedule_choose.cpp(134): fatal error C1075: “{”: 未找到匹配令牌
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(119): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(79): error C2065: “user”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(120): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(81): error C2146: 语法错误: 缺少“)”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(120): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(81): error C2146: 语法错误: 缺少“;”(在标识符“pp”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(120): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(82): error C2065: “__this”: 未声明的标识符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(121): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(123): error C2059: 语法错误:“break”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(88): error C2059: 语法错误:“)”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(124): error C2059: 语法错误:“}”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patient_individualinfo.cpp(90): fatal error C1004: 发现意外的文件尾
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(124): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(127): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(129): error C2059: 语法错误:“if”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(129): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(129): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(130): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(131): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(131): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(131): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(132): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(133): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(133): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(133): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(134): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(136): error C2059: 语法错误:“break”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(137): error C2059: 语法错误:“case”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(138): error C2059: 语法错误:“if”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(138): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(138): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(139): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(140): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(140): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(140): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(141): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(142): error C2059: 语法错误:“else”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(142): error C2143: 语法错误: 缺少“;”(在“{”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(142): error C2447: “{”: 缺少函数标题(是否是老式的形式表?)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(143): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(145): error C2059: 语法错误:“break”
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\healthtest.cpp(145): fatal error C1003: 错误计数超过 100；正在停止编译
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seedoctorinfo.cpp(22): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seedoctorinfo.cpp(23): error C2146: 语法错误: 缺少“)”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\seedoctorinfo.cpp(23): error C2146: 语法错误: 缺少“;”(在标识符“patfil”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(86): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(87): error C2146: 语法错误: 缺少“)”(在标识符“sptinf”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(87): error C2146: 语法错误: 缺少“;”(在标识符“sptinf”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(94): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(95): error C2146: 语法错误: 缺少“)”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(95): error C2146: 语法错误: 缺少“;”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(102): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(103): error C2146: 语法错误: 缺少“)”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(103): error C2146: 语法错误: 缺少“;”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(118): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(119): error C2146: 语法错误: 缺少“)”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\doctorprofile.cpp(119): error C2146: 语法错误: 缺少“;”(在标识符“doct”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(15): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(16): error C2143: 语法错误: 缺少“)”(在“this”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(16): error C2143: 语法错误: 缺少“;”(在“this”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(86): error C2001: 常量中有换行符
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(87): error C2146: 语法错误: 缺少“)”(在标识符“appcho”的前面)
+c:\users\lenovo\desktop\ubuntu-shared\sms-smart_medical_system\medical_client\patientprofile.cpp(87): error C2146: 语法错误: 缺少“;”(在标识符“appcho”的前面)
