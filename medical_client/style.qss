@@ -1,0 +1,35 @@
+QWidget {
+    background-color: #E3F2FD;
+}
+
+QLabel {
+    color: #0D47A1;
+}
+
+QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border-radius: 5px;
+    padding: 8px;
+    min-width: 100px;
+}
+
+QPushButton:hover {
+    background-color: #1976D2;
+}
+
+QLineEdit, QTextEdit, QPlainTextEdit {
+    border: 1px solid #BBDEFB;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+QProgressBar {
+    border: 1px solid #BBDEFB;
+    border-radius: 3px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #2196F3;
+}

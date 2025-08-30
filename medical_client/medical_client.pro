@@ -38,6 +38,7 @@ SOURCES += \
     seepatientinfo.cpp \
     selectreceiver.cpp \
     signup.cpp \
+    splashscreen.cpp\
     user.cpp \
     utils.cpp \
     widget.cpp
@@ -65,6 +66,7 @@ HEADERS += \
     selectreceiver.h \
     signup.h \
     user.h \
+    splashscreen.h\
     utils.h \
     widget.h
 
