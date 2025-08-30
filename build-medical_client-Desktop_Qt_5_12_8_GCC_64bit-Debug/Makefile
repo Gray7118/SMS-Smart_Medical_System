@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../medical_client/appointmentchoose.cpp \
+SOURCES       = ../medical_client/aihealthservice.cpp \
+		../medical_client/appointmentchoose.cpp \
 		../medical_client/chat.cpp \
 		../medical_client/department_choose.cpp \
 		../medical_client/departmentchoose.cpp \
@@ -77,7 +78,8 @@ SOURCES       = ../medical_client/appointmentchoose.cpp \
 		../medical_client/splashscreen.cpp \
 		../medical_client/user.cpp \
 		../medical_client/utils.cpp \
-		../medical_client/widget.cpp moc_appointmentchoose.cpp \
+		../medical_client/widget.cpp moc_aihealthservice.cpp \
+		moc_appointmentchoose.cpp \
 		moc_chat.cpp \
 		moc_department_choose.cpp \
 		moc_departmentchoose.cpp \
@@ -99,7 +101,8 @@ SOURCES       = ../medical_client/appointmentchoose.cpp \
 		moc_splashscreen.cpp \
 		moc_utils.cpp \
 		moc_widget.cpp
-OBJECTS       = appointmentchoose.o \
+OBJECTS       = aihealthservice.o \
+		appointmentchoose.o \
 		chat.o \
 		department_choose.o \
 		departmentchoose.o \
@@ -125,6 +128,7 @@ OBJECTS       = appointmentchoose.o \
 		user.o \
 		utils.o \
 		widget.o \
+		moc_aihealthservice.o \
 		moc_appointmentchoose.o \
 		moc_chat.o \
 		moc_department_choose.o \
@@ -341,7 +345,8 @@ DIST          = /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/lex.prf \
-		../medical_client/medical_client.pro ../medical_client/appointmentchoose.h \
+		../medical_client/medical_client.pro ../medical_client/aihealthservice.h \
+		../medical_client/appointmentchoose.h \
 		../medical_client/chat.h \
 		../medical_client/department_choose.h \
 		../medical_client/departmentchoose.h \
@@ -362,10 +367,11 @@ DIST          = /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf \
 		../medical_client/seepatientinfo.h \
 		../medical_client/selectreceiver.h \
 		../medical_client/signup.h \
-		../medical_client/user.h \
 		../medical_client/splashscreen.h \
+		../medical_client/user.h \
 		../medical_client/utils.h \
-		../medical_client/widget.h ../medical_client/appointmentchoose.cpp \
+		../medical_client/widget.h ../medical_client/aihealthservice.cpp \
+		../medical_client/appointmentchoose.cpp \
 		../medical_client/chat.cpp \
 		../medical_client/department_choose.cpp \
 		../medical_client/departmentchoose.cpp \
@@ -808,8 +814,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../medical_client/appointmentchoose.h ../medical_client/chat.h ../medical_client/department_choose.h ../medical_client/departmentchoose.h ../medical_client/doctor_choose.h ../medical_client/doctor_individualinfo.h ../medical_client/doctorcase.h ../medical_client/doctorprofile.h ../medical_client/healthtest.h ../medical_client/healthtestoutcome.h ../medical_client/message.h ../medical_client/messagetype.h ../medical_client/patient_individualinfo.h ../medical_client/patientcase.h ../medical_client/patientprofile.h ../medical_client/schedule_choose.h ../medical_client/schedulechoose.h ../medical_client/seedoctorinfo.h ../medical_client/seepatientinfo.h ../medical_client/selectreceiver.h ../medical_client/signup.h ../medical_client/user.h ../medical_client/splashscreen.h ../medical_client/utils.h ../medical_client/widget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../medical_client/appointmentchoose.cpp ../medical_client/chat.cpp ../medical_client/department_choose.cpp ../medical_client/departmentchoose.cpp ../medical_client/doctor_choose.cpp ../medical_client/doctor_individualinfo.cpp ../medical_client/doctorcase.cpp ../medical_client/doctorprofile.cpp ../medical_client/healthtest.cpp ../medical_client/healthtestoutcome.cpp ../medical_client/main.cpp ../medical_client/message.cpp ../medical_client/messagetype.cpp ../medical_client/patient_individualinfo.cpp ../medical_client/patientcase.cpp ../medical_client/patientprofile.cpp ../medical_client/schedule_choose.cpp ../medical_client/schedulechoose.cpp ../medical_client/seedoctorinfo.cpp ../medical_client/seepatientinfo.cpp ../medical_client/selectreceiver.cpp ../medical_client/signUp.cpp ../medical_client/splashscreen.cpp ../medical_client/user.cpp ../medical_client/utils.cpp ../medical_client/widget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../medical_client/aihealthservice.h ../medical_client/appointmentchoose.h ../medical_client/chat.h ../medical_client/department_choose.h ../medical_client/departmentchoose.h ../medical_client/doctor_choose.h ../medical_client/doctor_individualinfo.h ../medical_client/doctorcase.h ../medical_client/doctorprofile.h ../medical_client/healthtest.h ../medical_client/healthtestoutcome.h ../medical_client/message.h ../medical_client/messagetype.h ../medical_client/patient_individualinfo.h ../medical_client/patientcase.h ../medical_client/patientprofile.h ../medical_client/schedule_choose.h ../medical_client/schedulechoose.h ../medical_client/seedoctorinfo.h ../medical_client/seepatientinfo.h ../medical_client/selectreceiver.h ../medical_client/signup.h ../medical_client/splashscreen.h ../medical_client/user.h ../medical_client/utils.h ../medical_client/widget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../medical_client/aihealthservice.cpp ../medical_client/appointmentchoose.cpp ../medical_client/chat.cpp ../medical_client/department_choose.cpp ../medical_client/departmentchoose.cpp ../medical_client/doctor_choose.cpp ../medical_client/doctor_individualinfo.cpp ../medical_client/doctorcase.cpp ../medical_client/doctorprofile.cpp ../medical_client/healthtest.cpp ../medical_client/healthtestoutcome.cpp ../medical_client/main.cpp ../medical_client/message.cpp ../medical_client/messagetype.cpp ../medical_client/patient_individualinfo.cpp ../medical_client/patientcase.cpp ../medical_client/patientprofile.cpp ../medical_client/schedule_choose.cpp ../medical_client/schedulechoose.cpp ../medical_client/seedoctorinfo.cpp ../medical_client/seepatientinfo.cpp ../medical_client/selectreceiver.cpp ../medical_client/signUp.cpp ../medical_client/splashscreen.cpp ../medical_client/user.cpp ../medical_client/utils.cpp ../medical_client/widget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../medical_client/appointmentchoose.ui ../medical_client/chat.ui ../medical_client/department_choose.ui ../medical_client/departmentchoose.ui ../medical_client/doctor_choose.ui ../medical_client/doctor_individualinfo.ui ../medical_client/doctorcase.ui ../medical_client/doctorprofile.ui ../medical_client/healthtest.ui ../medical_client/healthtestoutcome.ui ../medical_client/patient_individualinfo.ui ../medical_client/patientcase.ui ../medical_client/patientprofile.ui ../medical_client/schedule_choose.ui ../medical_client/schedulechoose.ui ../medical_client/seedoctorinfo.ui ../medical_client/seepatientinfo.ui ../medical_client/selectreceiver.ui ../medical_client/signup.ui ../medical_client/widget.ui $(DISTDIR)/
 
 
@@ -842,9 +848,113 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp
+compiler_moc_header_make_all: moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp
+	-$(DEL_FILE) moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp
+moc_aihealthservice.cpp: ../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QString \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
+		moc_predefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_client-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_client -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_client/aihealthservice.h -o moc_aihealthservice.cpp
+
 moc_appointmentchoose.cpp: ../medical_client/appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qwidget.h \
@@ -982,49 +1092,46 @@ moc_appointmentchoose.cpp: ../medical_client/appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -1300,41 +1407,38 @@ moc_department_choose.cpp: ../medical_client/department_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -1485,41 +1589,38 @@ moc_departmentchoose.cpp: ../medical_client/departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -1671,40 +1772,37 @@ moc_doctor_choose.cpp: ../medical_client/doctor_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -2250,10 +2348,12 @@ moc_healthtest.cpp: ../medical_client/healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		../medical_client/chat.h \
@@ -2279,40 +2379,35 @@ moc_healthtest.cpp: ../medical_client/healthtest.h \
 		../medical_client/schedulechoose.h \
 		../medical_client/healthtest.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -2436,10 +2531,12 @@ moc_healthtestoutcome.cpp: ../medical_client/healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		../medical_client/chat.h \
@@ -2469,36 +2566,31 @@ moc_healthtestoutcome.cpp: ../medical_client/healthtestoutcome.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
 	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_client-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_client -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_client/healthtestoutcome.h -o moc_healthtestoutcome.cpp
@@ -2648,41 +2740,38 @@ moc_patient_individualinfo.cpp: ../medical_client/patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -2833,41 +2922,38 @@ moc_patientcase.cpp: ../medical_client/patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -3018,41 +3104,38 @@ moc_patientprofile.cpp: ../medical_client/patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -3204,40 +3287,37 @@ moc_schedule_choose.cpp: ../medical_client/schedule_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -3388,41 +3468,38 @@ moc_schedulechoose.cpp: ../medical_client/schedulechoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -3573,41 +3650,38 @@ moc_seedoctorinfo.cpp: ../medical_client/seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
@@ -4033,41 +4107,38 @@ moc_signup.cpp: ../medical_client/signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/widget.h \
 		../medical_client/signup.h \
@@ -4189,6 +4260,9 @@ moc_splashscreen.cpp: ../medical_client/splashscreen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractanimation.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGraphicsOpacityEffect \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgraphicseffect.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QPointF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QKeyEvent \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
 	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_client-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_client -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_client/splashscreen.h -o moc_splashscreen.cpp
@@ -4406,41 +4480,38 @@ moc_widget.cpp: ../medical_client/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
@@ -4548,6 +4619,116 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+aihealthservice.o: ../medical_client/aihealthservice.cpp ../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QString \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aihealthservice.o ../medical_client/aihealthservice.cpp
 
 appointmentchoose.o: ../medical_client/appointmentchoose.cpp ../medical_client/appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4693,41 +4874,38 @@ appointmentchoose.o: ../medical_client/appointmentchoose.cpp ../medical_client/a
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		ui_appointmentchoose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appointmentchoose.o ../medical_client/appointmentchoose.cpp
@@ -4853,32 +5031,7 @@ chat.o: ../medical_client/chat.cpp ../medical_client/chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		../medical_client/messagetype.h \
-		ui_chat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_chat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chat.o ../medical_client/chat.cpp
 
 department_choose.o: ../medical_client/department_choose.cpp ../medical_client/department_choose.h \
@@ -5026,40 +5179,37 @@ department_choose.o: ../medical_client/department_choose.cpp ../medical_client/d
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o department_choose.o ../medical_client/department_choose.cpp
 
@@ -5199,55 +5349,48 @@ departmentchoose.o: ../medical_client/departmentchoose.cpp ../medical_client/dep
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_departmentchoose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_departmentchoose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o departmentchoose.o ../medical_client/departmentchoose.cpp
 
 doctor_choose.o: ../medical_client/doctor_choose.cpp ../medical_client/doctor_choose.h \
@@ -5396,45 +5539,38 @@ doctor_choose.o: ../medical_client/doctor_choose.cpp ../medical_client/doctor_ch
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		ui_doctor_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_doctor_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctor_choose.o ../medical_client/doctor_choose.cpp
 
 doctor_individualinfo.o: ../medical_client/doctor_individualinfo.cpp ../medical_client/doctor_individualinfo.h \
@@ -5573,28 +5709,7 @@ doctor_individualinfo.o: ../medical_client/doctor_individualinfo.cpp ../medical_
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
-		ui_doctor_individualinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h
+		ui_doctor_individualinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctor_individualinfo.o ../medical_client/doctor_individualinfo.cpp
 
 doctorcase.o: ../medical_client/doctorcase.cpp ../medical_client/doctorcase.h \
@@ -5733,32 +5848,7 @@ doctorcase.o: ../medical_client/doctorcase.cpp ../medical_client/doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
-		ui_doctorcase.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_doctorcase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorcase.o ../medical_client/doctorcase.cpp
 
 doctorprofile.o: ../medical_client/doctorprofile.cpp ../medical_client/doctorprofile.h \
@@ -5897,25 +5987,7 @@ doctorprofile.o: ../medical_client/doctorprofile.cpp ../medical_client/doctorpro
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/doctor_individualinfo.h \
-		ui_doctorprofile.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+		ui_doctorprofile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorprofile.o ../medical_client/doctorprofile.cpp
 
 healthtest.o: ../medical_client/healthtest.cpp ../medical_client/healthtest.h \
@@ -6035,10 +6107,12 @@ healthtest.o: ../medical_client/healthtest.cpp ../medical_client/healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		../medical_client/chat.h \
@@ -6068,37 +6142,39 @@ healthtest.o: ../medical_client/healthtest.cpp ../medical_client/healthtest.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
+		../medical_client/doctor_choose.h \
+		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		ui_healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../medical_client/doctor_choose.h \
-		../medical_client/healthtestoutcome.h \
-		ui_healthtest.h
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthtest.o ../medical_client/healthtest.cpp
 
 healthtestoutcome.o: ../medical_client/healthtestoutcome.cpp ../medical_client/healthtestoutcome.h \
@@ -6219,10 +6295,12 @@ healthtestoutcome.o: ../medical_client/healthtestoutcome.cpp ../medical_client/h
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		../medical_client/user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		../medical_client/chat.h \
@@ -6252,40 +6330,31 @@ healthtestoutcome.o: ../medical_client/healthtestoutcome.cpp ../medical_client/h
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_healthtestoutcome.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
+		ui_healthtestoutcome.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthtestoutcome.o ../medical_client/healthtestoutcome.cpp
 
 main.o: ../medical_client/main.cpp ../medical_client/widget.h \
@@ -6437,41 +6506,38 @@ main.o: ../medical_client/main.cpp ../medical_client/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
@@ -6488,7 +6554,17 @@ main.o: ../medical_client/main.cpp ../medical_client/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeasingcurve.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractanimation.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGraphicsOpacityEffect \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgraphicseffect.h
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgraphicseffect.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QPointF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QKeyEvent \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../medical_client/main.cpp
 
 message.o: ../medical_client/message.cpp ../medical_client/message.h \
@@ -6712,40 +6788,37 @@ patient_individualinfo.o: ../medical_client/patient_individualinfo.cpp ../medica
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		ui_patient_individualinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o patient_individualinfo.o ../medical_client/patient_individualinfo.cpp
@@ -6895,46 +6968,39 @@ patientcase.o: ../medical_client/patientcase.cpp ../medical_client/patientcase.h
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_patientcase.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_patientcase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o patientcase.o ../medical_client/patientcase.cpp
 
 patientprofile.o: ../medical_client/patientprofile.cpp ../medical_client/patientprofile.h \
@@ -7081,49 +7147,40 @@ patientprofile.o: ../medical_client/patientprofile.cpp ../medical_client/patient
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_patientprofile.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+		ui_patientprofile.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o patientprofile.o ../medical_client/patientprofile.cpp
 
 schedule_choose.o: ../medical_client/schedule_choose.cpp ../medical_client/schedule_choose.h \
@@ -7272,45 +7329,38 @@ schedule_choose.o: ../medical_client/schedule_choose.cpp ../medical_client/sched
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/doctor_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		ui_schedule_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_schedule_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schedule_choose.o ../medical_client/schedule_choose.cpp
 
 schedulechoose.o: ../medical_client/schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpSocket \
@@ -7457,47 +7507,40 @@ schedulechoose.o: ../medical_client/schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_schedulechoose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_schedulechoose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schedulechoose.o ../medical_client/schedulechoose.cpp
 
 seedoctorinfo.o: ../medical_client/seedoctorinfo.cpp ../medical_client/seedoctorinfo.h \
@@ -7645,46 +7688,39 @@ seedoctorinfo.o: ../medical_client/seedoctorinfo.cpp ../medical_client/seedoctor
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
-		ui_seedoctorinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_seedoctorinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seedoctorinfo.o ../medical_client/seedoctorinfo.cpp
 
 seepatientinfo.o: ../medical_client/seepatientinfo.cpp ../medical_client/seepatientinfo.h \
@@ -7823,30 +7859,7 @@ seepatientinfo.o: ../medical_client/seepatientinfo.cpp ../medical_client/seepati
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		../medical_client/doctor_individualinfo.h \
-		ui_seepatientinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h
+		ui_seepatientinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seepatientinfo.o ../medical_client/seepatientinfo.cpp
 
 selectreceiver.o: ../medical_client/selectreceiver.cpp ../medical_client/selectreceiver.h \
@@ -7971,46 +7984,7 @@ selectreceiver.o: ../medical_client/selectreceiver.cpp ../medical_client/selectr
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		../medical_client/messagetype.h \
-		ui_selectreceiver.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_selectreceiver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o selectreceiver.o ../medical_client/selectreceiver.cpp
 
 signUp.o: ../medical_client/signUp.cpp ../medical_client/signup.h \
@@ -8166,51 +8140,41 @@ signUp.o: ../medical_client/signUp.cpp ../medical_client/signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/widget.h \
-		ui_signup.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QRadioButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+		ui_signup.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signUp.o ../medical_client/signUp.cpp
 
 splashscreen.o: ../medical_client/splashscreen.cpp ../medical_client/splashscreen.h \
@@ -8327,6 +8291,9 @@ splashscreen.o: ../medical_client/splashscreen.cpp ../medical_client/splashscree
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractanimation.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGraphicsOpacityEffect \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgraphicseffect.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QColor \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QPointF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QKeyEvent \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
@@ -8346,7 +8313,12 @@ splashscreen.o: ../medical_client/splashscreen.cpp ../medical_client/splashscree
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QLinearGradient \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QtMath \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmath.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRandomGenerator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrandom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o splashscreen.o ../medical_client/splashscreen.cpp
 
 user.o: ../medical_client/user.cpp ../medical_client/user.h \
@@ -8613,56 +8585,49 @@ widget.o: ../medical_client/widget.cpp ../medical_client/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		../medical_client/healthtestoutcome.h \
+		../medical_client/aihealthservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSharedDataPointer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QUrl \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVector \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslConfiguration \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslconfiguration.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslerror.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcryptographichash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaType \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkReply \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkreply.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkRequest \
 		../medical_client/seedoctorinfo.h \
 		../medical_client/patientcase.h \
 		../medical_client/patient_individualinfo.h \
 		../medical_client/department_choose.h \
 		../medical_client/schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../medical_client/doctor_choose.h \
 		../medical_client/signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qexception.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpServer \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpserver.h \
-		ui_widget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QRadioButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o ../medical_client/widget.cpp
+
+moc_aihealthservice.o: moc_aihealthservice.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_aihealthservice.o moc_aihealthservice.cpp
 
 moc_appointmentchoose.o: moc_appointmentchoose.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appointmentchoose.o moc_appointmentchoose.cpp
