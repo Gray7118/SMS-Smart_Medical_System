@@ -16,6 +16,9 @@
     <height>600</height>
    </size>
   </property>
+  <property name="windowTitle">
+   <string>无国界医疗平台</string>
+  </property>
   <property name="styleSheet">
    <string notr="true">
     /* 主窗口样式 */
@@ -91,11 +94,6 @@
     }
    </string>
   </property>
-  <property name="windowTitle">
-   <string>无国界医疗平台</string>
-  </property>
-
-  <!-- 标题 -->
   <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
@@ -109,23 +107,18 @@
     <string>无国界医疗平台</string>
    </property>
   </widget>
-
-  <!-- 表单容器 -->
   <widget class="QWidget" name="formContainer" native="true">
    <property name="geometry">
     <rect>
      <x>200</x>
      <y>120</y>
      <width>400</width>
-     <height>400</height>
+     <height>481</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="welcomeLabel">
-      <property name="text">
-       <string>欢迎登录</string>
-      </property>
       <property name="styleSheet">
        <string notr="true">
         font-size: 20px;
@@ -133,6 +126,9 @@
         color: #2b5876;
         qproperty-alignment: AlignCenter;
        </string>
+      </property>
+      <property name="text">
+       <string>欢迎登录</string>
       </property>
      </widget>
     </item>
@@ -171,11 +167,11 @@
     </item>
     <item>
      <widget class="QLineEdit" name="passwordLineEdit">
-      <property name="placeholderText">
-       <string>请输入密码</string>
-      </property>
       <property name="echoMode">
        <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入密码</string>
       </property>
      </widget>
     </item>
@@ -194,14 +190,14 @@
     </item>
     <item>
      <widget class="QLabel" name="roleLabel">
-      <property name="text">
-       <string>请选择用户类型：</string>
-      </property>
       <property name="styleSheet">
        <string notr="true">
         font-size: 14px;
         font-weight: bold;
        </string>
+      </property>
+      <property name="text">
+       <string>请选择用户类型：</string>
       </property>
      </widget>
     </item>
@@ -272,11 +268,11 @@
     </item>
     <item>
      <widget class="QPushButton" name="emergencyButton">
-      <property name="text">
-       <string>急诊通道</string>
-      </property>
       <property name="styleSheet">
        <string notr="true">#emergencyButton</string>
+      </property>
+      <property name="text">
+       <string>急诊通道</string>
       </property>
      </widget>
     </item>
@@ -292,6 +288,13 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_navigation">
+      <property name="text">
+       <string>医院导航</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="quitButton">

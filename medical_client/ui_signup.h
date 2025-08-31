@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'signup.ui'
+** Form generated from reading UI file 'signUp.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.12.8
 **

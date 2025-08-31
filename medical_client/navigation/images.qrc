@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/hospital_map.jpg</file>
+        <file>images/zhuyuanbu.jpg</file>
+        <file>images/2hao.jpg</file>
+        <file>images/3hao.jpg</file>
+        <file>images/parking.jpg</file>
+        <file>images/houqin.jpg</file>
+        <file>images/303dong.jpg</file>
+        <file>images/xingzheng.jpg</file>
+        <file>images/waike.jpg</file>
+        <file>images/zhonghe.jpg</file>
+        <file>images/menzhen2.jpg</file>
+        <file>images/menzhen.jpg</file>
+        <file>images/jijiu_neike.jpg</file>
+        <file>images/kejiao.jpg</file>
+        <file>images/fangliao.jpg</file>
+        <file>images/heci.jpg</file>
+        <file>images/wushui.jpg</file>
+        <file>images/reli.jpg</file>
+        <file>images/gaoya.jpg</file>
+        <file>images/301dong.jpg</file>
+        <file>images/313dong.jpg</file>
+        <file>images/youeryuan.jpg</file>
+        <file>images/312dong.jpg</file>
+        <file>images/316dong.jpg</file>
+        <file>images/317dong.jpg</file>
+        <file>images/pet.jpg</file>
+        <file>images/kucang.jpg</file>
+        <file>images/hospital_building.jpg</file>
+    </qresource>
+</RCC>

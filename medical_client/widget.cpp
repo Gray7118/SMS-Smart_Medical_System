@@ -118,6 +118,8 @@ void Widget::on_signupButton_clicked()
 
 /*#include "widget.h"
 #include "ui_widget.h"
+#include "navigation/mainwindow.h"
+#include "navigation/mydialog.h"
 #include <QDebug>
 
 Widget::Widget(QWidget *parent)
@@ -396,6 +398,18 @@ void Widget::handleEmergencyLogin()
 #include "widget.h"
 #include "ui_widget.h"
 #include <QDebug>
+#include "navigation/mainwindow.h"
+
+
+void Widget::on_pushButton_navigation_clicked()
+{
+    // 动态创建窗口，点击按钮才显示
+    MainWindow *navWin = new MainWindow;
+    navWin->setWindowTitle("医院导航(Guide)");
+    navWin->show();
+}
+
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -533,3 +547,4 @@ void Widget::on_emergencyButton_clicked()
         }
     });
 }
+

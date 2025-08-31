@@ -56,6 +56,7 @@ private:
 #include "patientprofile.h"
 #include "signup.h"
 #include "emergency.h"  // 新增急诊症状界面头文件
+#include "navigation/mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -75,6 +76,7 @@ private slots:
     void on_loginButton_clicked();
     void on_signupButton_clicked();
     void on_emergencyButton_clicked();  // 新增急诊按钮点击槽函数
+    void on_pushButton_navigation_clicked();
 
 private:
     Ui::Widget *ui;

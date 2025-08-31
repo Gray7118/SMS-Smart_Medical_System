@@ -45,6 +45,7 @@ public:
     QSpacerItem *verticalSpacer_5;
     QPushButton *emergencyButton;
     QSpacerItem *verticalSpacer_6;
+    QPushButton *pushButton_navigation;
     QPushButton *quitButton;
 
     void setupUi(QWidget *Widget)
@@ -133,7 +134,7 @@ public:
         titleLabel->setGeometry(QRect(0, 30, 800, 60));
         formContainer = new QWidget(Widget);
         formContainer->setObjectName(QString::fromUtf8("formContainer"));
-        formContainer->setGeometry(QRect(200, 120, 400, 400));
+        formContainer->setGeometry(QRect(200, 120, 400, 481));
         verticalLayout = new QVBoxLayout(formContainer);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         welcomeLabel = new QLabel(formContainer);
@@ -228,6 +229,11 @@ public:
 
         verticalLayout->addItem(verticalSpacer_6);
 
+        pushButton_navigation = new QPushButton(formContainer);
+        pushButton_navigation->setObjectName(QString::fromUtf8("pushButton_navigation"));
+
+        verticalLayout->addWidget(pushButton_navigation);
+
         quitButton = new QPushButton(formContainer);
         quitButton->setObjectName(QString::fromUtf8("quitButton"));
 
@@ -241,8 +247,8 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "\344\270\255\345\233\275\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
-        titleLabel->setText(QApplication::translate("Widget", "\344\270\255\345\233\275\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
+        Widget->setWindowTitle(QApplication::translate("Widget", "\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
+        titleLabel->setText(QApplication::translate("Widget", "\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
         welcomeLabel->setText(QApplication::translate("Widget", "\346\254\242\350\277\216\347\231\273\345\275\225", nullptr));
         usernameLineEdit->setPlaceholderText(QApplication::translate("Widget", "\350\257\267\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", nullptr));
         passwordLineEdit->setPlaceholderText(QApplication::translate("Widget", "\350\257\267\350\276\223\345\205\245\345\257\206\347\240\201", nullptr));
@@ -252,6 +258,7 @@ public:
         loginButton->setText(QApplication::translate("Widget", "\347\231\273\345\275\225", nullptr));
         signupButton->setText(QApplication::translate("Widget", "\346\263\250\345\206\214", nullptr));
         emergencyButton->setText(QApplication::translate("Widget", "\346\200\245\350\257\212\351\200\232\351\201\223", nullptr));
+        pushButton_navigation->setText(QApplication::translate("Widget", "\345\214\273\351\231\242\345\257\274\350\210\252", nullptr));
         quitButton->setText(QApplication::translate("Widget", "\351\200\200\345\207\272\347\263\273\347\273\237", nullptr));
     } // retranslateUi
 
