@@ -126,6 +126,7 @@ SOURCES += \
     doctor_individualinfo.cpp \
     doctorcase.cpp \
     doctorprofile.cpp \
+    emergency.cpp \
     healthtest.cpp \
     healthtestoutcome.cpp \
     main.cpp \
@@ -155,6 +156,7 @@ HEADERS += \
     doctor_individualinfo.h \
     doctorcase.h \
     doctorprofile.h \
+    emergency.h \
     healthtest.h \
     healthtestoutcome.h \
     message.h \
