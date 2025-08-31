@@ -1,4 +1,4 @@
-/*#ifndef SELECTRECEIVER_H
+#ifndef SELECTRECEIVER_H
 #define SELECTRECEIVER_H
 
 #include <QWidget>
@@ -44,8 +44,8 @@ private:
 };
 
 #endif // SELECTRECEIVER_H
-*/
-#ifndef SELECTRECEIVER_H
+
+/*#ifndef SELECTRECEIVER_H
 #define SELECTRECEIVER_H
 
 #include <QWidget>
@@ -87,8 +87,9 @@ private:
     User *user;
     QHash<QString, int> table;
 
-    void setupEmergencyUI(); // 新增：设置急诊界面
+    //void setupEmergencyUI(); // 新增：设置急诊界面
     void handleNormalUser(); // 新增：处理普通用户逻辑
 };
 
 #endif // SELECTRECEIVER_H
+*/
