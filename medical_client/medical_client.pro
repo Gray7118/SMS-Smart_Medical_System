@@ -41,11 +41,7 @@ SOURCES += \
     seepatientinfo.cpp \
     selectreceiver.cpp \
     signup.cpp \
-<<<<<<< HEAD
-    splashscreen.cpp\
-=======
     splashscreen.cpp \
->>>>>>> main
     user.cpp \
     utils.cpp \
     widget.cpp
@@ -74,11 +70,7 @@ HEADERS += \
     seepatientinfo.h \
     selectreceiver.h \
     signup.h \
-<<<<<<< HEAD
-    splashscreen.h\
-=======
     splashscreen.h \
->>>>>>> main
     user.h \
     utils.h \
     widget.h
@@ -109,3 +101,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
+
+DISTFILES +=

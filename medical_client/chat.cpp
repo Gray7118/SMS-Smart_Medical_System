@@ -105,15 +105,12 @@ void Chat::on_sendButton_clicked()
        translateText(content, "auto", "en", [=](QString enTrans){
            QString finalMsg = content + "\n中文: " + zhTrans + "\nEnglish: " + enTrans;
 
+           // 构造Message对象，发送
            User *rcver = new User(receiver, "", user->role == 0 ? 1 : 0);
            Message msg(user, rcver, finalMsg, MessageType::SEND_MESSAGE);
            socket->write(Message::messageToByteArray(msg));
        });
    });
-//   // 构造Message对象，只需发送就可以了，不需要在这里connect，因为已经在构造函数里面connect了
-//   User *rcver = new User(receiver, QString(), user->role == 0 ? 1 : 0);
-//   Message msg(user, rcver, content, MessageType::SEND_MESSAGE);
-//   socket->write(Message::messageToByteArray(msg));
 }
 
 QString Chat::getFullname(QString username, int role) {
