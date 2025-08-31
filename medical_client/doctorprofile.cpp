@@ -1,5 +1,8 @@
 #include "doctorprofile.h"
 #include "ui_doctorprofile.h"
+#include <QQuickWidget>
+#include <QQmlContext>
+#include "chat.h"
 
 DoctorProfile::DoctorProfile(QTcpSocket *socket, User *user, QWidget *parent) :
     QWidget(parent),
@@ -49,12 +52,31 @@ void DoctorProfile::on_chatButton_clicked()
     });
 
     connect(sr, &SelectReceiver::completeSelect, this, [this](QString receiver){
-        Chat *c = new Chat(this->socket, this->user, receiver);
-        c->show();
+        // 用 QWidget 容器显示 QML
+        // QWidget *chatWindow = new QWidget;
+        // chatWindow->setWindowTitle("Chat");
 
-        connect(c, &Chat::returnToProfile, this, [this](){
-            this->show();
-        });
+        // QVBoxLayout *layout = new QVBoxLayout(chatWindow);
+
+        // QQuickWidget *view = new QQuickWidget;
+        // view->setSource(QUrl("qrc:/QML/ChatView.qml"));  // 你的Chat QML文件路径
+        // view->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+        // layout->addWidget(view);
+        // chatWindow->setLayout(layout);
+
+        // chatWindow->resize(600, 800);
+        // chatWindow->show();
+
+        // connect(chatWindow, &QWidget::destroyed, this, [this](){
+        //     this->show();
+        // });
+       Chat *c = new Chat(this->socket, this->user, receiver);
+       c->show();
+
+       connect(c, &Chat::returnToProfile, this, [this](){
+           this->show();
+       });
     });
 }
 
