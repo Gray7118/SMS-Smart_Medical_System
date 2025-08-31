@@ -6,196 +6,297 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>631</width>
-    <height>525</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Widget</string>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
-  <widget class="QPushButton" name="loginButton">
+  <property name="styleSheet">
+   <string notr="true">
+    /* 主窗口样式 */
+    QWidget {
+        background-color: #f0f8ff; /* 浅蓝色背景 */
+        font-family: 'Microsoft YaHei';
+    }
+
+    /* 标题样式 */
+    #titleLabel {
+        color: #2b5876;
+        font-size: 28px;
+        font-weight: bold;
+        qproperty-alignment: AlignCenter;
+    }
+
+    /* 输入框样式 */
+    QLineEdit {
+        border: 2px solid #a0c6e8;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: white;
+        min-width: 250px;
+    }
+
+    QLineEdit:focus {
+        border: 2px solid #4a90e2;
+    }
+
+    /* 按钮样式 */
+    QPushButton {
+        background-color: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        min-width: 120px;
+    }
+
+    QPushButton:hover {
+        background-color: #3a7bc8;
+    }
+
+    QPushButton:pressed {
+        background-color: #2c6bb6;
+    }
+
+    /* 急诊按钮特殊样式 */
+    #emergencyButton {
+        background-color: #ff5555;
+    }
+
+    #emergencyButton:hover {
+        background-color: #e64545;
+    }
+
+    /* 单选按钮样式 */
+    QRadioButton {
+        font-size: 14px;
+        spacing: 8px;
+    }
+
+    /* 表单容器样式 */
+    #formContainer {
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        margin: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+   </string>
+  </property>
+  <property name="windowTitle">
+   <string>无国界医疗平台</string>
+  </property>
+
+  <!-- 标题 -->
+  <widget class="QLabel" name="titleLabel">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>350</y>
-     <width>100</width>
-     <height>50</height>
+     <x>0</x>
+     <y>30</y>
+     <width>800</width>
+     <height>60</height>
     </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-    </font>
    </property>
    <property name="text">
-    <string>登录</string>
+    <string>无国界医疗平台</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="signupButton">
+
+  <!-- 表单容器 -->
+  <widget class="QWidget" name="formContainer" native="true">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>350</y>
-     <width>100</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>注册</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="usernameLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>160</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>用户名</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="passwordLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>240</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>密码</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="quitButton">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
-     <y>420</y>
-     <width>100</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>退出</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tipLabel">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>200</y>
-     <width>181</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;选择用户类型：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>240</y>
-     <width>161</width>
-     <height>81</height>
+     <x>200</x>
+     <y>120</y>
+     <width>400</width>
+     <height>400</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QRadioButton" name="doctorRadioButton">
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>12</pointsize>
-       </font>
+     <widget class="QLabel" name="welcomeLabel">
+      <property name="text">
+       <string>欢迎登录</string>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
-      </property>
-      <property name="text">
-       <string>医生</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
+       <string notr="true">
+        font-size: 20px;
+        font-weight: bold;
+        color: #2b5876;
+        qproperty-alignment: AlignCenter;
+       </string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QRadioButton" name="patientRadioButton">
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>12</pointsize>
-       </font>
+     <spacer name="verticalSpacer_1">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="usernameLineEdit">
+      <property name="placeholderText">
+       <string>请输入用户名</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="passwordLineEdit">
+      <property name="placeholderText">
+       <string>请输入密码</string>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="roleLabel">
+      <property name="text">
+       <string>请选择用户类型：</string>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">
+        font-size: 14px;
+        font-weight: bold;
+       </string>
       </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QRadioButton" name="doctorRadioButton">
+        <property name="text">
+         <string>医生</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="patientRadioButton">
+        <property name="text">
+         <string>患者</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="buttonLayout">
+      <item>
+       <widget class="QPushButton" name="loginButton">
+        <property name="text">
+         <string>登录</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="signupButton">
+        <property name="text">
+         <string>注册</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="emergencyButton">
       <property name="text">
-       <string>患者</string>
+       <string>急诊通道</string>
       </property>
-      <property name="checked">
-       <bool>false</bool>
+      <property name="styleSheet">
+       <string notr="true">#emergencyButton</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="quitButton">
+      <property name="text">
+       <string>退出系统</string>
       </property>
      </widget>
     </item>

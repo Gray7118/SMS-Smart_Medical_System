@@ -11,6 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -22,106 +24,204 @@ class Ui_healthtest
 {
 public:
     QLabel *label_healthtest_title;
-    QLabel *label_height;
-    QLabel *label_weight;
-    QLabel *label_heart_rate;
-    QLabel *label_pressure;
-    QLabel *label_vital_capacity;
-    QLineEdit *pressure_high;
-    QLabel *label_pressure_low;
-    QLabel *label_pressure_height;
-    QLineEdit *pressure_low;
-    QLabel *label_temperature;
-    QPushButton *healthtest_return;
-    QPushButton *healthtest_sure;
+    QWidget *formContainer;
+    QGridLayout *gridLayout;
     QLabel *label_sex;
     QLineEdit *sex_;
-    QLineEdit *heart_rate;
+    QLabel *label_height;
     QLineEdit *height;
+    QLabel *label_weight;
     QLineEdit *weight;
+    QLabel *label_heart_rate;
+    QLineEdit *heart_rate;
+    QLabel *label_temperature;
     QLineEdit *temperature;
+    QLabel *label_vital_capacity;
     QLineEdit *vital_capacity;
+    QLabel *label_pressure;
+    QLabel *label_pressure_height;
+    QLineEdit *pressure_high;
+    QLabel *label_pressure_low;
+    QLineEdit *pressure_low;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *healthtest_sure;
+    QPushButton *healthtest_return;
 
     void setupUi(QWidget *healthtest)
     {
         if (healthtest->objectName().isEmpty())
             healthtest->setObjectName(QString::fromUtf8("healthtest"));
-        healthtest->resize(638, 537);
+        healthtest->resize(800, 600);
+        healthtest->setMinimumSize(QSize(800, 600));
+        healthtest->setStyleSheet(QString::fromUtf8("\n"
+"    QWidget {\n"
+"        background-color: #f5f9fc;\n"
+"        font-family: 'Microsoft YaHei';\n"
+"    }\n"
+"    QLabel {\n"
+"        color: #333333;\n"
+"        font-size: 14px;\n"
+"    }\n"
+"    QLineEdit {\n"
+"        border: 1px solid #d1d5db;\n"
+"        border-radius: 4px;\n"
+"        padding: 8px;\n"
+"        background-color: white;\n"
+"        font-size: 14px;\n"
+"    }\n"
+"    QLineEdit:focus {\n"
+"        border: 1px solid #4a90e2;\n"
+"    }\n"
+"    QPushButton {\n"
+"        background-color: #4a90e2;\n"
+"        color: white;\n"
+"        border: none;\n"
+"        border-radius: 4px;\n"
+"        padding: 10px 20px;\n"
+"        font-size: 14px;\n"
+"    }\n"
+"    QPushButton:hover {\n"
+"        background-color: #3a7bc8;\n"
+"    }\n"
+"    QPushButton:pressed {\n"
+"        background-color: #2c6bb6;\n"
+"    }\n"
+"    #header {\n"
+"        background-color: #4a90e2;\n"
+"        color: white;\n"
+"        padding: 15px;\n"
+"        border-radius: 0;\n"
+"        font-size: 20px;\n"
+"        font-wei"
+                        "ght: bold;\n"
+"    }\n"
+"    #formContainer {\n"
+"        background-color: white;\n"
+"        border-radius: 8px;\n"
+"        padding: 20px;\n"
+"        margin: 15px;\n"
+"        box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n"
+"    }\n"
+"   "));
         label_healthtest_title = new QLabel(healthtest);
         label_healthtest_title->setObjectName(QString::fromUtf8("label_healthtest_title"));
-        label_healthtest_title->setGeometry(QRect(220, 10, 141, 61));
-        QFont font;
-        font.setFamily(QString::fromUtf8("\346\245\267\344\275\223"));
-        font.setPointSize(20);
-        label_healthtest_title->setFont(font);
-        label_height = new QLabel(healthtest);
-        label_height->setObjectName(QString::fromUtf8("label_height"));
-        label_height->setGeometry(QRect(100, 80, 91, 41));
-        QFont font1;
-        font1.setPointSize(12);
-        label_height->setFont(font1);
-        label_weight = new QLabel(healthtest);
-        label_weight->setObjectName(QString::fromUtf8("label_weight"));
-        label_weight->setGeometry(QRect(100, 130, 71, 31));
-        label_weight->setFont(font1);
-        label_heart_rate = new QLabel(healthtest);
-        label_heart_rate->setObjectName(QString::fromUtf8("label_heart_rate"));
-        label_heart_rate->setGeometry(QRect(60, 150, 221, 91));
-        label_heart_rate->setFont(font1);
-        label_pressure = new QLabel(healthtest);
-        label_pressure->setObjectName(QString::fromUtf8("label_pressure"));
-        label_pressure->setGeometry(QRect(90, 290, 121, 71));
-        label_pressure->setFont(font1);
-        label_vital_capacity = new QLabel(healthtest);
-        label_vital_capacity->setObjectName(QString::fromUtf8("label_vital_capacity"));
-        label_vital_capacity->setGeometry(QRect(90, 260, 101, 41));
-        label_vital_capacity->setFont(font1);
-        pressure_high = new QLineEdit(healthtest);
-        pressure_high->setObjectName(QString::fromUtf8("pressure_high"));
-        pressure_high->setGeometry(QRect(230, 310, 121, 41));
-        label_pressure_low = new QLabel(healthtest);
-        label_pressure_low->setObjectName(QString::fromUtf8("label_pressure_low"));
-        label_pressure_low->setGeometry(QRect(190, 370, 91, 41));
-        label_pressure_low->setFont(font1);
-        label_pressure_height = new QLabel(healthtest);
-        label_pressure_height->setObjectName(QString::fromUtf8("label_pressure_height"));
-        label_pressure_height->setGeometry(QRect(190, 300, 71, 51));
-        label_pressure_height->setFont(font1);
-        pressure_low = new QLineEdit(healthtest);
-        pressure_low->setObjectName(QString::fromUtf8("pressure_low"));
-        pressure_low->setGeometry(QRect(230, 380, 121, 41));
-        label_temperature = new QLabel(healthtest);
-        label_temperature->setObjectName(QString::fromUtf8("label_temperature"));
-        label_temperature->setGeometry(QRect(100, 210, 141, 61));
-        label_temperature->setFont(font1);
-        healthtest_return = new QPushButton(healthtest);
-        healthtest_return->setObjectName(QString::fromUtf8("healthtest_return"));
-        healthtest_return->setGeometry(QRect(390, 460, 101, 51));
-        healthtest_sure = new QPushButton(healthtest);
-        healthtest_sure->setObjectName(QString::fromUtf8("healthtest_sure"));
-        healthtest_sure->setGeometry(QRect(120, 460, 101, 51));
-        label_sex = new QLabel(healthtest);
+        label_healthtest_title->setGeometry(QRect(0, 0, 800, 60));
+        label_healthtest_title->setStyleSheet(QString::fromUtf8("#header"));
+        label_healthtest_title->setAlignment(Qt::AlignCenter);
+        formContainer = new QWidget(healthtest);
+        formContainer->setObjectName(QString::fromUtf8("formContainer"));
+        formContainer->setGeometry(QRect(50, 80, 700, 450));
+        formContainer->setStyleSheet(QString::fromUtf8("#formContainer"));
+        gridLayout = new QGridLayout(formContainer);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_sex = new QLabel(formContainer);
         label_sex->setObjectName(QString::fromUtf8("label_sex"));
-        label_sex->setGeometry(QRect(430, 20, 61, 31));
-        label_sex->setFont(font1);
-        sex_ = new QLineEdit(healthtest);
+
+        gridLayout->addWidget(label_sex, 0, 0, 1, 1);
+
+        sex_ = new QLineEdit(formContainer);
         sex_->setObjectName(QString::fromUtf8("sex_"));
-        sex_->setGeometry(QRect(510, 20, 111, 41));
-        heart_rate = new QLineEdit(healthtest);
-        heart_rate->setObjectName(QString::fromUtf8("heart_rate"));
-        heart_rate->setGeometry(QRect(180, 180, 251, 31));
-        height = new QLineEdit(healthtest);
+        sex_->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(sex_, 0, 1, 1, 1);
+
+        label_height = new QLabel(formContainer);
+        label_height->setObjectName(QString::fromUtf8("label_height"));
+
+        gridLayout->addWidget(label_height, 0, 2, 1, 1);
+
+        height = new QLineEdit(formContainer);
         height->setObjectName(QString::fromUtf8("height"));
-        height->setGeometry(QRect(180, 90, 251, 31));
-        weight = new QLineEdit(healthtest);
+        height->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(height, 0, 3, 1, 1);
+
+        label_weight = new QLabel(formContainer);
+        label_weight->setObjectName(QString::fromUtf8("label_weight"));
+
+        gridLayout->addWidget(label_weight, 1, 0, 1, 1);
+
+        weight = new QLineEdit(formContainer);
         weight->setObjectName(QString::fromUtf8("weight"));
-        weight->setGeometry(QRect(180, 130, 251, 31));
-        temperature = new QLineEdit(healthtest);
+        weight->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(weight, 1, 1, 1, 1);
+
+        label_heart_rate = new QLabel(formContainer);
+        label_heart_rate->setObjectName(QString::fromUtf8("label_heart_rate"));
+
+        gridLayout->addWidget(label_heart_rate, 1, 2, 1, 1);
+
+        heart_rate = new QLineEdit(formContainer);
+        heart_rate->setObjectName(QString::fromUtf8("heart_rate"));
+        heart_rate->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(heart_rate, 1, 3, 1, 1);
+
+        label_temperature = new QLabel(formContainer);
+        label_temperature->setObjectName(QString::fromUtf8("label_temperature"));
+
+        gridLayout->addWidget(label_temperature, 2, 0, 1, 1);
+
+        temperature = new QLineEdit(formContainer);
         temperature->setObjectName(QString::fromUtf8("temperature"));
-        temperature->setGeometry(QRect(180, 220, 251, 31));
-        vital_capacity = new QLineEdit(healthtest);
+        temperature->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(temperature, 2, 1, 1, 1);
+
+        label_vital_capacity = new QLabel(formContainer);
+        label_vital_capacity->setObjectName(QString::fromUtf8("label_vital_capacity"));
+
+        gridLayout->addWidget(label_vital_capacity, 2, 2, 1, 1);
+
+        vital_capacity = new QLineEdit(formContainer);
         vital_capacity->setObjectName(QString::fromUtf8("vital_capacity"));
-        vital_capacity->setGeometry(QRect(180, 260, 251, 31));
+        vital_capacity->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(vital_capacity, 2, 3, 1, 1);
+
+        label_pressure = new QLabel(formContainer);
+        label_pressure->setObjectName(QString::fromUtf8("label_pressure"));
+
+        gridLayout->addWidget(label_pressure, 3, 0, 1, 2);
+
+        label_pressure_height = new QLabel(formContainer);
+        label_pressure_height->setObjectName(QString::fromUtf8("label_pressure_height"));
+
+        gridLayout->addWidget(label_pressure_height, 4, 0, 1, 1);
+
+        pressure_high = new QLineEdit(formContainer);
+        pressure_high->setObjectName(QString::fromUtf8("pressure_high"));
+        pressure_high->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(pressure_high, 4, 1, 1, 1);
+
+        label_pressure_low = new QLabel(formContainer);
+        label_pressure_low->setObjectName(QString::fromUtf8("label_pressure_low"));
+
+        gridLayout->addWidget(label_pressure_low, 5, 0, 1, 1);
+
+        pressure_low = new QLineEdit(formContainer);
+        pressure_low->setObjectName(QString::fromUtf8("pressure_low"));
+        pressure_low->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(pressure_low, 5, 1, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        healthtest_sure = new QPushButton(formContainer);
+        healthtest_sure->setObjectName(QString::fromUtf8("healthtest_sure"));
+
+        horizontalLayout->addWidget(healthtest_sure);
+
+        healthtest_return = new QPushButton(formContainer);
+        healthtest_return->setObjectName(QString::fromUtf8("healthtest_return"));
+
+        horizontalLayout->addWidget(healthtest_return);
+
+
+        gridLayout->addLayout(horizontalLayout, 6, 2, 1, 2);
+
 
         retranslateUi(healthtest);
 
@@ -130,19 +230,27 @@ public:
 
     void retranslateUi(QWidget *healthtest)
     {
-        healthtest->setWindowTitle(QApplication::translate("healthtest", "Form", nullptr));
+        healthtest->setWindowTitle(QApplication::translate("healthtest", "\345\201\245\345\272\267\350\257\204\344\274\260", nullptr));
         label_healthtest_title->setText(QApplication::translate("healthtest", "\345\201\245\345\272\267\350\257\204\344\274\260", nullptr));
-        label_height->setText(QApplication::translate("healthtest", "\350\272\253\351\253\230/cm", nullptr));
-        label_weight->setText(QApplication::translate("healthtest", "\344\275\223\351\207\215/kg", nullptr));
-        label_heart_rate->setText(QApplication::translate("healthtest", "\345\277\203\347\216\207/\346\254\241\346\257\217\345\210\206\351\222\237", nullptr));
-        label_pressure->setText(QApplication::translate("healthtest", "\350\241\200\345\216\213/mmHg", nullptr));
-        label_vital_capacity->setText(QApplication::translate("healthtest", "\350\202\272\346\264\273\351\207\217/ml", nullptr));
-        label_pressure_low->setText(QApplication::translate("healthtest", "\344\275\216", nullptr));
-        label_pressure_height->setText(QApplication::translate("healthtest", "\351\253\230", nullptr));
-        label_temperature->setText(QApplication::translate("healthtest", "\344\275\223\346\270\251/\342\204\203", nullptr));
+        label_sex->setText(QApplication::translate("healthtest", "\346\200\247\345\210\253\357\274\232", nullptr));
+        sex_->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\347\224\267\346\210\226\345\245\263", nullptr));
+        label_height->setText(QApplication::translate("healthtest", "\350\272\253\351\253\230(cm)\357\274\232", nullptr));
+        height->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\350\272\253\351\253\230", nullptr));
+        label_weight->setText(QApplication::translate("healthtest", "\344\275\223\351\207\215(kg)\357\274\232", nullptr));
+        weight->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\344\275\223\351\207\215", nullptr));
+        label_heart_rate->setText(QApplication::translate("healthtest", "\345\277\203\347\216\207(\346\254\241/\345\210\206\351\222\237)\357\274\232", nullptr));
+        heart_rate->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\345\277\203\347\216\207", nullptr));
+        label_temperature->setText(QApplication::translate("healthtest", "\344\275\223\346\270\251(\342\204\203)\357\274\232", nullptr));
+        temperature->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\344\275\223\346\270\251", nullptr));
+        label_vital_capacity->setText(QApplication::translate("healthtest", "\350\202\272\346\264\273\351\207\217(ml)\357\274\232", nullptr));
+        vital_capacity->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\350\202\272\346\264\273\351\207\217", nullptr));
+        label_pressure->setText(QApplication::translate("healthtest", "\350\241\200\345\216\213(mmHg)\357\274\232", nullptr));
+        label_pressure_height->setText(QApplication::translate("healthtest", "\351\253\230\345\216\213\357\274\232", nullptr));
+        pressure_high->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\351\253\230\345\216\213\345\200\274", nullptr));
+        label_pressure_low->setText(QApplication::translate("healthtest", "\344\275\216\345\216\213\357\274\232", nullptr));
+        pressure_low->setPlaceholderText(QApplication::translate("healthtest", "\350\257\267\350\276\223\345\205\245\344\275\216\345\216\213\345\200\274", nullptr));
+        healthtest_sure->setText(QApplication::translate("healthtest", "\345\274\200\345\247\213\350\257\204\344\274\260", nullptr));
         healthtest_return->setText(QApplication::translate("healthtest", "\350\277\224\345\233\236", nullptr));
-        healthtest_sure->setText(QApplication::translate("healthtest", "\347\241\256\345\256\232", nullptr));
-        label_sex->setText(QApplication::translate("healthtest", "\346\200\247\345\210\253", nullptr));
     } // retranslateUi
 
 };
