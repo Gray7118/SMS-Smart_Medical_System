@@ -2,7 +2,7 @@
 #include "ui_patientprofile.h"
 #include <QQuickWidget>
 #include <QQmlContext>
-#include "Chat.h"
+#include "chat.h"
 
 PatientProfile::PatientProfile(QTcpSocket *socket, User *user, QWidget *parent) :
     QWidget(parent),

@@ -1,5 +1,6 @@
 QT       += core gui network quickwidgets
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -25,6 +26,7 @@ SOURCES += \
     doctor_individualinfo.cpp \
     doctorcase.cpp \
     doctorprofile.cpp \
+    emergency.cpp \
     healthtest.cpp \
     healthtestoutcome.cpp \
     main.cpp \
@@ -39,7 +41,11 @@ SOURCES += \
     seepatientinfo.cpp \
     selectreceiver.cpp \
     signup.cpp \
+<<<<<<< HEAD
     splashscreen.cpp\
+=======
+    splashscreen.cpp \
+>>>>>>> main
     user.cpp \
     utils.cpp \
     widget.cpp
@@ -54,6 +60,7 @@ HEADERS += \
     doctor_individualinfo.h \
     doctorcase.h \
     doctorprofile.h \
+    emergency.h \
     healthtest.h \
     healthtestoutcome.h \
     message.h \
@@ -67,7 +74,11 @@ HEADERS += \
     seepatientinfo.h \
     selectreceiver.h \
     signup.h \
+<<<<<<< HEAD
     splashscreen.h\
+=======
+    splashscreen.h \
+>>>>>>> main
     user.h \
     utils.h \
     widget.h
