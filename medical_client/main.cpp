@@ -2,10 +2,23 @@
 #include "splashscreen.h"
 #include <QApplication>
 #include <QTimer>
+#include <QDir>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    // 加载 QSS 文件
+    qDebug() << "Current dir:" << QDir::currentPath();
+
+    QFile file(":/MacOS.qss");   // 如果放在资源文件里用 :/ 前缀
+    if (!file.open(QFile::ReadOnly)) {
+        qDebug("无法打开 QSS 文件");
+    } else {
+        QString styleSheet = file.readAll();
+        a.setStyleSheet(styleSheet);
+        file.close();
+    }
 
     SplashScreen splash;
     splash.setDisplayTime(3500); // 延长到3.5秒
