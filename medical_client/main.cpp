@@ -9,8 +9,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     // 加载 QSS 文件
-    qDebug() << "Current dir:" << QDir::currentPath();
-
     QFile file(":/MacOS.qss");   // 如果放在资源文件里用 :/ 前缀
     if (!file.open(QFile::ReadOnly)) {
         qDebug("无法打开 QSS 文件");
@@ -20,6 +18,7 @@ int main(int argc, char *argv[])
         file.close();
     }
 
+    // 启动动画
     SplashScreen splash;
     splash.setDisplayTime(3500); // 延长到3.5秒
     splash.show();
