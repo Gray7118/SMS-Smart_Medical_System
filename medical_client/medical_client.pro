@@ -99,6 +99,7 @@
 
 
 QT       += core gui network
+QT       += quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -139,6 +140,7 @@ SOURCES += \
     seepatientinfo.cpp \
     selectreceiver.cpp \
     signup.cpp \
+    splashscreen.cpp \
     user.cpp \
     utils.cpp \
     widget.cpp
@@ -166,6 +168,7 @@ HEADERS += \
     seepatientinfo.h \
     selectreceiver.h \
     signup.h \
+    splashscreen.h \
     user.h \
     utils.h \
     widget.h
