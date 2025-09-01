@@ -8,7 +8,7 @@ SignUp::SignUp(QTcpSocket *socket, QWidget *parent) :
     this->socket = socket;
     ui->setupUi(this);
 
-    this->setWindowTitle(QString("如医医患平台欢迎您！"));
+    this->setWindowTitle(QString("寰宇医桥"));
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowCloseButtonHint);
 
     // 回车直接发送
