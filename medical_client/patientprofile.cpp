@@ -1,5 +1,8 @@
 #include "patientprofile.h"
 #include "ui_patientprofile.h"
+#include <QQuickWidget>
+#include <QQmlContext>
+#include "chat.h"
 
 PatientProfile::PatientProfile(QTcpSocket *socket, User *user, QWidget *parent) :
     QWidget(parent),
@@ -49,12 +52,31 @@ void PatientProfile::on_chatButton_clicked()
     });
 
     connect(sr, &SelectReceiver::completeSelect, this, [this](QString receiver){
-        Chat *c = new Chat(this->socket, this->user, receiver);
-        c->show();
+        // // 用 QWidget 容器显示 QML
+        // QWidget *chatWindow = new QWidget;
+        // chatWindow->setWindowTitle("Chat");
 
-        connect(c, &Chat::returnToProfile, this, [this](){
-            this->show();
-        });
+        // QVBoxLayout *layout = new QVBoxLayout(chatWindow);
+
+        // QQuickWidget *view = new QQuickWidget;
+        // view->setSource(QUrl("qrc:/QML/ChatView.qml"));  // 你的Chat QML文件路径
+        // view->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+        // layout->addWidget(view);
+        // chatWindow->setLayout(layout);
+
+        // chatWindow->resize(600, 800);
+        // chatWindow->show();
+
+        // connect(chatWindow, &QWidget::destroyed, this, [this](){
+        //     this->show();
+        // });
+       Chat *c = new Chat(this->socket, this->user, receiver);
+       c->show();
+
+       connect(c, &Chat::returnToProfile, this, [this](){
+           this->show();
+       });
     });
 }
 
@@ -121,4 +143,24 @@ void PatientProfile::on_scheduleButton_clicked()
     dep_cho->setWindowTitle(QString("挂号"));
     dep_cho->show();
     this->hide();
+}
+
+// 新增槽函数：打开邮件窗口
+void PatientProfile::on_emailDoctorButton_clicked()
+{
+    // 如果窗口还没创建，才新建
+    if (!emailWindow) {
+        emailWindow = new SendEmail();              // 不传 this，独立窗口
+        emailWindow->setAttribute(Qt::WA_DeleteOnClose); // 关闭时自动释放内存
+
+        // 窗口关闭时置空指针，避免重复创建
+        connect(emailWindow, &QWidget::destroyed, this, [this]() {
+            emailWindow = nullptr;
+        });
+    }
+
+    // 显示窗口并激活
+    emailWindow->show();
+    emailWindow->raise();
+    emailWindow->activateWindow();
 }

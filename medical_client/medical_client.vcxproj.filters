@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Distribution Files">
+      <UniqueIdentifier>{B83CAF91-C7BF-462F-B76C-EA11631F866C}</UniqueIdentifier>
+      <Extensions>*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Distribution Files">
+      <UniqueIdentifier>{B83CAF91-C7BF-462F-B76C-EA11631F866C}</UniqueIdentifier>
+      <Extensions>*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="appointmentchoose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="department_choose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="departmentchoose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doctor_choose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doctor_individualinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doctorcase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="doctorprofile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="healthtest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="healthtestoutcome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="message.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="messagetype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patient_individualinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patientcase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patientprofile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="schedule_choose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="schedulechoose.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seedoctorinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seepatientinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="selectreceiver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="signup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="user.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="appointmentchoose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="chat.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="department_choose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="departmentchoose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="doctor_choose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="doctor_individualinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="doctorcase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="doctorprofile.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="healthtest.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="healthtestoutcome.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="message.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="messagetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="patient_individualinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="patientcase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="patientprofile.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="schedule_choose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="schedulechoose.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="seedoctorinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="seepatientinfo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="selectreceiver.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="signup.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="user.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="utils.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="appointmentchoose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="chat.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="department_choose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="departmentchoose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="doctor_choose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="doctor_individualinfo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="doctorcase.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="doctorprofile.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="healthtest.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="healthtestoutcome.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="patient_individualinfo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="patientcase.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="patientprofile.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="schedule_choose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="schedulechoose.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="seedoctorinfo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="seepatientinfo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="selectreceiver.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="signUp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="widget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ChatView.qml">
+      <Filter>Distribution Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

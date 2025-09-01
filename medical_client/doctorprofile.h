@@ -13,6 +13,8 @@
 #include "selectreceiver.h"
 #include "doctorcase.h"
 #include "doctor_individualinfo.h"
+// 新增：引入 SendEmail
+#include "email/demos/demo2/sendemail.h"
 
 namespace Ui {
 class doctorProfile;
@@ -43,10 +45,16 @@ private slots:
 
     void on_scheduleButton_clicked();
 
+    // 新增槽函数：点击发送邮件给患者
+    void on_emailPatientButton_clicked();
+
 private:
     Ui::doctorProfile *ui;
     User *user;
     QTcpSocket *socket;
+
+    // 邮件窗口指针
+    SendEmail *emailWindow = nullptr;
 };
 
 #endif // DOCTORPROFILE_H
