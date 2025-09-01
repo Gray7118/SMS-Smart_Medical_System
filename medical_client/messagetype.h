@@ -71,6 +71,13 @@ enum MessageType
     GET_SCHEDULE, // 前端接口调用，获取排班表
     RET_SCHEDULE, // 服务器返回给前端的排班表
 
+    // 在现有的最后一个枚举项后添加
+    VIDEO_CALL_REQUEST,    // 发起视频通话请求
+    VIDEO_CALL_ACCEPT,     // 接受视频通话
+    VIDEO_CALL_REJECT,     // 拒绝视频通话
+    VIDEO_CALL_END,        // 结束通话
+    VIDEO_DATA,            // 视频数据包
+
 };
 
 #endif // MESSAGETYPE_H
