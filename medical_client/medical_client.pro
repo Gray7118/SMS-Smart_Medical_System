@@ -44,7 +44,9 @@ SOURCES += \
     splashscreen.cpp \
     user.cpp \
     utils.cpp \
-    widget.cpp
+    widget.cpp\
+    navigation/mainwindow.cpp \
+    navigation/mydialog.cpp
 
 HEADERS += \
     aihealthservice.h \
@@ -73,7 +75,10 @@ HEADERS += \
     splashscreen.h \
     user.h \
     utils.h \
-    widget.h
+    widget.h \
+    navigation/mainwindow.h \
+    navigation/mydialog.h \
+    navigation/mystruct.h
 
 FORMS += \
     appointmentchoose.ui \
@@ -95,7 +100,9 @@ FORMS += \
     seepatientinfo.ui \
     selectreceiver.ui \
     signUp.ui \
-    widget.ui
+    widget.ui \
+    navigation/mainwindow.ui \
+    navigation/mydialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -103,6 +110,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc\
+    navigation/images.qrc
 
 DISTFILES +=
