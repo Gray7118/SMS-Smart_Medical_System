@@ -117,9 +117,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc\
-    navigation/images.qrc\
-    email/demos/demo2/qss.qrc
+#    resources.qrc\
+    navigation/images.qrc
 
 # ===== Email SMTP 动态库 =====
 unix: LIBS += -L$$PWD/email/demos/demo2 -lSmtpMime

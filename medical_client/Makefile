@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICKWIDGETS_LIB -DQT_QUICK_LIB -DQT_MULTIMEDIAWIDGETS_LIB -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -Iemail/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I. -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -Iemail/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I. -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt5.12.8/5.12.8/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -39,8 +39,8 @@ COMPRESS      = gzip -9f
 DISTNAME      = medical_client1.0.0
 DISTDIR = /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/.tmp/medical_client1.0.0
 LINK          = g++
-LFLAGS        = -Wl,-rpath,/opt/Qt5.12.8/5.12.8/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -lSmtpMime /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5QuickWidgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Quick.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Widgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Gui.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Qml.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Network.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LFLAGS        = -Wl,-rpath,/opt/Qt5.12.8/5.12.8/gcc_64/lib -Wl,-rpath-link,/opt/Qt5.12.8/5.12.8/gcc_64/lib
+LIBS          = $(SUBLIBS) -L/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -lSmtpMime /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5QuickWidgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Quick.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5MultimediaWidgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Widgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Multimedia.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Gui.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Qml.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Network.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = aihealthservice.cpp \
+SOURCES       = simplevideocall.cpp \
+		aihealthservice.cpp \
 		appointmentchoose.cpp \
 		chat.cpp \
 		department_choose.cpp \
@@ -83,9 +84,8 @@ SOURCES       = aihealthservice.cpp \
 		navigation/mainwindow.cpp \
 		navigation/mydialog.cpp \
 		email/demos/demo2/sendemail.cpp \
-		email/demos/demo2/qss.cpp qrc_resources.cpp \
-		qrc_images.cpp \
-		qrc_qss.cpp \
+		email/demos/demo2/qss.cpp qrc_images.cpp \
+		moc_simplevideocall.cpp \
 		moc_aihealthservice.cpp \
 		moc_appointmentchoose.cpp \
 		moc_chat.cpp \
@@ -113,7 +113,8 @@ SOURCES       = aihealthservice.cpp \
 		moc_mainwindow.cpp \
 		moc_mydialog.cpp \
 		moc_sendemail.cpp
-OBJECTS       = aihealthservice.o \
+OBJECTS       = simplevideocall.o \
+		aihealthservice.o \
 		appointmentchoose.o \
 		chat.o \
 		department_choose.o \
@@ -145,9 +146,8 @@ OBJECTS       = aihealthservice.o \
 		mydialog.o \
 		sendemail.o \
 		qss.o \
-		qrc_resources.o \
 		qrc_images.o \
-		qrc_qss.o \
+		moc_simplevideocall.o \
 		moc_aihealthservice.o \
 		moc_appointmentchoose.o \
 		moc_chat.o \
@@ -369,9 +369,11 @@ DIST          = /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/exceptions.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/lex.prf \
-		medical_client.pro aihealthservice.h \
+		medical_client.pro simplevideocall.h \
+		aihealthservice.h \
 		appointmentchoose.h \
 		chat.h \
+		demo_vars.h \
 		department_choose.h \
 		departmentchoose.h \
 		doctor_choose.h \
@@ -399,7 +401,8 @@ DIST          = /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf \
 		navigation/mainwindow.h \
 		navigation/mydialog.h \
 		navigation/mystruct.h \
-		email/demos/demo2/sendemail.h aihealthservice.cpp \
+		email/demos/demo2/sendemail.h simplevideocall.cpp \
+		aihealthservice.cpp \
 		appointmentchoose.cpp \
 		chat.cpp \
 		department_choose.cpp \
@@ -637,9 +640,7 @@ Makefile: medical_client.pro /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++/qmake
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/lex.prf \
 		medical_client.pro \
-		resources.qrc \
-		navigation/images.qrc \
-		email/demos/demo2/qss.qrc
+		navigation/images.qrc
 	$(QMAKE) -o Makefile medical_client.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/common/unix.conf:
@@ -836,9 +837,7 @@ Makefile: medical_client.pro /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++/qmake
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/yacc.prf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/lex.prf:
 medical_client.pro:
-resources.qrc:
 navigation/images.qrc:
-email/demos/demo2/qss.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile medical_client.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -853,10 +852,10 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents resources.qrc navigation/images.qrc email/demos/demo2/qss.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents navigation/images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents aihealthservice.h appointmentchoose.h chat.h department_choose.h departmentchoose.h doctor_choose.h doctor_individualinfo.h doctorcase.h doctorprofile.h emergency.h healthtest.h healthtestoutcome.h message.h messagetype.h patient_individualinfo.h patientcase.h patientprofile.h schedule_choose.h schedulechoose.h seedoctorinfo.h seepatientinfo.h selectreceiver.h signup.h splashscreen.h user.h utils.h widget.h navigation/mainwindow.h navigation/mydialog.h navigation/mystruct.h email/demos/demo2/sendemail.h $(DISTDIR)/
-	$(COPY_FILE) --parents aihealthservice.cpp appointmentchoose.cpp chat.cpp department_choose.cpp departmentchoose.cpp doctor_choose.cpp doctor_individualinfo.cpp doctorcase.cpp doctorprofile.cpp emergency.cpp healthtest.cpp healthtestoutcome.cpp main.cpp message.cpp messagetype.cpp patient_individualinfo.cpp patientcase.cpp patientprofile.cpp schedule_choose.cpp schedulechoose.cpp seedoctorinfo.cpp seepatientinfo.cpp selectreceiver.cpp signup.cpp splashscreen.cpp user.cpp utils.cpp widget.cpp navigation/mainwindow.cpp navigation/mydialog.cpp email/demos/demo2/sendemail.cpp email/demos/demo2/qss.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents simplevideocall.h aihealthservice.h appointmentchoose.h chat.h demo_vars.h department_choose.h departmentchoose.h doctor_choose.h doctor_individualinfo.h doctorcase.h doctorprofile.h emergency.h healthtest.h healthtestoutcome.h message.h messagetype.h patient_individualinfo.h patientcase.h patientprofile.h schedule_choose.h schedulechoose.h seedoctorinfo.h seepatientinfo.h selectreceiver.h signup.h splashscreen.h user.h utils.h widget.h navigation/mainwindow.h navigation/mydialog.h navigation/mystruct.h email/demos/demo2/sendemail.h $(DISTDIR)/
+	$(COPY_FILE) --parents simplevideocall.cpp aihealthservice.cpp appointmentchoose.cpp chat.cpp department_choose.cpp departmentchoose.cpp doctor_choose.cpp doctor_individualinfo.cpp doctorcase.cpp doctorprofile.cpp emergency.cpp healthtest.cpp healthtestoutcome.cpp main.cpp message.cpp messagetype.cpp patient_individualinfo.cpp patientcase.cpp patientprofile.cpp schedule_choose.cpp schedulechoose.cpp seedoctorinfo.cpp seepatientinfo.cpp selectreceiver.cpp signup.cpp splashscreen.cpp user.cpp utils.cpp widget.cpp navigation/mainwindow.cpp navigation/mydialog.cpp email/demos/demo2/sendemail.cpp email/demos/demo2/qss.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents appointmentchoose.ui chat.ui department_choose.ui departmentchoose.ui doctor_choose.ui doctor_individualinfo.ui doctorcase.ui doctorprofile.ui healthtest.ui healthtestoutcome.ui patient_individualinfo.ui patientcase.ui patientprofile.ui schedule_choose.ui schedulechoose.ui seedoctorinfo.ui seepatientinfo.ui selectreceiver.ui signUp.ui widget.ui navigation/mainwindow.ui navigation/mydialog.ui email/demos/demo2/sendemail.ui $(DISTDIR)/
 
 
@@ -881,14 +880,9 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all: qrc_resources.cpp qrc_images.cpp qrc_qss.cpp
+compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) qrc_resources.cpp qrc_images.cpp qrc_qss.cpp
-qrc_resources.cpp: resources.qrc \
-		/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc \
-		MacOS.qss
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc -name resources resources.qrc -o qrc_resources.cpp
-
+	-$(DEL_FILE) qrc_images.cpp
 qrc_images.cpp: navigation/images.qrc \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc \
 		navigation/images/menzhen2.jpg \
@@ -921,20 +915,206 @@ qrc_images.cpp: navigation/images.qrc \
 		navigation/images/jijiu_neike.jpg
 	/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc -name images navigation/images.qrc -o qrc_images.cpp
 
-qrc_qss.cpp: email/demos/demo2/qss.qrc \
-		/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc \
-		email/demos/demo2/MacOS.qss
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/rcc -name qss email/demos/demo2/qss.qrc -o qrc_qss.cpp
-
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_emergency.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp moc_mainwindow.cpp moc_mydialog.cpp moc_sendemail.cpp
+compiler_moc_header_make_all: moc_simplevideocall.cpp moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_emergency.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp moc_mainwindow.cpp moc_mydialog.cpp moc_sendemail.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_emergency.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp moc_mainwindow.cpp moc_mydialog.cpp moc_sendemail.cpp
+	-$(DEL_FILE) moc_simplevideocall.cpp moc_aihealthservice.cpp moc_appointmentchoose.cpp moc_chat.cpp moc_department_choose.cpp moc_departmentchoose.cpp moc_doctor_choose.cpp moc_doctor_individualinfo.cpp moc_doctorcase.cpp moc_doctorprofile.cpp moc_emergency.cpp moc_healthtest.cpp moc_healthtestoutcome.cpp moc_patient_individualinfo.cpp moc_patientcase.cpp moc_patientprofile.cpp moc_schedule_choose.cpp moc_schedulechoose.cpp moc_seedoctorinfo.cpp moc_seepatientinfo.cpp moc_selectreceiver.cpp moc_signup.cpp moc_splashscreen.cpp moc_utils.cpp moc_widget.cpp moc_mainwindow.cpp moc_mydialog.cpp moc_sendemail.cpp
+moc_simplevideocall.cpp: simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		user.h \
+		message.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		messagetype.h \
+		moc_predefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' simplevideocall.h -o moc_simplevideocall.cpp
+
 moc_aihealthservice.cpp: aihealthservice.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject.h \
@@ -1037,7 +1217,7 @@ moc_aihealthservice.cpp: aihealthservice.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' aihealthservice.h -o moc_aihealthservice.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' aihealthservice.h -o moc_aihealthservice.cpp
 
 moc_appointmentchoose.cpp: appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1166,6 +1346,78 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -1192,9 +1444,7 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -1202,7 +1452,6 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -1218,13 +1467,6 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -1232,7 +1474,6 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -1240,17 +1481,32 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -1258,7 +1514,6 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -1268,7 +1523,7 @@ moc_appointmentchoose.cpp: appointmentchoose.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' appointmentchoose.h -o moc_appointmentchoose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' appointmentchoose.h -o moc_appointmentchoose.cpp
 
 moc_chat.cpp: chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1385,12 +1640,84 @@ moc_chat.cpp: chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -1418,14 +1745,12 @@ moc_chat.cpp: chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' chat.h -o moc_chat.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' chat.h -o moc_chat.cpp
 
 moc_department_choose.cpp: department_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1560,6 +1885,76 @@ moc_department_choose.cpp: department_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -1591,7 +1986,6 @@ moc_department_choose.cpp: department_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -1606,13 +2000,6 @@ moc_department_choose.cpp: department_choose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -1620,7 +2007,6 @@ moc_department_choose.cpp: department_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -1628,17 +2014,32 @@ moc_department_choose.cpp: department_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -1646,7 +2047,6 @@ moc_department_choose.cpp: department_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -1656,7 +2056,7 @@ moc_department_choose.cpp: department_choose.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' department_choose.h -o moc_department_choose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' department_choose.h -o moc_department_choose.cpp
 
 moc_departmentchoose.cpp: departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1794,6 +2194,76 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -1822,7 +2292,6 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -1837,13 +2306,6 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -1851,7 +2313,6 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -1859,17 +2320,32 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -1877,7 +2353,6 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -1887,7 +2362,7 @@ moc_departmentchoose.cpp: departmentchoose.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' departmentchoose.h -o moc_departmentchoose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' departmentchoose.h -o moc_departmentchoose.cpp
 
 moc_doctor_choose.cpp: doctor_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2023,6 +2498,76 @@ moc_doctor_choose.cpp: doctor_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -2054,7 +2599,6 @@ moc_doctor_choose.cpp: doctor_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -2067,19 +2611,49 @@ moc_doctor_choose.cpp: doctor_choose.h \
 		patientcase.h \
 		patient_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -2089,36 +2663,12 @@ moc_doctor_choose.cpp: doctor_choose.h \
 		email/src/mimebytearrayattachment.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctor_choose.h -o moc_doctor_choose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctor_choose.h -o moc_doctor_choose.cpp
 
 moc_doctor_individualinfo.cpp: doctor_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2245,6 +2795,78 @@ moc_doctor_individualinfo.cpp: doctor_individualinfo.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -2271,9 +2893,7 @@ moc_doctor_individualinfo.cpp: doctor_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -2282,19 +2902,55 @@ moc_doctor_individualinfo.cpp: doctor_individualinfo.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -2304,7 +2960,7 @@ moc_doctor_individualinfo.cpp: doctor_individualinfo.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctor_individualinfo.h -o moc_doctor_individualinfo.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctor_individualinfo.h -o moc_doctor_individualinfo.cpp
 
 moc_doctorcase.cpp: doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2427,10 +3083,82 @@ moc_doctorcase.cpp: doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -2457,9 +3185,7 @@ moc_doctorcase.cpp: doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -2468,19 +3194,55 @@ moc_doctorcase.cpp: doctorcase.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -2490,7 +3252,7 @@ moc_doctorcase.cpp: doctorcase.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctorcase.h -o moc_doctorcase.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctorcase.h -o moc_doctorcase.cpp
 
 moc_doctorprofile.cpp: doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2612,10 +3374,82 @@ moc_doctorprofile.cpp: doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -2643,9 +3477,7 @@ moc_doctorprofile.cpp: doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -2654,19 +3486,55 @@ moc_doctorprofile.cpp: doctorprofile.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -2676,7 +3544,7 @@ moc_doctorprofile.cpp: doctorprofile.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctorprofile.h -o moc_doctorprofile.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' doctorprofile.h -o moc_doctorprofile.cpp
 
 moc_emergency.cpp: emergency.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2809,7 +3677,7 @@ moc_emergency.cpp: emergency.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QHash \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' emergency.h -o moc_emergency.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' emergency.h -o moc_emergency.cpp
 
 moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -2940,10 +3808,81 @@ moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -2970,9 +3909,7 @@ moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -2990,13 +3927,6 @@ moc_healthtest.cpp: healthtest.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -3004,7 +3934,6 @@ moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -3012,17 +3941,32 @@ moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -3030,7 +3974,6 @@ moc_healthtest.cpp: healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -3040,7 +3983,7 @@ moc_healthtest.cpp: healthtest.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' healthtest.h -o moc_healthtest.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' healthtest.h -o moc_healthtest.cpp
 
 moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -3172,10 +4115,81 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -3202,9 +4216,7 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -3219,13 +4231,6 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -3233,7 +4238,6 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -3241,17 +4245,32 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -3259,7 +4278,6 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -3271,7 +4289,7 @@ moc_healthtestoutcome.cpp: healthtestoutcome.h \
 		aihealthservice.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' healthtestoutcome.h -o moc_healthtestoutcome.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' healthtestoutcome.h -o moc_healthtestoutcome.cpp
 
 moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -3393,10 +4411,82 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -3423,9 +4513,7 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -3437,7 +4525,6 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -3452,13 +4539,6 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -3466,7 +4546,6 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -3474,17 +4553,32 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -3492,7 +4586,6 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -3502,7 +4595,7 @@ moc_patient_individualinfo.cpp: patient_individualinfo.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patient_individualinfo.h -o moc_patient_individualinfo.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patient_individualinfo.h -o moc_patient_individualinfo.cpp
 
 moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -3624,10 +4717,82 @@ moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -3654,9 +4819,7 @@ moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -3668,7 +4831,6 @@ moc_patientcase.cpp: patientcase.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -3683,13 +4845,6 @@ moc_patientcase.cpp: patientcase.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -3697,7 +4852,6 @@ moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -3705,17 +4859,32 @@ moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -3723,7 +4892,6 @@ moc_patientcase.cpp: patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -3733,7 +4901,7 @@ moc_patientcase.cpp: patientcase.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patientcase.h -o moc_patientcase.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patientcase.h -o moc_patientcase.cpp
 
 moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -3854,10 +5022,82 @@ moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -3884,9 +5124,7 @@ moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -3899,7 +5137,6 @@ moc_patientprofile.cpp: patientprofile.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -3914,13 +5151,6 @@ moc_patientprofile.cpp: patientprofile.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -3928,7 +5158,6 @@ moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -3936,17 +5165,32 @@ moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -3954,7 +5198,6 @@ moc_patientprofile.cpp: patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -3964,7 +5207,7 @@ moc_patientprofile.cpp: patientprofile.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patientprofile.h -o moc_patientprofile.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' patientprofile.h -o moc_patientprofile.cpp
 
 moc_schedule_choose.cpp: schedule_choose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4100,6 +5343,76 @@ moc_schedule_choose.cpp: schedule_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -4131,7 +5444,6 @@ moc_schedule_choose.cpp: schedule_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -4144,19 +5456,49 @@ moc_schedule_choose.cpp: schedule_choose.h \
 		patientcase.h \
 		patient_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -4166,36 +5508,12 @@ moc_schedule_choose.cpp: schedule_choose.h \
 		email/src/mimebytearrayattachment.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' schedule_choose.h -o moc_schedule_choose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' schedule_choose.h -o moc_schedule_choose.cpp
 
 moc_schedulechoose.cpp: schedulechoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4333,6 +5651,76 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -4361,7 +5749,6 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -4376,13 +5763,6 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -4390,7 +5770,6 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -4398,17 +5777,32 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -4416,7 +5810,6 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -4426,7 +5819,7 @@ moc_schedulechoose.cpp: schedulechoose.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' schedulechoose.h -o moc_schedulechoose.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' schedulechoose.h -o moc_schedulechoose.cpp
 
 moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4548,10 +5941,82 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -4578,9 +6043,7 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -4592,7 +6055,6 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -4607,13 +6069,6 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -4621,7 +6076,6 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -4629,17 +6083,32 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -4647,7 +6116,6 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -4657,7 +6125,7 @@ moc_seedoctorinfo.cpp: seedoctorinfo.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' seedoctorinfo.h -o moc_seedoctorinfo.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' seedoctorinfo.h -o moc_seedoctorinfo.cpp
 
 moc_seepatientinfo.cpp: seepatientinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4779,10 +6247,82 @@ moc_seepatientinfo.cpp: seepatientinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -4810,9 +6350,7 @@ moc_seepatientinfo.cpp: seepatientinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -4821,19 +6359,55 @@ moc_seepatientinfo.cpp: seepatientinfo.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -4843,7 +6417,7 @@ moc_seepatientinfo.cpp: seepatientinfo.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' seepatientinfo.h -o moc_seepatientinfo.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' seepatientinfo.h -o moc_seepatientinfo.cpp
 
 moc_selectreceiver.cpp: selectreceiver.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -4969,7 +6543,7 @@ moc_selectreceiver.cpp: selectreceiver.h \
 		messagetype.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' selectreceiver.h -o moc_selectreceiver.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' selectreceiver.h -o moc_selectreceiver.cpp
 
 moc_signup.cpp: signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -5095,10 +6669,82 @@ moc_signup.cpp: signup.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -5126,9 +6772,7 @@ moc_signup.cpp: signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -5137,19 +6781,55 @@ moc_signup.cpp: signup.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -5162,13 +6842,6 @@ moc_signup.cpp: signup.h \
 		departmentchoose.h \
 		schedulechoose.h \
 		healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		healthtestoutcome.h \
@@ -5179,45 +6852,19 @@ moc_signup.cpp: signup.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		widget.h \
 		signup.h \
 		emergency.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		navigation/mainwindow.h \
 		navigation/mystruct.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' signup.h -o moc_signup.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' signup.h -o moc_signup.cpp
 
 moc_splashscreen.cpp: splashscreen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -5338,7 +6985,7 @@ moc_splashscreen.cpp: splashscreen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QKeyEvent \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' splashscreen.h -o moc_splashscreen.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' splashscreen.h -o moc_splashscreen.cpp
 
 moc_utils.cpp: utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
@@ -5402,7 +7049,7 @@ moc_utils.cpp: utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' utils.h -o moc_utils.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' utils.h -o moc_utils.cpp
 
 moc_widget.cpp: widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -5532,6 +7179,74 @@ moc_widget.cpp: widget.h \
 		doctorprofile.h \
 		seepatientinfo.h \
 		chat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -5559,9 +7274,7 @@ moc_widget.cpp: widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -5570,19 +7283,55 @@ moc_widget.cpp: widget.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -5595,13 +7344,6 @@ moc_widget.cpp: widget.h \
 		departmentchoose.h \
 		schedulechoose.h \
 		healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		healthtestoutcome.h \
@@ -5612,28 +7354,8 @@ moc_widget.cpp: widget.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
 		doctor_choose.h \
 		signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
@@ -5642,15 +7364,13 @@ moc_widget.cpp: widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpserver.h \
 		widget.h \
 		emergency.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		navigation/mainwindow.h \
 		navigation/mystruct.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' widget.h -o moc_widget.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' widget.h -o moc_widget.cpp
 
 moc_mainwindow.cpp: navigation/mainwindow.h \
 		navigation/mystruct.h \
@@ -5763,7 +7483,7 @@ moc_mainwindow.cpp: navigation/mainwindow.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' navigation/mainwindow.h -o moc_mainwindow.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' navigation/mainwindow.h -o moc_mainwindow.cpp
 
 moc_mydialog.cpp: navigation/mydialog.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDialog \
@@ -5872,7 +7592,7 @@ moc_mydialog.cpp: navigation/mydialog.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' navigation/mydialog.h -o moc_mydialog.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' navigation/mydialog.h -o moc_mydialog.cpp
 
 moc_sendemail.cpp: email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -5978,6 +7698,66 @@ moc_sendemail.cpp: email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtouchdevice.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
@@ -5996,7 +7776,6 @@ moc_sendemail.cpp: email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
@@ -6013,7 +7792,7 @@ moc_sendemail.cpp: email/demos/demo2/sendemail.h \
 		email/src/mimebytearrayattachment.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' email/demos/demo2/sendemail.h -o moc_sendemail.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client -I/mnt/hgfs/share/SMS-Smart_Medical_System/medical_client/email/demos/demo2 -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\ATLMFC\include' -I'D:\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include' -I'D:\Windows Kits\10\include\10.0.22621.0\ucrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\um' -I'D:\Windows Kits\10\\include\10.0.22621.0\\shared' -I'D:\Windows Kits\10\\include\10.0.22621.0\\winrt' -I'D:\Windows Kits\10\\include\10.0.22621.0\\cppwinrt' email/demos/demo2/sendemail.h -o moc_sendemail.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -6123,6 +7902,198 @@ compiler_lex_clean:
 compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+simplevideocall.o: simplevideocall.cpp simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		user.h \
+		message.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		messagetype.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o simplevideocall.o simplevideocall.cpp
 
 aihealthservice.o: aihealthservice.cpp aihealthservice.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
@@ -6369,6 +8340,76 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -6397,7 +8438,6 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -6412,13 +8452,6 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -6426,7 +8459,6 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -6434,17 +8466,32 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -6452,7 +8499,6 @@ appointmentchoose.o: appointmentchoose.cpp appointmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -6578,12 +8624,84 @@ chat.o: chat.cpp chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdialog.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		user.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -6611,43 +8729,22 @@ chat.o: chat.cpp chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		ui_chat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDialog
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chat.o chat.cpp
 
 department_choose.o: department_choose.cpp department_choose.h \
@@ -6783,6 +8880,76 @@ department_choose.o: department_choose.cpp department_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -6814,7 +8981,6 @@ department_choose.o: department_choose.cpp department_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -6827,19 +8993,49 @@ department_choose.o: department_choose.cpp department_choose.h \
 		patientcase.h \
 		patient_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -6849,32 +9045,8 @@ department_choose.o: department_choose.cpp department_choose.h \
 		email/src/mimebytearrayattachment.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o department_choose.o department_choose.cpp
 
@@ -7004,6 +9176,78 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -7030,9 +9274,7 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -7040,7 +9282,6 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -7056,13 +9297,6 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -7070,7 +9304,6 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -7078,17 +9311,32 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -7096,7 +9344,6 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -7104,11 +9351,7 @@ departmentchoose.o: departmentchoose.cpp departmentchoose.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_departmentchoose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_departmentchoose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o departmentchoose.o departmentchoose.cpp
 
 doctor_choose.o: doctor_choose.cpp doctor_choose.h \
@@ -7245,6 +9488,76 @@ doctor_choose.o: doctor_choose.cpp doctor_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -7276,7 +9589,6 @@ doctor_choose.o: doctor_choose.cpp doctor_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -7289,19 +9601,49 @@ doctor_choose.o: doctor_choose.cpp doctor_choose.h \
 		patientcase.h \
 		patient_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -7311,37 +9653,9 @@ doctor_choose.o: doctor_choose.cpp doctor_choose.h \
 		email/src/mimebytearrayattachment.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		ui_doctor_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_doctor_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctor_choose.o doctor_choose.cpp
 
 doctor_individualinfo.o: doctor_individualinfo.cpp doctor_individualinfo.h \
@@ -7469,6 +9783,78 @@ doctor_individualinfo.o: doctor_individualinfo.cpp doctor_individualinfo.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -7495,9 +9881,7 @@ doctor_individualinfo.o: doctor_individualinfo.cpp doctor_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -7505,19 +9889,55 @@ doctor_individualinfo.o: doctor_individualinfo.cpp doctor_individualinfo.h \
 		doctorcase.h \
 		utils.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -7525,26 +9945,7 @@ doctor_individualinfo.o: doctor_individualinfo.cpp doctor_individualinfo.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_doctor_individualinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h
+		ui_doctor_individualinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctor_individualinfo.o doctor_individualinfo.cpp
 
 doctorcase.o: doctorcase.cpp doctorcase.h \
@@ -7668,10 +10069,82 @@ doctorcase.o: doctorcase.cpp doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -7698,9 +10171,7 @@ doctorcase.o: doctorcase.cpp doctorcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -7708,19 +10179,55 @@ doctorcase.o: doctorcase.cpp doctorcase.h \
 		doctor_individualinfo.h \
 		utils.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -7728,30 +10235,7 @@ doctorcase.o: doctorcase.cpp doctorcase.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_doctorcase.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_doctorcase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o doctorcase.o doctorcase.cpp
 
 doctorprofile.o: doctorprofile.cpp doctorprofile.h \
@@ -7873,10 +10357,82 @@ doctorprofile.o: doctorprofile.cpp doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -7904,9 +10460,7 @@ doctorprofile.o: doctorprofile.cpp doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -7915,19 +10469,55 @@ doctorprofile.o: doctorprofile.cpp doctorprofile.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -7936,22 +10526,7 @@ doctorprofile.o: doctorprofile.cpp doctorprofile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
 		ui_doctorprofile.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/QQuickWidget \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/qquickwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick/qquickwindow.h \
@@ -7976,7 +10551,6 @@ doctorprofile.o: doctorprofile.cpp doctorprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindow.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEvent \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMargins \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qsurface.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qsurfaceformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml/qqml.h \
@@ -8261,10 +10835,81 @@ healthtest.o: healthtest.cpp healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -8291,9 +10936,7 @@ healthtest.o: healthtest.cpp healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -8308,13 +10951,6 @@ healthtest.o: healthtest.cpp healthtest.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -8322,7 +10958,6 @@ healthtest.o: healthtest.cpp healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -8330,17 +10965,32 @@ healthtest.o: healthtest.cpp healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -8348,7 +10998,6 @@ healthtest.o: healthtest.cpp healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -8359,12 +11008,7 @@ healthtest.o: healthtest.cpp healthtest.h \
 		healthtestoutcome.h \
 		aihealthservice.h \
 		ui_healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGridLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QGridLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthtest.o healthtest.cpp
 
 healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
@@ -8497,10 +11141,81 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -8527,9 +11242,7 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -8544,13 +11257,6 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -8558,7 +11264,6 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -8566,17 +11271,32 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -8584,7 +11304,6 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -8593,11 +11312,7 @@ healthtestoutcome.o: healthtestoutcome.cpp healthtestoutcome.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
 		aihealthservice.h \
-		ui_healthtestoutcome.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_healthtestoutcome.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o healthtestoutcome.o healthtestoutcome.cpp
 
 main.o: main.cpp widget.h \
@@ -8728,6 +11443,74 @@ main.o: main.cpp widget.h \
 		doctorprofile.h \
 		seepatientinfo.h \
 		chat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -8755,9 +11538,7 @@ main.o: main.cpp widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -8766,19 +11547,55 @@ main.o: main.cpp widget.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -8791,13 +11608,6 @@ main.o: main.cpp widget.h \
 		departmentchoose.h \
 		schedulechoose.h \
 		healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		healthtestoutcome.h \
@@ -8808,28 +11618,8 @@ main.o: main.cpp widget.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
 		doctor_choose.h \
 		signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
@@ -8837,16 +11627,11 @@ main.o: main.cpp widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpServer \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpserver.h \
 		emergency.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		navigation/mainwindow.h \
 		navigation/mystruct.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		splashscreen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QPropertyAnimation \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpropertyanimation.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qvariantanimation.h \
@@ -9058,10 +11843,82 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -9088,9 +11945,7 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -9102,7 +11957,6 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -9116,13 +11970,6 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -9130,7 +11977,6 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -9138,17 +11984,32 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -9156,7 +12017,6 @@ patient_individualinfo.o: patient_individualinfo.cpp patient_individualinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -9287,10 +12147,82 @@ patientcase.o: patientcase.cpp patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -9317,9 +12249,7 @@ patientcase.o: patientcase.cpp patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -9331,7 +12261,6 @@ patientcase.o: patientcase.cpp patientcase.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -9345,13 +12274,6 @@ patientcase.o: patientcase.cpp patientcase.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -9359,7 +12281,6 @@ patientcase.o: patientcase.cpp patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -9367,17 +12288,32 @@ patientcase.o: patientcase.cpp patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -9385,7 +12321,6 @@ patientcase.o: patientcase.cpp patientcase.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -9393,11 +12328,7 @@ patientcase.o: patientcase.cpp patientcase.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_patientcase.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_patientcase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o patientcase.o patientcase.cpp
 
 patientprofile.o: patientprofile.cpp patientprofile.h \
@@ -9519,10 +12450,82 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -9549,9 +12552,7 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -9563,7 +12564,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -9578,13 +12578,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -9592,7 +12585,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -9600,17 +12592,32 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -9618,7 +12625,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -9629,13 +12635,7 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		ui_patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QScrollArea \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/QQuickWidget \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/qquickwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuick/qquickwindow.h \
@@ -9660,7 +12660,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qwindow.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEvent \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMargins \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qsurface.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qsurfaceformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQml/qqml.h \
@@ -9809,6 +12808,76 @@ schedule_choose.o: schedule_choose.cpp schedule_choose.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -9840,7 +12909,6 @@ schedule_choose.o: schedule_choose.cpp schedule_choose.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -9853,19 +12921,49 @@ schedule_choose.o: schedule_choose.cpp schedule_choose.h \
 		patientcase.h \
 		patient_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -9875,37 +12973,9 @@ schedule_choose.o: schedule_choose.cpp schedule_choose.h \
 		email/src/mimebytearrayattachment.h \
 		doctor_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		ui_schedule_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_schedule_choose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schedule_choose.o schedule_choose.cpp
 
 schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpSocket \
@@ -10043,6 +13113,76 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -10071,7 +13211,6 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -10086,13 +13225,6 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -10100,7 +13232,6 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -10108,17 +13239,32 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -10126,7 +13272,6 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -10134,11 +13279,7 @@ schedulechoose.o: schedulechoose.cpp /opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwo
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_schedulechoose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_schedulechoose.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o schedulechoose.o schedulechoose.cpp
 
 seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
@@ -10261,10 +13402,82 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -10291,9 +13504,7 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -10305,7 +13516,6 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		healthtest.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
@@ -10319,13 +13529,6 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -10333,7 +13536,6 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
@@ -10341,17 +13543,32 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
 		email/src/smtpmime_global.h \
@@ -10359,7 +13576,6 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -10367,11 +13583,7 @@ seedoctorinfo.o: seedoctorinfo.cpp seedoctorinfo.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_seedoctorinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h
+		ui_seedoctorinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seedoctorinfo.o seedoctorinfo.cpp
 
 seepatientinfo.o: seepatientinfo.cpp seepatientinfo.h \
@@ -10493,10 +13705,82 @@ seepatientinfo.o: seepatientinfo.cpp seepatientinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -10524,9 +13808,7 @@ seepatientinfo.o: seepatientinfo.cpp seepatientinfo.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -10535,19 +13817,55 @@ seepatientinfo.o: seepatientinfo.cpp seepatientinfo.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -10555,28 +13873,7 @@ seepatientinfo.o: seepatientinfo.cpp seepatientinfo.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		ui_seepatientinfo.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h
+		ui_seepatientinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o seepatientinfo.o seepatientinfo.cpp
 
 selectreceiver.o: selectreceiver.cpp selectreceiver.h \
@@ -10867,10 +14164,82 @@ signup.o: signup.cpp signup.h \
 		chat.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QHostAddress \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
 		message.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDataStream \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QIODevice \
 		messagetype.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -10898,9 +14267,7 @@ signup.o: signup.cpp signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -10909,19 +14276,55 @@ signup.o: signup.cpp signup.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -10934,13 +14337,6 @@ signup.o: signup.cpp signup.h \
 		departmentchoose.h \
 		schedulechoose.h \
 		healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		healthtestoutcome.h \
@@ -10951,49 +14347,18 @@ signup.o: signup.cpp signup.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		doctor_choose.h \
 		widget.h \
 		emergency.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		navigation/mainwindow.h \
 		navigation/mystruct.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		ui_signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QRadioButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signup.o signup.cpp
 
 splashscreen.o: splashscreen.cpp splashscreen.h \
@@ -11383,6 +14748,74 @@ widget.o: widget.cpp widget.h \
 		doctorprofile.h \
 		seepatientinfo.h \
 		chat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraInfo \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerainfo.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamera.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediacontrol.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmultimedia.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaservice.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraexposure.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcamerafocus.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qvideoframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qabstractvideobuffer.h \
+		simplevideocall.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QProcess \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qprocess.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTimer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qtimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbasictimer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QPixmap \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QScreen \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QList \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QRect \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSize \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QTransform \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QDesktopWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QBuffer \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qbuffer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/QImageReader \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimagereader.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qimageiohandler.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qplugin.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfactoryinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCamera \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/QCameraViewfinder \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qcameraviewfinder.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qvideowidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimediaWidgets/qtmultimediawidgetdefs.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/QCameraImageCapture \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtMultimedia/qmediaencodersettings.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QNetworkAccessManager \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qnetworkrequest.h \
@@ -11410,9 +14843,7 @@ widget.o: widget.cpp widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QCryptographicHash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonDocument \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonvalue.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonObject \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qjsonarray.h \
 		selectreceiver.h \
@@ -11421,19 +14852,55 @@ widget.o: widget.cpp widget.h \
 		utils.h \
 		doctor_individualinfo.h \
 		email/demos/demo2/sendemail.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qmetaobject.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QSslSocket \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QTextStream \
 		email/src/mimepart.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QByteArray \
 		email/src/emailaddress.h \
 		email/src/mimehtml.h \
 		email/src/mimetext.h \
@@ -11446,13 +14913,6 @@ widget.o: widget.cpp widget.h \
 		departmentchoose.h \
 		schedulechoose.h \
 		healthtest.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QProgressDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qprogressdialog.h \
 		healthtestoutcome.h \
@@ -11463,28 +14923,8 @@ widget.o: widget.cpp widget.h \
 		department_choose.h \
 		schedule_choose.h \
 		ui_department_choose.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QComboBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
 		doctor_choose.h \
 		signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QException \
@@ -11492,22 +14932,13 @@ widget.o: widget.cpp widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/QTcpServer \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qtcpserver.h \
 		emergency.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		navigation/mainwindow.h \
 		navigation/mystruct.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		ui_widget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QRadioButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o widget.o widget.cpp
 
 mainwindow.o: navigation/mainwindow.cpp navigation/mainwindow.h \
@@ -11905,6 +15336,66 @@ sendemail.o: email/demos/demo2/sendemail.cpp email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qfiledevice.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtouchdevice.h \
+		email/demos/demo2/ui_sendemail.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QAction \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qaction.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qactiongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QButtonGroup \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHeaderView \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qheaderview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		email/src/SmtpMime \
 		email/src/smtpclient.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QMetaEnum \
@@ -11923,7 +15414,6 @@ sendemail.o: email/demos/demo2/sendemail.cpp email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork/qssl.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QFlags \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QEventLoop \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qeventloop.h \
 		email/src/smtpmime_global.h \
 		email/src/mimemessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QStringList \
@@ -11938,58 +15428,6 @@ sendemail.o: email/demos/demo2/sendemail.cpp email/demos/demo2/sendemail.h \
 		email/src/mimefile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
-		email/demos/demo2/ui_sendemail.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QVariant \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QApplication \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QCheckBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLabel \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLineEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QListWidget \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qlistview.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QPushButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpinBox \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qspinbox.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QFileDialog \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qfiledialog.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qdir.h \
@@ -11999,20 +15437,17 @@ sendemail.o: email/demos/demo2/sendemail.cpp email/demos/demo2/sendemail.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qerrormessage.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMessageBox \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		email/demos/demo_vars.h
+		demo_vars.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sendemail.o email/demos/demo2/sendemail.cpp
 
 qss.o: email/demos/demo2/qss.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qss.o email/demos/demo2/qss.cpp
 
-qrc_resources.o: qrc_resources.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
-
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
 
-qrc_qss.o: qrc_qss.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qss.o qrc_qss.cpp
+moc_simplevideocall.o: moc_simplevideocall.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_simplevideocall.o moc_simplevideocall.cpp
 
 moc_aihealthservice.o: moc_aihealthservice.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_aihealthservice.o moc_aihealthservice.cpp

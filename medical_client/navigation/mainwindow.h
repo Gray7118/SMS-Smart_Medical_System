@@ -1,10 +1,3 @@
-/*****************************************
-File name:      mainwindow.h
-Author:         luolewin
-Version:        v1.0
-Description:    校园导航主窗口cpp的头文件，函数声明
-Date:           2020.12.17
-*****************************************/
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H

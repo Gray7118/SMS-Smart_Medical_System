@@ -16,7 +16,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -25,28 +24,25 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QLabel *titleLabel;
     QWidget *formContainer;
     QVBoxLayout *verticalLayout;
     QLabel *welcomeLabel;
-    QSpacerItem *verticalSpacer_1;
     QLineEdit *usernameLineEdit;
-    QSpacerItem *verticalSpacer_2;
     QLineEdit *passwordLineEdit;
-    QSpacerItem *verticalSpacer_3;
     QLabel *roleLabel;
     QHBoxLayout *horizontalLayout;
     QRadioButton *doctorRadioButton;
     QRadioButton *patientRadioButton;
-    QSpacerItem *verticalSpacer_4;
     QHBoxLayout *buttonLayout;
     QPushButton *loginButton;
     QPushButton *signupButton;
-    QSpacerItem *verticalSpacer_5;
     QPushButton *emergencyButton;
-    QSpacerItem *verticalSpacer_6;
     QPushButton *pushButton_navigation;
     QPushButton *quitButton;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *logoLabel;
+    QLabel *titleLabel;
 
     void setupUi(QWidget *Widget)
     {
@@ -55,83 +51,123 @@ public:
         Widget->resize(800, 600);
         Widget->setMinimumSize(QSize(800, 600));
         Widget->setStyleSheet(QString::fromUtf8("\n"
-"    /* \344\270\273\347\252\227\345\217\243\346\240\267\345\274\217 */\n"
-"    QWidget {\n"
-"        background-color: #f0f8ff; /* \346\265\205\350\223\235\350\211\262\350\203\214\346\231\257 */\n"
-"        font-family: 'Microsoft YaHei';\n"
+"    /* \344\270\273\347\252\227\345\217\243\346\270\220\345\217\230\350\203\214\346\231\257 */\n"
+"    QWidget#Widget {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #d0f0ff,\n"
+"            stop:1 #ffffff\n"
+"        );\n"
 "    }\n"
 "\n"
 "    /* \346\240\207\351\242\230\346\240\267\345\274\217 */\n"
 "    #titleLabel {\n"
-"        color: #2b5876;\n"
-"        font-size: 28px;\n"
+"        color: #1e88e5;\n"
+"        font-size: 36px;\n"
+"        font-weight: bold;\n"
+"        text-shadow: 1px 1px 3px #81d4fa;\n"
+"    }\n"
+"\n"
+"    /* \346\254\242\350\277\216\346\240\207\347\255\276 */\n"
+"    #welcomeLabel {\n"
+"        color: #1e88e5;\n"
+"        font-size: 20px;\n"
 "        font-weight: bold;\n"
 "        qproperty-alignment: AlignCenter;\n"
 "    }\n"
 "\n"
 "    /* \350\276\223\345\205\245\346\241\206\346\240\267\345\274\217 */\n"
 "    QLineEdit {\n"
-"        border: 2px solid #a0c6e8;\n"
-"        border-radius: 8px;\n"
+"        border: 2px solid #81d4fa;\n"
+"        border-radius: 12px;\n"
 "        padding: 10px;\n"
 "        font-size: 14px;\n"
-"        background-color: white;\n"
-"        min-width: 250px;\n"
+"        background-colo"
+                        "r: #ffffff;\n"
+"        color: #0f1f38;\n"
+"        selection-background-color: #4fc3f7;\n"
+"        selection-color: #ffffff;\n"
 "    }\n"
-"\n"
 "    QLineEdit:focus {\n"
-"        border: 2px solid #4a90e2;\n"
+"        border: 2px solid #1e88e5;\n"
 "    }\n"
 "\n"
-"    /* \346\214\211\351\222\256\346\240\267\345\274\217 */\n"
+"    /* \346\214\211\351\222\256\351\253\230\347\272\247\346\270\220\345\217\230\347\247\221\346\212\200\351\243\216 */\n"
 "    QPushButton {\n"
-"        background-color: #4a90e2;\n"
-"        color: white"
-                        ";\n"
-"        border: none;\n"
-"        border-radius: 8px;\n"
-"        padding: 12px 24px;\n"
-"        font-size: 16px;\n"
+"        border-radius: 14px;\n"
+"        border: 1px solid #64b5f6;\n"
+"        color: #ffffff;\n"
 "        font-weight: bold;\n"
-"        min-width: 120px;\n"
+"        font-size: 16px;\n"
+"        padding: 10px 20px;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #6ec6ff,\n"
+"            stop:1 #1e88e5\n"
+"        );\n"
 "    }\n"
-"\n"
 "    QPushButton:hover {\n"
-"        background-color: #3a7bc8;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #81d4fa,\n"
+"            stop:1 #1976d2\n"
+"        );\n"
 "    }\n"
-"\n"
 "    QPushButton:pressed {\n"
-"        background-color: #2c6bb6;\n"
+"        background-color: qlineargradient(\n"
+"            "
+                        "x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #1e88e5,\n"
+"            stop:1 #1565c0\n"
+"        );\n"
+"    }\n"
+"    QPushButton {\n"
+"        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);\n"
 "    }\n"
 "\n"
-"    /* \346\200\245\350\257\212\346\214\211\351\222\256\347\211\271\346\256\212\346\240\267\345\274\217 */\n"
+"    /* \346\200\245\350\257\212\346\214\211\351\222\256 */\n"
 "    #emergencyButton {\n"
-"        background-color: #ff5555;\n"
+"        border-radius: 14px;\n"
+"        border: 1px solid #e57373;\n"
+"        color: #ffffff;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #ff7f7f,\n"
+"            stop:1 #e53935\n"
+"        );\n"
 "    }\n"
-"\n"
 "    #emergencyButton:hover {\n"
-"        background-color: #e64545;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #ff8a80,\n"
+"            stop:1 #f44336\n"
+"        );\n"
+"    }\n"
+"    #emergencyButton:pressed {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #e53935,\n"
+"            stop:1 #c62828\n"
+"        );\n"
 "    }\n"
 "\n"
-"    /* \345\215\225\351\200\211\346\214\211\351\222\256\346\240\267\345\274\217 */\n"
+"    /* \345\215\225\351\200\211"
+                        "\346\214\211\351\222\256\346\240\267\345\274\217 */\n"
 "    QRadioButton {\n"
 "        font-size: 14px;\n"
 "        spacing: 8px;\n"
+"        color: #1e88e5;\n"
 "    }\n"
 "\n"
 "    /* \350\241\250\345\215\225\345\256\271\345\231\250\346\240\267\345\274\217 */\n"
 "    #formContainer {\n"
-"        background-color: white;\n"
-"        border-radius: 12px;\n"
-"        padding: "
-                        "30px;\n"
+"        background-color: transparent;\n"
+"        border-radius: 18px;\n"
+"        padding: 20px;\n"
 "        margin: 20px;\n"
-"        box-shadow: 0 4px 8px rgba(0,0,0,0.1);\n"
+"        border: 1px solid transparent;\n"
 "    }\n"
 "   "));
-        titleLabel = new QLabel(Widget);
-        titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
-        titleLabel->setGeometry(QRect(0, 30, 800, 60));
         formContainer = new QWidget(Widget);
         formContainer->setObjectName(QString::fromUtf8("formContainer"));
         formContainer->setGeometry(QRect(200, 120, 400, 481));
@@ -139,27 +175,13 @@ public:
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         welcomeLabel = new QLabel(formContainer);
         welcomeLabel->setObjectName(QString::fromUtf8("welcomeLabel"));
-        welcomeLabel->setStyleSheet(QString::fromUtf8("\n"
-"        font-size: 20px;\n"
-"        font-weight: bold;\n"
-"        color: #2b5876;\n"
-"        qproperty-alignment: AlignCenter;\n"
-"       "));
 
         verticalLayout->addWidget(welcomeLabel);
-
-        verticalSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_1);
 
         usernameLineEdit = new QLineEdit(formContainer);
         usernameLineEdit->setObjectName(QString::fromUtf8("usernameLineEdit"));
 
         verticalLayout->addWidget(usernameLineEdit);
-
-        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
 
         passwordLineEdit = new QLineEdit(formContainer);
         passwordLineEdit->setObjectName(QString::fromUtf8("passwordLineEdit"));
@@ -167,16 +189,8 @@ public:
 
         verticalLayout->addWidget(passwordLineEdit);
 
-        verticalSpacer_3 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_3);
-
         roleLabel = new QLabel(formContainer);
         roleLabel->setObjectName(QString::fromUtf8("roleLabel"));
-        roleLabel->setStyleSheet(QString::fromUtf8("\n"
-"        font-size: 14px;\n"
-"        font-weight: bold;\n"
-"       "));
 
         verticalLayout->addWidget(roleLabel);
 
@@ -196,10 +210,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_4);
-
         buttonLayout = new QHBoxLayout();
         buttonLayout->setObjectName(QString::fromUtf8("buttonLayout"));
         loginButton = new QPushButton(formContainer);
@@ -215,19 +225,10 @@ public:
 
         verticalLayout->addLayout(buttonLayout);
 
-        verticalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_5);
-
         emergencyButton = new QPushButton(formContainer);
         emergencyButton->setObjectName(QString::fromUtf8("emergencyButton"));
-        emergencyButton->setStyleSheet(QString::fromUtf8("#emergencyButton"));
 
         verticalLayout->addWidget(emergencyButton);
-
-        verticalSpacer_6 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_6);
 
         pushButton_navigation = new QPushButton(formContainer);
         pushButton_navigation->setObjectName(QString::fromUtf8("pushButton_navigation"));
@@ -239,6 +240,33 @@ public:
 
         verticalLayout->addWidget(quitButton);
 
+        widget = new QWidget(Widget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(270, 20, 243, 92));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        logoLabel = new QLabel(widget);
+        logoLabel->setObjectName(QString::fromUtf8("logoLabel"));
+        logoLabel->setMinimumSize(QSize(90, 90));
+        logoLabel->setMaximumSize(QSize(90, 90));
+        logoLabel->setPixmap(QPixmap(QString::fromUtf8("logo.png")));
+        logoLabel->setScaledContents(true);
+        logoLabel->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(logoLabel);
+
+        titleLabel = new QLabel(widget);
+        titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(titleLabel->sizePolicy().hasHeightForWidth());
+        titleLabel->setSizePolicy(sizePolicy);
+        titleLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(titleLabel);
+
 
         retranslateUi(Widget);
 
@@ -247,8 +275,7 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
-        titleLabel->setText(QApplication::translate("Widget", "\346\227\240\345\233\275\347\225\214\345\214\273\347\226\227\345\271\263\345\217\260", nullptr));
+        Widget->setWindowTitle(QApplication::translate("Widget", "\345\257\260\345\256\207\345\214\273\346\241\245", nullptr));
         welcomeLabel->setText(QApplication::translate("Widget", "\346\254\242\350\277\216\347\231\273\345\275\225", nullptr));
         usernameLineEdit->setPlaceholderText(QApplication::translate("Widget", "\350\257\267\350\276\223\345\205\245\347\224\250\346\210\267\345\220\215", nullptr));
         passwordLineEdit->setPlaceholderText(QApplication::translate("Widget", "\350\257\267\350\276\223\345\205\245\345\257\206\347\240\201", nullptr));
@@ -260,6 +287,7 @@ public:
         emergencyButton->setText(QApplication::translate("Widget", "\346\200\245\350\257\212\351\200\232\351\201\223", nullptr));
         pushButton_navigation->setText(QApplication::translate("Widget", "\345\214\273\351\231\242\345\257\274\350\210\252", nullptr));
         quitButton->setText(QApplication::translate("Widget", "\351\200\200\345\207\272\347\263\273\347\273\237", nullptr));
+        titleLabel->setText(QApplication::translate("Widget", "\345\257\260\345\256\207\345\214\273\346\241\245", nullptr));
     } // retranslateUi
 
 };

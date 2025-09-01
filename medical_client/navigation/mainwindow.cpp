@@ -76,17 +76,27 @@ void MainWindow::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
     QPainter painter(this);
 
-    QRect target(0, 0, 800, 600);
+    // 1. 绘制渐变背景
+    QLinearGradient gradient(0, 0, 0, height());
+    gradient.setColorAt(0, QColor("#d0f0ff"));
+    gradient.setColorAt(1, QColor("#ffffff"));
+    painter.fillRect(rect(), gradient);
+
+    // 2. 加载图片
     QPixmap umap(":/images/hospital_map.jpg");
+    if (umap.isNull()) {
+        QMessageBox::warning(this, "提示", "hospital_map.jpg 加载失败，请检查文件名、路径或资源文件");
+        return;
+    }
 
-    // 检查图片是否加载成功
-        if (umap.isNull()) {
-            QMessageBox::warning(this, "提示", "hospital_map.jpg 加载失败，请检查文件名、路径或资源文件");
-            return; // 图片加载失败，先不绘制
-        }
+    // 3. 设置图片显示的目标区域（自定义大小）
+    // 比如宽 800，高 600，从窗口左上角开始绘制
+    QRect target(0, 0, 800, 600);
 
+    // 4. 绘制图片
     painter.drawPixmap(target, umap);
 }
+
 
 
 void MainWindow::mousePressEvent(QMouseEvent *event)

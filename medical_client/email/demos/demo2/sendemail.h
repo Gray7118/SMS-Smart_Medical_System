@@ -18,6 +18,7 @@
 #define SENDEMAIL_H
 
 #include <QWidget>
+#include "ui_sendemail.h"
 
 #include "../../src/SmtpMime"
 
