@@ -27,7 +27,8 @@ public:
     QPushButton *appointmentCaseButton;
     QPushButton *profileButton;
     QPushButton *chatButton;
-    QSpacerItem *verticalSpacer;
+    QPushButton *emailPatientButton;
+    QSpacerItem *verticalSpacer_emailButton;
     QPushButton *quitButton;
 
     void setupUi(QWidget *doctorProfile)
@@ -77,9 +78,17 @@ public:
 
         verticalLayout->addWidget(chatButton);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        emailPatientButton = new QPushButton(layoutWidget);
+        emailPatientButton->setObjectName(QString::fromUtf8("emailPatientButton"));
+        emailPatientButton->setMinimumSize(QSize(200, 60));
+        emailPatientButton->setMaximumSize(QSize(200, 60));
+        emailPatientButton->setFont(font);
 
-        verticalLayout->addItem(verticalSpacer);
+        verticalLayout->addWidget(emailPatientButton);
+
+        verticalSpacer_emailButton = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_emailButton);
 
         quitButton = new QPushButton(layoutWidget);
         quitButton->setObjectName(QString::fromUtf8("quitButton"));
@@ -95,6 +104,7 @@ public:
         verticalLayout->setStretch(3, 1);
         verticalLayout->setStretch(4, 5);
         verticalLayout->setStretch(5, 1);
+        verticalLayout->setStretch(6, 1);
 
         retranslateUi(doctorProfile);
 
@@ -108,6 +118,7 @@ public:
         appointmentCaseButton->setText(QApplication::translate("doctorProfile", "\347\274\226\350\276\221\347\227\205\344\276\213\345\222\214\345\244\204\346\226\271", nullptr));
         profileButton->setText(QApplication::translate("doctorProfile", "\347\274\226\350\276\221\344\270\252\344\272\272\344\277\241\346\201\257", nullptr));
         chatButton->setText(QApplication::translate("doctorProfile", "\345\214\273\346\202\243\346\262\237\351\200\232\345\271\263\345\217\260", nullptr));
+        emailPatientButton->setText(QApplication::translate("doctorProfile", "\345\217\221\351\200\201\351\202\256\344\273\266\347\273\231\346\202\243\350\200\205", nullptr));
         quitButton->setText(QApplication::translate("doctorProfile", "\351\200\200\345\207\272", nullptr));
     } // retranslateUi
 

@@ -144,3 +144,23 @@ void PatientProfile::on_scheduleButton_clicked()
     dep_cho->show();
     this->hide();
 }
+
+// 新增槽函数：打开邮件窗口
+void PatientProfile::on_emailDoctorButton_clicked()
+{
+    // 如果窗口还没创建，才新建
+    if (!emailWindow) {
+        emailWindow = new SendEmail();              // 不传 this，独立窗口
+        emailWindow->setAttribute(Qt::WA_DeleteOnClose); // 关闭时自动释放内存
+
+        // 窗口关闭时置空指针，避免重复创建
+        connect(emailWindow, &QWidget::destroyed, this, [this]() {
+            emailWindow = nullptr;
+        });
+    }
+
+    // 显示窗口并激活
+    emailWindow->show();
+    emailWindow->raise();
+    emailWindow->activateWindow();
+}

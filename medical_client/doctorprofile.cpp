@@ -127,3 +127,21 @@ void DoctorProfile::on_scheduleButton_clicked()
     sptinf->show();
     this->hide();
 }
+
+// 新增槽函数：发送邮件给患者
+void DoctorProfile::on_emailPatientButton_clicked()
+{
+    if (!emailWindow) {
+        emailWindow = new SendEmail();                // 独立窗口，不传 this
+        emailWindow->setAttribute(Qt::WA_DeleteOnClose); // 关闭时自动释放
+
+        // 窗口关闭时重置指针
+        connect(emailWindow, &QWidget::destroyed, this, [this]() {
+            emailWindow = nullptr;
+        });
+    }
+
+    emailWindow->show();
+    emailWindow->raise();
+    emailWindow->activateWindow();
+}

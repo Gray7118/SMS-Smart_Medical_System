@@ -46,7 +46,10 @@ SOURCES += \
     utils.cpp \
     widget.cpp\
     navigation/mainwindow.cpp \
-    navigation/mydialog.cpp
+    navigation/mydialog.cpp\
+    email/demos/demo2/sendemail.cpp \
+    email/demos/demo2/qss.cpp
+
 
 HEADERS += \
     aihealthservice.h \
@@ -78,7 +81,8 @@ HEADERS += \
     widget.h \
     navigation/mainwindow.h \
     navigation/mydialog.h \
-    navigation/mystruct.h
+    navigation/mystruct.h\
+    email/demos/demo2/sendemail.h
 
 FORMS += \
     appointmentchoose.ui \
@@ -102,7 +106,8 @@ FORMS += \
     signUp.ui \
     widget.ui \
     navigation/mainwindow.ui \
-    navigation/mydialog.ui
+    navigation/mydialog.ui\
+    email/demos/demo2/sendemail.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -111,6 +116,15 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc\
-    navigation/images.qrc
+    navigation/images.qrc\
+    email/demos/demo2/qss.qrc
+
+# ===== Email SMTP 动态库 =====
+unix: LIBS += -L$$PWD/email/demos/demo2 -lSmtpMime
+INCLUDEPATH += $$PWD/email/demos/demo2
+DEPENDPATH += $$PWD/email/demos/demo2
+
+DISTFILES +=
+
 
 DISTFILES +=
