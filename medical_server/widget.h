@@ -41,5 +41,6 @@ private:
     Ui::Widget *ui;
     QTcpServer *server;
     QHash<QString, QTcpSocket*> table; // <username, socket>，保持和客户端的连接
+    QString getLocalIPAddress();
 };
 #endif // WIDGET_H
