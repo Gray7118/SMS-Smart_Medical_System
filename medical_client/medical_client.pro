@@ -17,7 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     simplevideocall.cpp \
-    splashscreen.cpp \
     aihealthservice.cpp \
     appointmentchoose.cpp \
     chat.cpp \
@@ -54,10 +53,10 @@ SOURCES += \
 
 HEADERS += \
     simplevideocall.h \
-    splashscreen.h \
     aihealthservice.h \
     appointmentchoose.h \
     chat.h \
+    demo_vars.h \
     department_choose.h \
     departmentchoose.h \
     doctor_choose.h \

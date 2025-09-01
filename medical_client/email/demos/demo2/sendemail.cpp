@@ -23,7 +23,7 @@
 
 #include <iostream>
 
-#include "../demo_vars.h"
+#include "demo_vars.h"
 
 using namespace std;
 
