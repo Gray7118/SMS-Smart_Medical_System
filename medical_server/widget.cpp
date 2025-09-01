@@ -1,7 +1,5 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QNetworkInterface>  // 新增
-#include <QDateTime>          // 新增
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -9,21 +7,9 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // 新增：获取并显示IP地址
-    QString serverIP = getLocalIPAddress();
-    setWindowTitle(QString("医患交流平台服务器 - %1:%2").arg(serverIP).arg(PORT));
-
     // 开启服务器
     server = new QTcpServer;
-    if (server->listen(QHostAddress::AnyIPv4, PORT)) {
-        QString info = QString("服务器启动成功！\nIP地址: %1:%2\n客户端请使用此IP连接服务器")
-                      .arg(serverIP).arg(PORT);
-        QMessageBox::information(this, "服务器状态", info);
-
-        ui->textEdit->append(QString("服务器启动成功 - %1:%2").arg(serverIP).arg(PORT));
-    } else {
-        QMessageBox::critical(this, "错误", "服务器启动失败！");
-    }
+    server->listen(QHostAddress::AnyIPv4, PORT);
 
     // 监听连接请求
     connect(server, &QTcpServer::newConnection, this, &Widget::newClientHandler);
@@ -153,11 +139,8 @@ void Widget::newClientHandler() {
 }
 
 void Widget::threadMessageHandler(Message msg) {
-     QString timestamp = QDateTime::currentDateTime().toString("hh:mm:ss");
-     QString logMessage;
-
-     qDebug() << "主线程收到消息，类型:" << msg.messageType;
-     qDebug() << "从" << msg.sender->username << "到" << msg.receiver->username;
+    qDebug() << "主线程接收到子线程转发的请求";
+    msg.print();
 
     if (msg.messageType == MessageType::SEND_MESSAGE) { // 发送消息的请求
         if (table.contains(msg.receiver->username)) { // receiver在线
@@ -204,54 +187,4 @@ void Widget::threadMessageHandler(Message msg) {
         table.remove(msg.sender->username);
 
     }
-
-    // 在这里添加视频通话消息处理
-    else if (msg.messageType == 54) { // 直接用数字54处理VIDEO_CALL_REQUEST
-        qDebug() << "处理视频通话请求，消息类型:" << msg.messageType;
-        qDebug() << "接收者用户名:" << msg.receiver->username;
-        qDebug() << "用户表中是否存在该用户:" << table.contains(msg.receiver->username);
-        qDebug() << "当前在线用户数量:" << table.size();
-
-        // 打印所有在线用户
-        for (auto it = table.begin(); it != table.end(); ++it) {
-            qDebug() << "在线用户:" << it.key();
-        }
-        if (table.contains(msg.receiver->username)) {
-            QTcpSocket *receiverSocket = table[msg.receiver->username];
-            if (receiverSocket && receiverSocket->state() == QAbstractSocket::ConnectedState) {
-                qDebug() << "找到接收者Socket，准备转发";
-                receiverSocket->write(Message::messageToByteArray(msg));
-                qDebug() << "视频通话请求已转发给" << msg.receiver->username;
-            } else {
-                qDebug() << "接收者Socket状态异常";
-            }
-        } else {
-            qDebug() << "错误：接收者不在用户表中";
-        }
-    }
-
-    // 处理其他视频通话相关消息
-    else if (msg.messageType >= 54 && msg.messageType <= 58) { // 涵盖所有视频通话消息类型
-        qDebug() << "处理视频通话相关消息:" << msg.messageType;
-        if (table.contains(msg.receiver->username)) {
-            QTcpSocket *receiverSocket = table[msg.receiver->username];
-            receiverSocket->write(Message::messageToByteArray(msg));
-            qDebug() << "视频通话消息已转发";
-        }
-    }
-}
-
-QString Widget::getLocalIPAddress()
-{
-    QList<QHostAddress> addresses = QNetworkInterface::allAddresses();
-    for (const QHostAddress &address : addresses) {
-        if (address.protocol() == QAbstractSocket::IPv4Protocol &&
-            !address.isLoopback()) {
-            QString ip = address.toString();
-            if (ip.startsWith("192.168.") || ip.startsWith("10.") || ip.startsWith("172.")) {
-                return ip;
-            }
-        }
-    }
-    return "127.0.0.1";
 }

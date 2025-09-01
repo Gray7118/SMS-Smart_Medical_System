@@ -75,13 +75,6 @@ enum MessageType
     SET_HEALTH_SUSCCESS,
     GET_PATIENT_HEALTH, // 获取自己的患者的状态
     RES_PATIENT_HEALTH,
-
-    // 在这里添加新的视频通话枚举值：
-    VIDEO_CALL_REQUEST,    // 发起视频通话请求
-    VIDEO_CALL_ACCEPT,     // 接受视频通话
-    VIDEO_CALL_REJECT,     // 拒绝视频通话
-    VIDEO_CALL_END,        // 结束通话
-    VIDEO_DATA,            // 视频数据包
 };
 
 #endif // MESSAGETYPE_H
