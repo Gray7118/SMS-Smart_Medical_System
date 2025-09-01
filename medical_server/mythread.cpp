@@ -12,9 +12,13 @@ void MyThread::run() {
 }
 
 void MyThread::clientManageSlot() {
-    qDebug() << "clientManageSlot";
+    qDebug() << "收到客户端消息";
     QByteArray ba = socket->readAll();
     Message msg = Message::byteArrayToMessage(ba);
+
+    qDebug() << "消息类型:" << msg.messageType;
+    qDebug() << "发送者:" << msg.sender->username;
+    qDebug() << "接收者:" << msg.receiver->username;
 
     qDebug() << "线程处理的请求";
     msg.print();
@@ -56,7 +60,7 @@ void MyThread::clientManageSlot() {
         QStringList historys = DBUtils::getChatMessage(msg.sender->username, msg.receiver->username);
         QString content;
 
-        // 不同的行，以“|”分隔开
+        // 不同的行，以"|"分隔开
         if (historys.size() > 0) {
             for(const QString &history : historys) {
                 content.append(history).append("|");
@@ -263,5 +267,22 @@ void MyThread::clientManageSlot() {
         content = list.join("|");
         Message msg(new User, new User, content, MessageType::RET_SCHEDULE);
         socket->write(Message::messageToByteArray(msg));
+    }
+
+    // 添加视频通话消息处理 - 直接转发给主线程
+    else if (msg.messageType == MessageType::VIDEO_CALL_REQUEST ||
+             msg.messageType == MessageType::VIDEO_CALL_ACCEPT ||
+             msg.messageType == MessageType::VIDEO_CALL_REJECT ||
+             msg.messageType == MessageType::VIDEO_CALL_END ||
+             msg.messageType == MessageType::VIDEO_DATA) {
+        qDebug() << "检测到视频通话消息，类型:" << msg.messageType;
+        qDebug() << "子线程转发视频通话消息到主线程";
+        emit sendToMainThread(msg);
+    }
+
+    // 添加一个通用的else分支来捕获未处理的消息
+    else {
+        qDebug() << "未知消息类型:" << msg.messageType << "转发给主线程处理";
+        emit sendToMainThread(msg);
     }
 }

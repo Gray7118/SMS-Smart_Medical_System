@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = medical_server1.0.0
-DISTDIR = /home/ada/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/.tmp/medical_server1.0.0
+DISTDIR = /home/ada/QtWorks/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/.tmp/medical_server1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/opt/Qt5.12.8/5.12.8/gcc_64/lib
 LIBS          = $(SUBLIBS) /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Widgets.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Gui.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Network.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Sql.so /opt/Qt5.12.8/5.12.8/gcc_64/lib/libQt5Core.so -lGL -lpthread   
@@ -249,7 +249,6 @@ DIST          = /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_post.prf \
-		../medical_server/.qmake.stash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/default_pre.prf \
@@ -468,7 +467,6 @@ Makefile: ../medical_server/medical_server.pro /opt/Qt5.12.8/5.12.8/gcc_64/mkspe
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/default_pre.prf \
@@ -664,7 +662,6 @@ Makefile: ../medical_server/medical_server.pro /opt/Qt5.12.8/5.12.8/gcc_64/mkspe
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/features/default_pre.prf:
@@ -1003,7 +1000,7 @@ moc_dbutils.cpp: ../medical_server/dbutils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QDebug \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/dbutils.h -o moc_dbutils.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/QtWorks/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/QtWorks/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/dbutils.h -o moc_dbutils.cpp
 
 moc_mythread.cpp: ../medical_server/mythread.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1288,7 +1285,7 @@ moc_mythread.cpp: ../medical_server/mythread.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QHash \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/mythread.h -o moc_mythread.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/QtWorks/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/QtWorks/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/mythread.h -o moc_mythread.cpp
 
 moc_utils.cpp: ../medical_server/utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QObject \
@@ -1352,7 +1349,7 @@ moc_utils.cpp: ../medical_server/utils.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/qhash.h \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/utils.h -o moc_utils.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/QtWorks/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/QtWorks/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/utils.h -o moc_utils.cpp
 
 moc_widget.cpp: ../medical_server/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QWidget \
@@ -1643,7 +1640,7 @@ moc_widget.cpp: ../medical_server/widget.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore/QJsonArray \
 		moc_predefs.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc
-	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/widget.h -o moc_widget.cpp
+	/opt/Qt5.12.8/5.12.8/gcc_64/bin/moc $(DEFINES) --include /home/ada/QtWorks/SMS-Smart_Medical_System/build-medical_server-Desktop_Qt_5_12_8_GCC_64bit-Debug/moc_predefs.h -I/opt/Qt5.12.8/5.12.8/gcc_64/mkspecs/linux-g++ -I/home/ada/QtWorks/SMS-Smart_Medical_System/medical_server -I/opt/Qt5.12.8/5.12.8/gcc_64/include -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtGui -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtNetwork -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtSql -I/opt/Qt5.12.8/5.12.8/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../medical_server/widget.h -o moc_widget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
