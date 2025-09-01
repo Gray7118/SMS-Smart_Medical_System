@@ -7,12 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>568</height>
+    <height>600</height> <!-- 增高一些以容纳邮箱输入框 -->
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+
+  <!-- 用户名输入 -->
   <widget class="QLineEdit" name="usernameLineEdit">
    <property name="geometry">
     <rect>
@@ -26,6 +28,8 @@
     <string>用户名</string>
    </property>
   </widget>
+
+  <!-- 密码输入 -->
   <widget class="QLineEdit" name="passwordLineEdit">
    <property name="geometry">
     <rect>
@@ -39,6 +43,8 @@
     <string>密码</string>
    </property>
   </widget>
+
+  <!-- 用户类型选择 -->
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -57,9 +63,6 @@
         <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
       <property name="text">
        <string>医生</string>
       </property>
@@ -76,9 +79,6 @@
         <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true"/>
-      </property>
       <property name="text">
        <string>病人</string>
       </property>
@@ -89,6 +89,8 @@
     </item>
    </layout>
   </widget>
+
+  <!-- 提示标签：必填信息 -->
   <widget class="QLabel" name="tip1Label">
    <property name="geometry">
     <rect>
@@ -108,45 +110,8 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;必填信息：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="genderLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>340</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>性别</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="ageLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>390</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>年龄</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="phoneNumberLineEdit">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>440</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="placeholderText">
-    <string>电话</string>
-   </property>
-  </widget>
+
+  <!-- 提示标签：选填信息 -->
   <widget class="QLabel" name="tip2Label">
    <property name="geometry">
     <rect>
@@ -166,6 +131,68 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;选填信息：&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
+
+  <!-- 性别 -->
+  <widget class="QLineEdit" name="genderLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>340</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>性别</string>
+   </property>
+  </widget>
+
+  <!-- 年龄 -->
+  <widget class="QLineEdit" name="ageLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>390</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>年龄</string>
+   </property>
+  </widget>
+
+  <!-- 电话 -->
+  <widget class="QLineEdit" name="phoneNumberLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>440</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>电话</string>
+   </property>
+  </widget>
+
+  <!-- 邮箱（新增） -->
+  <widget class="QLineEdit" name="emailLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>490</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>邮箱</string>
+   </property>
+  </widget>
+
+  <!-- 注册按钮 -->
   <widget class="QPushButton" name="signupButton">
    <property name="geometry">
     <rect>
@@ -174,18 +201,6 @@
      <width>100</width>
      <height>50</height>
     </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
    </property>
    <property name="font">
     <font>
@@ -197,6 +212,8 @@
     <string>注册</string>
    </property>
   </widget>
+
+  <!-- 取消按钮 -->
   <widget class="QPushButton" name="quitButton">
    <property name="geometry">
     <rect>
@@ -205,18 +222,6 @@
      <width>100</width>
      <height>50</height>
     </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>100</width>
-     <height>50</height>
-    </size>
    </property>
    <property name="font">
     <font>
@@ -228,6 +233,7 @@
     <string>取消</string>
    </property>
   </widget>
+
  </widget>
  <resources/>
  <connections/>
