@@ -12633,8 +12633,6 @@ patientprofile.o: patientprofile.cpp patientprofile.h \
 		email/src/mimeinlinefile.h \
 		email/src/mimebytearrayattachment.h \
 		ui_patientprofile.h \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QScrollArea \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qscrollarea.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/QQuickWidget \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtQuickWidgets/qquickwidget.h \
@@ -14357,8 +14355,12 @@ signup.o: signup.cpp signup.h \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		ui_signup.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QFormLayout \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qformlayout.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QLayout \
 		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QRadioButton \
-		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/opt/Qt5.12.8/5.12.8/gcc_64/include/QtWidgets/QSpacerItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o signup.o signup.cpp
 
 splashscreen.o: splashscreen.cpp splashscreen.h \
