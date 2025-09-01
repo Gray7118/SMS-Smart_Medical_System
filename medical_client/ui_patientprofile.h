@@ -35,6 +35,8 @@ public:
     QPushButton *profileButton;
     QPushButton *doctorButton;
     QPushButton *emailDoctorButton;
+    QPushButton *healthButton;
+    QPushButton *chatButton;
     QSpacerItem *verticalSpacerButtons;
     QHBoxLayout *quitButtonLayout;
     QSpacerItem *leftSpacer;
@@ -164,6 +166,16 @@ public:
 
         buttonVBoxLayout->addWidget(emailDoctorButton);
 
+        healthButton = new QPushButton(PatientProfile);
+        healthButton->setObjectName(QString::fromUtf8("healthButton"));
+
+        buttonVBoxLayout->addWidget(healthButton);
+
+        chatButton = new QPushButton(PatientProfile);
+        chatButton->setObjectName(QString::fromUtf8("chatButton"));
+
+        buttonVBoxLayout->addWidget(chatButton);
+
         verticalSpacerButtons = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         buttonVBoxLayout->addItem(verticalSpacerButtons);
@@ -208,7 +220,9 @@ public:
         profileButton->setText(QApplication::translate("PatientProfile", "\347\274\226\350\276\221\344\270\252\344\272\272\344\277\241\346\201\257", nullptr));
         doctorButton->setText(QApplication::translate("PatientProfile", "\346\237\245\347\234\213\345\214\273\347\224\237\344\277\241\346\201\257", nullptr));
         emailDoctorButton->setText(QApplication::translate("PatientProfile", "\345\217\221\351\200\201\351\202\256\344\273\266\347\273\231\345\214\273\347\224\237", nullptr));
-        quitButton->setText(QApplication::translate("PatientProfile", "\351\200\200\345\207\272", nullptr));
+        healthButton->setText(QApplication::translate("PatientProfile", "\345\201\245\345\272\267\350\257\204\344\274\260", nullptr));
+        chatButton->setText(QApplication::translate("PatientProfile", "\345\214\273\346\202\243\346\262\237\351\200\232\345\271\263\345\217\260", nullptr));
+        quitButton->setText(QApplication::translate("PatientProfile", "\351\200\200\345\207\272\347\263\273\347\273\237", nullptr));
     } // retranslateUi
 
 };
