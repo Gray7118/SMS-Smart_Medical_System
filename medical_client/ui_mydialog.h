@@ -44,7 +44,7 @@ public:
 
     void retranslateUi(QDialog *myDialog)
     {
-        myDialog->setWindowTitle(QApplication::translate("myDialog", "Intruduction", nullptr));
+        myDialog->setWindowTitle(QApplication::translate("myDialog", "\347\256\200\344\273\213(Intruduction)", nullptr));
         label->setText(QApplication::translate("myDialog", "TextLabel", nullptr));
     } // retranslateUi
 

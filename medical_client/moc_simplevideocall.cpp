@@ -88,7 +88,11 @@ void SimpleVideoCall::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 1: _t->onHangupClicked(); break;
         case 2: _t->onImageCaptured((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< const QImage(*)>(_a[2]))); break;
         case 3: _t->readCameraData(); break;
+<<<<<<< HEAD
         //case 4: _t->testCameraDisplay(); break;
+=======
+//        case 4: _t->testCameraDisplay(); break;
+>>>>>>> main
         default: ;
         }
     }

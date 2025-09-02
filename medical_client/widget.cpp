@@ -417,7 +417,7 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
 
-    this->setWindowTitle(QString("无国界医疗平台"));
+    this->setWindowTitle(QString("寰宇医桥"));
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowCloseButtonHint);
 
     // 设置急诊按钮样式
@@ -439,7 +439,7 @@ Widget::Widget(QWidget *parent)
     );
 
     // 连接服务器
-    QString ip = QString("127.0.0.1");
+    QString ip = QString("192.168.174.134");
     QString port = QString("8888");
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress(ip), port.toShort());
@@ -470,7 +470,8 @@ Widget::Widget(User *user, QWidget *parent)
     );
 
     // 连接服务器
-    QString ip = QString("127.0.0.1");
+//    QString ip = QString("127.0.0.1");
+    QString ip = QString("192.168.174.134");
     QString port = QString("8888");
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress(ip), port.toShort());

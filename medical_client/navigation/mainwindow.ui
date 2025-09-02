@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
+    <width>1243</width>
     <height>600</height>
    </rect>
   </property>
@@ -18,12 +18,15 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>1200</width>
-    <height>600</height>
+    <width>4000</width>
+    <height>700</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Guide</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"> /* 按钮高级渐变科技风 */ QPushButton { border-radius: 14px; border: 1px solid #64b5f6; color: #ffffff; font-weight: bold; font-size: 16px; padding: 10px 20px; background-color: qlineargradient( x1:0, y1:0, x2:0, y2:1, stop:0 #6ec6ff, stop:1 #1e88e5 ); } QPushButton:hover { background-color: qlineargradient( x1:0, y1:0, x2:0, y2:1, stop:0 #81d4fa, stop:1 #1976d2 ); } QPushButton:pressed { background-color: qlineargradient( x1:0, y1:0, x2:0, y2:1, stop:0 #1e88e5, stop:1 #1565c0 ); } QPushButton { text-shadow: 1px 1px 2px rgba(0,0,0,0.2); } /* 输入框样式 */ QLineEdit { border: 2px solid #81d4fa; border-radius: 12px; padding: 10px; font-size: 14px; background-color: #ffffff; color: #0f1f38; selection-background-color: #4fc3f7; selection-color: #ffffff; } QLineEdit:focus { border: 2px solid #1e88e5; } /* 文本浏览框 */ QTextBrowser { border: 2px solid #81d4fa; border-radius: 12px; padding: 8px; background-color: #ffffff; font-size: 14px; color: #0f1f38; } </string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -31,8 +34,8 @@
      <rect>
       <x>810</x>
       <y>150</y>
-      <width>91</width>
-      <height>31</height>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -42,7 +45,7 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>910</x>
+      <x>950</x>
       <y>150</y>
       <width>256</width>
       <height>201</height>
@@ -53,9 +56,9 @@
     <property name="geometry">
      <rect>
       <x>810</x>
-      <y>390</y>
-      <width>91</width>
-      <height>31</height>
+      <y>370</y>
+      <width>131</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
@@ -65,8 +68,8 @@
    <widget class="QTextBrowser" name="textBrowser2">
     <property name="geometry">
      <rect>
-      <x>910</x>
-      <y>390</y>
+      <x>950</x>
+      <y>370</y>
       <width>256</width>
       <height>121</height>
      </rect>
@@ -76,7 +79,7 @@
     <property name="geometry">
      <rect>
       <x>840</x>
-      <y>530</y>
+      <y>520</y>
       <width>151</width>
       <height>41</height>
      </rect>
@@ -85,13 +88,13 @@
      <string>医院简介</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>810</x>
       <y>39</y>
       <width>304</width>
-      <height>31</height>
+      <height>46</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -103,32 +106,28 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="contextMenuPolicy">
-        <enum>Qt::DefaultContextMenu</enum>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="lineEdit"/>
      </item>
     </layout>
    </widget>
    <widget class="QLabel" name="label2_2">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>180</y>
+      <x>810</x>
+      <y>190</y>
       <width>71</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Optional  </string>
+     <string>Optional </string>
     </property>
    </widget>
    <widget class="QLabel" name="label2_3">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>210</y>
+      <x>890</x>
+      <y>200</y>
       <width>61</width>
       <height>21</height>
      </rect>
@@ -140,8 +139,8 @@
    <widget class="QLabel" name="label2_6">
     <property name="geometry">
      <rect>
-      <x>840</x>
-      <y>450</y>
+      <x>890</x>
+      <y>420</y>
       <width>61</width>
       <height>21</height>
      </rect>
@@ -153,8 +152,8 @@
    <widget class="QLabel" name="label2_7">
     <property name="geometry">
      <rect>
-      <x>820</x>
-      <y>420</y>
+      <x>810</x>
+      <y>410</y>
       <width>71</width>
       <height>41</height>
      </rect>
@@ -167,7 +166,7 @@
     <property name="geometry">
      <rect>
       <x>1000</x>
-      <y>540</y>
+      <y>530</y>
       <width>161</width>
       <height>21</height>
      </rect>
@@ -176,13 +175,13 @@
      <string>Hospital Overview</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>810</x>
       <y>90</y>
       <width>295</width>
-      <height>31</height>
+      <height>46</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -204,7 +203,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
+     <width>1243</width>
      <height>32</height>
     </rect>
    </property>

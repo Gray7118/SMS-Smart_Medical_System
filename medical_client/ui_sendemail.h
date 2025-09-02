@@ -64,7 +64,83 @@ public:
     {
         if (SendEmail->objectName().isEmpty())
             SendEmail->setObjectName(QString::fromUtf8("SendEmail"));
-        SendEmail->resize(710, 556);
+        SendEmail->resize(710, 616);
+        SendEmail->setStyleSheet(QString::fromUtf8("\n"
+"    /* \344\270\273\347\252\227\345\217\243\346\270\220\345\217\230\350\203\214\346\231\257 */\n"
+"    QWidget#SendEmail {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #d0f0ff,\n"
+"            stop:1 #ffffff\n"
+"        );\n"
+"    }\n"
+"\n"
+"    /* \346\214\211\351\222\256\351\253\230\347\272\247\346\270\220\345\217\230\347\247\221\346\212\200\351\243\216 */\n"
+"    QPushButton {\n"
+"        border-radius: 14px;\n"
+"        border: 1px solid #64b5f6;\n"
+"        color: #ffffff;\n"
+"        font-weight: bold;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #6ec6ff,\n"
+"            stop:1 #1e88e5\n"
+"        );\n"
+"    }\n"
+"    QPushButton:hover {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #81d4fa,\n"
+"            stop:1 #1976d2\n"
+"        );\n"
+"    }\n"
+"    QPushButton:pressed {\n"
+"        background-color: qli"
+                        "neargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #1e88e5,\n"
+"            stop:1 #1565c0\n"
+"        );\n"
+"    }\n"
+"\n"
+"    /* \350\276\223\345\205\245\346\241\206\346\240\267\345\274\217 */\n"
+"    QLineEdit {\n"
+"        border: 2px solid #81d4fa;\n"
+"        border-radius: 12px;\n"
+"        padding: 10px;\n"
+"        background-color: #ffffff;\n"
+"        color: #0f1f38;\n"
+"        selection-background-color: #4fc3f7;\n"
+"        selection-color: #ffffff;\n"
+"    }\n"
+"    QLineEdit:focus {\n"
+"        border: 2px solid #1e88e5;\n"
+"    }\n"
+"\n"
+"    /* \345\244\232\350\241\214\346\226\207\346\234\254\346\241\206 */\n"
+"    QTextEdit, QTextBrowser {\n"
+"        border: 2px solid #81d4fa;\n"
+"        border-radius: 12px;\n"
+"        padding: 8px;\n"
+"        background-color: #ffffff;\n"
+"        color: #0f1f38;\n"
+"    }\n"
+"\n"
+"    /* \345\210\227\350\241\250\346\216\247\344\273\266 */\n"
+"    QListWidget {\n"
+"        border: 2px solid #81d4fa;\n"
+"        border-radius: "
+                        "12px;\n"
+"        padding: 5px;\n"
+"        background-color: #ffffff;\n"
+"        color: #0f1f38;\n"
+"    }\n"
+"\n"
+"    /* \345\244\215\351\200\211\346\241\206\347\273\237\344\270\200\346\240\267\345\274\217 */\n"
+"    QCheckBox {\n"
+"        spacing: 5px;\n"
+"    }\n"
+"   "));
         verticalLayout_2 = new QVBoxLayout(SendEmail);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         horizontalLayout = new QHBoxLayout();
@@ -106,18 +182,11 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_4 = new QLabel(SendEmail);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        QFont font;
-        font.setBold(false);
-        font.setWeight(50);
-        label_4->setFont(font);
 
         horizontalLayout_3->addWidget(label_4);
 
         auth = new QCheckBox(SendEmail);
         auth->setObjectName(QString::fromUtf8("auth"));
-        auth->setMinimumSize(QSize(21, 21));
-        auth->setMaximumSize(QSize(21, 21));
-        auth->setTristate(false);
 
         horizontalLayout_3->addWidget(auth);
 
@@ -133,8 +202,6 @@ public:
 
         username = new QLineEdit(SendEmail);
         username->setObjectName(QString::fromUtf8("username"));
-        username->setMinimumSize(QSize(211, 27));
-        username->setMaximumSize(QSize(211, 27));
 
         horizontalLayout_4->addWidget(username);
 
@@ -154,10 +221,10 @@ public:
 
         label_7 = new QLabel(SendEmail);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        QFont font1;
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_7->setFont(font1);
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
+        label_7->setFont(font);
 
         verticalLayout_2->addWidget(label_7);
 
@@ -165,8 +232,6 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_8 = new QLabel(SendEmail);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setMinimumSize(QSize(81, 0));
-        label_8->setMaximumSize(QSize(200, 16777215));
 
         horizontalLayout_2->addWidget(label_8);
 
@@ -182,8 +247,6 @@ public:
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label_9 = new QLabel(SendEmail);
         label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setMinimumSize(QSize(81, 0));
-        label_9->setMaximumSize(QSize(200, 16777215));
 
         horizontalLayout_5->addWidget(label_9);
 
@@ -199,8 +262,6 @@ public:
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         label_10 = new QLabel(SendEmail);
         label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setMinimumSize(QSize(81, 0));
-        label_10->setMaximumSize(QSize(200, 16777215));
 
         horizontalLayout_6->addWidget(label_10);
 
@@ -214,7 +275,6 @@ public:
 
         texteditor = new QTextEdit(SendEmail);
         texteditor->setObjectName(QString::fromUtf8("texteditor"));
-        texteditor->setTextInteractionFlags(Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         verticalLayout_2->addWidget(texteditor);
 
@@ -224,13 +284,12 @@ public:
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         label_3 = new QLabel(SendEmail);
         label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setFont(font);
 
         horizontalLayout_7->addWidget(label_3);
 
         addAttachment = new QPushButton(SendEmail);
         addAttachment->setObjectName(QString::fromUtf8("addAttachment"));
-        addAttachment->setMinimumSize(QSize(97, 0));
-        addAttachment->setMaximumSize(QSize(200, 16777215));
 
         horizontalLayout_7->addWidget(addAttachment);
 
@@ -259,12 +318,11 @@ public:
 
     void retranslateUi(QWidget *SendEmail)
     {
-        SendEmail->setWindowTitle(QApplication::translate("SendEmail", "Form", nullptr));
+        SendEmail->setWindowTitle(QApplication::translate("SendEmail", "\351\202\256\344\273\266\357\274\210Email\357\274\211", nullptr));
         label->setText(QApplication::translate("SendEmail", "SMTP \346\234\215\345\212\241\345\231\250(SMTP server):", nullptr));
         label_2->setText(QApplication::translate("SendEmail", "\347\253\257\345\217\243(Port):", nullptr));
         ssl->setText(QApplication::translate("SendEmail", "SSL", nullptr));
         label_4->setText(QApplication::translate("SendEmail", "\345\220\257\347\224\250\347\224\250\346\210\267\350\256\244\350\257\201(User Authentication):", nullptr));
-        auth->setText(QString());
         label_5->setText(QApplication::translate("SendEmail", "\347\224\250\346\210\267\345\220\215(Username):", nullptr));
         label_6->setText(QApplication::translate("SendEmail", "\345\257\206\347\240\201(Password):", nullptr));
         label_7->setText(QApplication::translate("SendEmail", "Mime E-mail", nullptr));

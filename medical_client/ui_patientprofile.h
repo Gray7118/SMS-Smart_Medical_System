@@ -11,9 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -23,152 +23,188 @@ QT_BEGIN_NAMESPACE
 class Ui_PatientProfile
 {
 public:
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_2;
-    QWidget *buttonContainer;
-    QVBoxLayout *verticalLayout;
+    QVBoxLayout *mainVerticalLayout;
+    QHBoxLayout *titleLayout;
+    QLabel *logoLabel;
     QLabel *titleLabel;
+    QHBoxLayout *mainContentLayout;
+    QLabel *patientPhotoLabel;
+    QVBoxLayout *buttonVBoxLayout;
     QPushButton *scheduleButton;
-    QSpacerItem *verticalSpacer_1;
     QPushButton *appointmentCaseButton;
-    QSpacerItem *verticalSpacer_2;
     QPushButton *profileButton;
-    QSpacerItem *verticalSpacer_3;
     QPushButton *doctorButton;
     QPushButton *emailDoctorButton;
-    QSpacerItem *verticalSpacer_emailButton;
     QPushButton *healthButton;
-    QSpacerItem *verticalSpacer_5;
     QPushButton *chatButton;
-    QSpacerItem *verticalSpacer_6;
+    QSpacerItem *verticalSpacerButtons;
+    QHBoxLayout *quitButtonLayout;
+    QSpacerItem *leftSpacer;
     QPushButton *quitButton;
-    QSpacerItem *verticalSpacer_7;
+    QSpacerItem *rightSpacer;
 
     void setupUi(QWidget *PatientProfile)
     {
         if (PatientProfile->objectName().isEmpty())
             PatientProfile->setObjectName(QString::fromUtf8("PatientProfile"));
-        PatientProfile->resize(850, 929);
-        PatientProfile->setMinimumSize(QSize(850, 900));
+        PatientProfile->resize(700, 600);
         PatientProfile->setStyleSheet(QString::fromUtf8("\n"
-"    /* \344\270\273\347\252\227\345\217\243\346\240\267\345\274\217 */\n"
-"    QWidget {\n"
-"        background-color: #f5f9ff;\n"
-"        font-family: 'Microsoft YaHei';\n"
+"    QWidget#PatientProfile {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #e3f2fd,\n"
+"            stop:1 #ffffff\n"
+"        );\n"
+"        font-family: \"Microsoft YaHei\";\n"
+"    }\n"
+"    QLabel#patientPhotoLabel {\n"
+"        border: 2px solid #64b5f6;\n"
+"        border-radius: 12px;\n"
+"        background-color: #ffffff;\n"
 "    }\n"
 "    QPushButton {\n"
-"        background-color: #4a90e2;\n"
-"        color: white;\n"
-"        border: none;\n"
-"        border-radius: 8px;\n"
-"        padding: 12px 0;\n"
-"        font-size: 16px;\n"
+"        border-radius: 12px;\n"
+"        border: 1px solid #64b5f6;\n"
+"        color: #ffffff;\n"
 "        font-weight: bold;\n"
-"        min-width: 240px;\n"
-"        min-height: 60px;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #6ec6ff,\n"
+"            stop:1 #1e88e5\n"
+"        );\n"
+"        padding: 8px 16px;\n"
+"        min-width: 180px;\n"
+"        min-height: 50px;\n"
 "    }\n"
-"    QPushButton:hover { background-color: #3a7bc8; }\n"
-"    QPushButton:pressed { background-color: #2c6bb6; }\n"
-"    #quitButton { background-color: #e74c3c; margin-top: 20px; }\n"
+"    QPushButton:hover {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #81d4fa,\n"
+"            stop:1 #1976d2\n"
+"        );\n"
+""
+                        "    }\n"
+"    QPushButton:pressed {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #1e88e5,\n"
+"            stop:1 #1565c0\n"
+"        );\n"
+"    }\n"
+"    #quitButton {\n"
+"        background-color: #e74c3c;\n"
+"    }\n"
 "    #quitButton:hover { background-color: #c0392b; }\n"
-"    #buttonContainer { background-color: white; border-radius: 12px; padding: 30px; margin: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }\n"
-"    #titleLabel { color: #2b5876; font-size: 24px; font-weight: bold; qproperty-alignment: AlignCenter; margin-bottom: 30px; }\n"
-"    QScrollAre"
-                        "a { border: none; background: transparent; }\n"
 "   "));
-        scrollArea = new QScrollArea(PatientProfile);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setGeometry(QRect(0, 0, 850, 900));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 850, 900));
-        verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        buttonContainer = new QWidget(scrollAreaWidgetContents);
-        buttonContainer->setObjectName(QString::fromUtf8("buttonContainer"));
-        buttonContainer->setMinimumSize(QSize(0, 800));
-        verticalLayout = new QVBoxLayout(buttonContainer);
-        verticalLayout->setSpacing(15);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        titleLabel = new QLabel(buttonContainer);
+        mainVerticalLayout = new QVBoxLayout(PatientProfile);
+        mainVerticalLayout->setSpacing(20);
+        mainVerticalLayout->setObjectName(QString::fromUtf8("mainVerticalLayout"));
+        titleLayout = new QHBoxLayout();
+        titleLayout->setObjectName(QString::fromUtf8("titleLayout"));
+        logoLabel = new QLabel(PatientProfile);
+        logoLabel->setObjectName(QString::fromUtf8("logoLabel"));
+        logoLabel->setMinimumSize(QSize(80, 80));
+        logoLabel->setMaximumSize(QSize(80, 80));
+        logoLabel->setPixmap(QPixmap(QString::fromUtf8("logo.png")));
+        logoLabel->setScaledContents(true);
+
+        titleLayout->addWidget(logoLabel);
+
+        titleLabel = new QLabel(PatientProfile);
         titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font.setPointSize(20);
+        font.setBold(true);
+        font.setWeight(75);
+        titleLabel->setFont(font);
+        titleLabel->setAlignment(Qt::AlignVCenter|Qt::AlignLeft);
 
-        verticalLayout->addWidget(titleLabel);
+        titleLayout->addWidget(titleLabel);
 
-        scheduleButton = new QPushButton(buttonContainer);
+
+        mainVerticalLayout->addLayout(titleLayout);
+
+        mainContentLayout = new QHBoxLayout();
+        mainContentLayout->setSpacing(30);
+        mainContentLayout->setObjectName(QString::fromUtf8("mainContentLayout"));
+        patientPhotoLabel = new QLabel(PatientProfile);
+        patientPhotoLabel->setObjectName(QString::fromUtf8("patientPhotoLabel"));
+        patientPhotoLabel->setMinimumSize(QSize(240, 320));
+        patientPhotoLabel->setMaximumSize(QSize(240, 320));
+        patientPhotoLabel->setPixmap(QPixmap(QString::fromUtf8("patient.png")));
+        patientPhotoLabel->setAlignment(Qt::AlignCenter);
+        patientPhotoLabel->setScaledContents(true);
+
+        mainContentLayout->addWidget(patientPhotoLabel);
+
+        buttonVBoxLayout = new QVBoxLayout();
+        buttonVBoxLayout->setSpacing(15);
+        buttonVBoxLayout->setObjectName(QString::fromUtf8("buttonVBoxLayout"));
+        scheduleButton = new QPushButton(PatientProfile);
         scheduleButton->setObjectName(QString::fromUtf8("scheduleButton"));
 
-        verticalLayout->addWidget(scheduleButton);
+        buttonVBoxLayout->addWidget(scheduleButton);
 
-        verticalSpacer_1 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_1);
-
-        appointmentCaseButton = new QPushButton(buttonContainer);
+        appointmentCaseButton = new QPushButton(PatientProfile);
         appointmentCaseButton->setObjectName(QString::fromUtf8("appointmentCaseButton"));
 
-        verticalLayout->addWidget(appointmentCaseButton);
+        buttonVBoxLayout->addWidget(appointmentCaseButton);
 
-        verticalSpacer_2 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_2);
-
-        profileButton = new QPushButton(buttonContainer);
+        profileButton = new QPushButton(PatientProfile);
         profileButton->setObjectName(QString::fromUtf8("profileButton"));
 
-        verticalLayout->addWidget(profileButton);
+        buttonVBoxLayout->addWidget(profileButton);
 
-        verticalSpacer_3 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_3);
-
-        doctorButton = new QPushButton(buttonContainer);
+        doctorButton = new QPushButton(PatientProfile);
         doctorButton->setObjectName(QString::fromUtf8("doctorButton"));
 
-        verticalLayout->addWidget(doctorButton);
+        buttonVBoxLayout->addWidget(doctorButton);
 
-        emailDoctorButton = new QPushButton(buttonContainer);
+        emailDoctorButton = new QPushButton(PatientProfile);
         emailDoctorButton->setObjectName(QString::fromUtf8("emailDoctorButton"));
 
-        verticalLayout->addWidget(emailDoctorButton);
+        buttonVBoxLayout->addWidget(emailDoctorButton);
 
-        verticalSpacer_emailButton = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_emailButton);
-
-        healthButton = new QPushButton(buttonContainer);
+        healthButton = new QPushButton(PatientProfile);
         healthButton->setObjectName(QString::fromUtf8("healthButton"));
 
-        verticalLayout->addWidget(healthButton);
+        buttonVBoxLayout->addWidget(healthButton);
 
-        verticalSpacer_5 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer_5);
-
-        chatButton = new QPushButton(buttonContainer);
+        chatButton = new QPushButton(PatientProfile);
         chatButton->setObjectName(QString::fromUtf8("chatButton"));
 
-        verticalLayout->addWidget(chatButton);
+        buttonVBoxLayout->addWidget(chatButton);
 
-        verticalSpacer_6 = new QSpacerItem(20, 30, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacerButtons = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout->addItem(verticalSpacer_6);
+        buttonVBoxLayout->addItem(verticalSpacerButtons);
 
-        quitButton = new QPushButton(buttonContainer);
+
+        mainContentLayout->addLayout(buttonVBoxLayout);
+
+
+        mainVerticalLayout->addLayout(mainContentLayout);
+
+        quitButtonLayout = new QHBoxLayout();
+        quitButtonLayout->setObjectName(QString::fromUtf8("quitButtonLayout"));
+        leftSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        quitButtonLayout->addItem(leftSpacer);
+
+        quitButton = new QPushButton(PatientProfile);
         quitButton->setObjectName(QString::fromUtf8("quitButton"));
+        quitButton->setMinimumSize(QSize(200, 50));
 
-        verticalLayout->addWidget(quitButton);
+        quitButtonLayout->addWidget(quitButton);
 
-        verticalSpacer_7 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        rightSpacer = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        verticalLayout->addItem(verticalSpacer_7);
+        quitButtonLayout->addItem(rightSpacer);
 
 
-        verticalLayout_2->addWidget(buttonContainer);
+        mainVerticalLayout->addLayout(quitButtonLayout);
 
-        scrollArea->setWidget(scrollAreaWidgetContents);
 
         retranslateUi(PatientProfile);
 
@@ -177,8 +213,8 @@ public:
 
     void retranslateUi(QWidget *PatientProfile)
     {
-        PatientProfile->setWindowTitle(QApplication::translate("PatientProfile", "\346\202\243\350\200\205\344\270\252\344\272\272\344\270\255\345\277\203", nullptr));
-        titleLabel->setText(QApplication::translate("PatientProfile", "\346\202\243\350\200\205\344\270\252\344\272\272\344\270\255\345\277\203", nullptr));
+        PatientProfile->setWindowTitle(QApplication::translate("PatientProfile", "\346\202\243\350\200\205\344\270\273\351\241\265", nullptr));
+        titleLabel->setText(QApplication::translate("PatientProfile", "\346\202\243\350\200\205\344\270\273\351\241\265", nullptr));
         scheduleButton->setText(QApplication::translate("PatientProfile", "\346\214\202\345\217\267\351\242\204\347\272\246", nullptr));
         appointmentCaseButton->setText(QApplication::translate("PatientProfile", "\346\237\245\347\234\213\347\227\205\345\216\206\344\270\216\345\244\204\346\226\271", nullptr));
         profileButton->setText(QApplication::translate("PatientProfile", "\347\274\226\350\276\221\344\270\252\344\272\272\344\277\241\346\201\257", nullptr));
