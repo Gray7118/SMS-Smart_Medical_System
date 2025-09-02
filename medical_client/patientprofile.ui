@@ -56,10 +56,31 @@
             stop:1 #1565c0
         );
     }
+    /* 退出按钮单独样式 */
     #quitButton {
-        background-color: #e74c3c;
+        border-radius: 14px;
+        border: 1px solid #e74c3c;
+        color: #ffffff;
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #ff7f7f,
+            stop:1 #e53935
+        );
     }
-    #quitButton:hover { background-color: #c0392b; }
+    #quitButton:hover {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #ff8a80,
+            stop:1 #f44336
+        );
+    }
+    #quitButton:pressed {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #e53935,
+            stop:1 #c62828
+        );
+    }
    </string>
   </property>
 
@@ -75,41 +96,22 @@
      <item>
       <widget class="QLabel" name="logoLabel">
        <property name="minimumSize">
-        <size>
-         <width>80</width>
-         <height>80</height>
-        </size>
+        <size><width>80</width><height>80</height></size>
        </property>
        <property name="maximumSize">
-        <size>
-         <width>80</width>
-         <height>80</height>
-        </size>
+        <size><width>80</width><height>80</height></size>
        </property>
-       <property name="pixmap">
-        <pixmap>logo.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
+       <property name="pixmap"><pixmap>logo.png</pixmap></property>
+       <property name="scaledContents"><bool>true</bool></property>
       </widget>
      </item>
      <item>
       <widget class="QLabel" name="titleLabel">
        <property name="font">
-        <font>
-         <family>微软雅黑</family>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
+        <font><family>微软雅黑</family><pointsize>20</pointsize><weight>75</weight><bold>true</bold></font>
        </property>
-       <property name="text">
-        <string>患者主页</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignVCenter|Qt::AlignLeft</set>
-       </property>
+       <property name="text"><string>患者主页</string></property>
+       <property name="alignment"><set>Qt::AlignVCenter|Qt::AlignLeft</set></property>
       </widget>
      </item>
     </layout>
@@ -118,44 +120,23 @@
    <!-- 主体布局：左图像 + 右按钮 -->
    <item>
     <layout class="QHBoxLayout" name="mainContentLayout">
-     <property name="spacing">
-      <number>30</number>
-     </property>
+     <property name="spacing"><number>30</number></property>
 
      <!-- 左侧患者图像 -->
      <item>
       <widget class="QLabel" name="patientPhotoLabel">
-       <property name="minimumSize">
-        <size>
-         <width>240</width>
-         <height>320</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>240</width>
-         <height>320</height>
-        </size>
-       </property>
-       <property name="pixmap">
-        <pixmap>patient.png</pixmap>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
+       <property name="minimumSize"><size><width>240</width><height>320</height></size></property>
+       <property name="maximumSize"><size><width>240</width><height>320</height></size></property>
+       <property name="pixmap"><pixmap>patient.png</pixmap></property>
+       <property name="alignment"><set>Qt::AlignCenter</set></property>
+       <property name="scaledContents"><bool>true</bool></property>
       </widget>
      </item>
 
      <!-- 右侧按钮区 -->
      <item>
       <layout class="QVBoxLayout" name="buttonVBoxLayout">
-       <property name="spacing">
-        <number>15</number>
-       </property>
-
+       <property name="spacing"><number>15</number></property>
        <item><widget class="QPushButton" name="scheduleButton"><property name="text"><string>挂号预约</string></property></widget></item>
        <item><widget class="QPushButton" name="appointmentCaseButton"><property name="text"><string>查看病历与处方</string></property></widget></item>
        <item><widget class="QPushButton" name="profileButton"><property name="text"><string>编辑个人信息</string></property></widget></item>
@@ -178,7 +159,12 @@
    <item>
     <layout class="QHBoxLayout" name="quitButtonLayout">
      <item><spacer name="leftSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
-     <item><widget class="QPushButton" name="quitButton"><property name="minimumSize"><size><width>200</width><height>50</height></size></property><property name="text"><string>退出系统</string></property></widget></item>
+     <item>
+      <widget class="QPushButton" name="quitButton">
+       <property name="minimumSize"><size><width>200</width><height>50</height></size></property>
+       <property name="text"><string>退出系统</string></property>
+      </widget>
+     </item>
      <item><spacer name="rightSpacer"><property name="orientation"><enum>Qt::Horizontal</enum></property></spacer></item>
     </layout>
    </item>

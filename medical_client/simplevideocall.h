@@ -42,10 +42,6 @@ private slots:
     void onHangupClicked();
     void onImageCaptured(int id, const QImage &image);
     void readCameraData();  // 新增，用于解析 ffmpeg pipe 输出
-<<<<<<< HEAD
-//    void testCameraDisplay();  // 仅本地显示测试
-=======
->>>>>>> main
 
 private:
     void setupUI();
