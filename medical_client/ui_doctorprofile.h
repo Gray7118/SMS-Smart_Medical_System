@@ -89,11 +89,32 @@ public:
 "            stop:1 #1565c0\n"
 "        );\n"
 "    }\n"
-"    /* \345\217\252\344\277\256\346\224\271\351\200\200\345\207\272\346\214\211\351\222\256\346\240\267\345\274\217 */\n"
+"    /* \351\200\200\345\207\272\346\214\211\351\222\256\346\240\267\345\274\217\357\274\232\345\256\214\345\205\250\350\246\206\347\233\226 */\n"
 "    #quitButton {\n"
-"        background-color: #e74c3c;\n"
+"        border-radius: 14px;\n"
+"        border: 1px solid #e57373;\n"
+"        color: #ffffff;\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #ff7f7f,\n"
+"            stop:1 #e53935\n"
+"        );\n"
 "    }\n"
-"    #quitButton:hover { background-color: #c0392b; }\n"
+"    #quitButton:hover {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #ff8a80,\n"
+"            stop:1 #f44336\n"
+"        );\n"
+"    }\n"
+"    #quitButton:pressed {\n"
+"        background-color: qlineargradient(\n"
+"            x1:0, y1:0, x2:0, y2:1,\n"
+"            stop:0 #e53935,\n"
+"            st"
+                        "op:1 #c62828\n"
+"        );\n"
+"    }\n"
 "   "));
         mainVerticalLayout = new QVBoxLayout(doctorProfile);
         mainVerticalLayout->setSpacing(20);
@@ -209,7 +230,7 @@ public:
         profileButton->setText(QApplication::translate("doctorProfile", "\347\274\226\350\276\221\344\270\252\344\272\272\344\277\241\346\201\257", nullptr));
         chatButton->setText(QApplication::translate("doctorProfile", "\345\214\273\346\202\243\346\262\237\351\200\232\345\271\263\345\217\260", nullptr));
         emailPatientButton->setText(QApplication::translate("doctorProfile", "\345\217\221\351\200\201\351\202\256\344\273\266\347\273\231\346\202\243\350\200\205", nullptr));
-        quitButton->setText(QApplication::translate("doctorProfile", "\351\200\200\345\207\272", nullptr));
+        quitButton->setText(QApplication::translate("doctorProfile", "\351\200\200\345\207\272\347\263\273\347\273\237", nullptr));
     } // retranslateUi
 
 };

@@ -11,98 +11,132 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>预约时间选择</string>
   </property>
-  <widget class="QComboBox" name="choose_schedule">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>201</width>
-     <height>61</height>
-    </rect>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget#schedule_choose {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #e3f2fd,
+        stop:1 #ffffff
+    );
+    font-family: &quot;Microsoft YaHei&quot;;
+}
+QLabel {
+    color: #000000;
+    font-weight: bold;
+}
+QComboBox {
+    border: 2px solid #64b5f6;
+    border-radius: 8px;
+    padding: 8px 30px 8px 10px;
+    background-color: #ffffff;
+    font-weight: bold;
+    min-height: 50px;
+    color: #333333;
+}
+QComboBox:focus {
+    border: 2px solid #1e88e5;
+}
+QComboBox::drop-down { subcontrol-origin: padding; subcontrol-position: top right; width: 30px; border-left: none; background: transparent; }
+QComboBox::down-arrow { width:12px; height:12px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #1e88e5; }
+QComboBox::down-arrow:on { border-top-color: #1565c0; }
+QComboBox QAbstractItemView {
+    border: 2px solid #64b5f6;
+    border-radius: 6px;
+    background-color: #ffffff;
+    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #6ec6ff, stop:1 #1e88e5);
+    selection-color: white;
+    outline: none;
+    padding: 5px;
+    font-weight: bold;
+}
+QComboBox QAbstractItemView::item { height: 40px; padding-left: 10px; }
+QComboBox QAbstractItemView::item:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #81d4fa, stop:1 #1976d2); color: white; }
+QLineEdit {
+    border: 2px solid #64b5f6;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #ffffff;
+    font-weight: bold;
+    min-height: 50px;
+}
+QLineEdit:focus { border: 2px solid #1e88e5; }
+QTextEdit {
+    border: 2px solid #64b5f6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-weight: bold;
+    padding: 5px;
+}
+QPushButton {
+    border-radius: 12px;
+    border: 1px solid #64b5f6;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #6ec6ff, stop:1 #1e88e5);
+    min-width: 154px;
+    min-height: 68px;
+}
+QPushButton:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #81d4fa, stop:1 #1976d2); }
+QPushButton:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1e88e5, stop:1 #1565c0); }
+#returnbutton {
+    border-radius: 14px;
+    border: 1px solid #e74c3c;
+    color: #ffffff;
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ff7f7f, stop:1 #e53935);
+}
+#returnbutton:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ff8a80, stop:1 #f44336); }
+#returnbutton:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #e53935, stop:1 #c62828); }
+   </string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>481</width>
+     <x>40</x>
+     <y>10</y>
+     <width>181</width>
      <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>微软雅黑</family>
+     <family>Microsoft YaHei</family>
      <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
     <string>请选择预约时间</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="returnbutton">
+  <widget class="QComboBox" name="choose_schedule">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>420</y>
-     <width>161</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>返回</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="surebutton">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>420</y>
-     <width>161</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>确认挂号</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="see_schedule">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>30</y>
-     <width>421</width>
-     <height>341</height>
+     <x>40</x>
+     <y>80</y>
+     <width>201</width>
+     <height>70</height>
     </rect>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>160</y>
-     <width>371</width>
+     <x>40</x>
+     <y>190</y>
+     <width>191</width>
      <height>71</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>微软雅黑</family>
+     <family>Microsoft YaHei</family>
      <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
@@ -112,11 +146,50 @@
   <widget class="QLineEdit" name="inputdocname">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>220</y>
+     <x>40</x>
+     <y>260</y>
      <width>201</width>
-     <height>51</height>
+     <height>70</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="see_schedule">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>30</y>
+     <width>441</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="surebutton">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>420</y>
+     <width>161</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确认挂号</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnbutton">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>420</y>
+     <width>161</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
    </property>
   </widget>
  </widget>

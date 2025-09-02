@@ -23,48 +23,126 @@ QT_BEGIN_NAMESPACE
 class Ui_doctor_choose
 {
 public:
-    QComboBox *choose_doctor;
     QLabel *label;
+    QComboBox *choose_doctor;
     QLabel *label_2;
     QLineEdit *input_schedule;
     QTextEdit *see_doctor;
-    QPushButton *returnbutton;
     QPushButton *surebutton;
+    QPushButton *returnbutton;
 
     void setupUi(QWidget *doctor_choose)
     {
         if (doctor_choose->objectName().isEmpty())
             doctor_choose->setObjectName(QString::fromUtf8("doctor_choose"));
-        doctor_choose->resize(592, 520);
-        QFont font;
-        font.setPointSize(20);
-        doctor_choose->setFont(font);
-        choose_doctor = new QComboBox(doctor_choose);
-        choose_doctor->setObjectName(QString::fromUtf8("choose_doctor"));
-        choose_doctor->setGeometry(QRect(10, 90, 221, 51));
+        doctor_choose->resize(751, 570);
+        doctor_choose->setStyleSheet(QString::fromUtf8("\n"
+"QWidget#doctor_choose {\n"
+"    background-color: qlineargradient(\n"
+"        x1:0, y1:0, x2:0, y2:1,\n"
+"        stop:0 #e3f2fd,\n"
+"        stop:1 #ffffff\n"
+"    );\n"
+"    font-family: \"Microsoft YaHei\";\n"
+"}\n"
+"QLabel {\n"
+"    color: #000000;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QComboBox {\n"
+"    border: 2px solid #64b5f6;\n"
+"    border-radius: 8px;\n"
+"    padding: 8px 30px 8px 10px;\n"
+"    background-color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    min-height: 50px;\n"
+"    color: #333333;\n"
+"}\n"
+"QComboBox:focus {\n"
+"    border: 2px solid #1e88e5;\n"
+"}\n"
+"QComboBox::drop-down { subcontrol-origin: padding; subcontrol-position: top right; width: 30px; border-left: none; background: transparent; }\n"
+"QComboBox::down-arrow { width:12px; height:12px; border-left:6px solid transparent; border-right:6px solid transparent; border-top:8px solid #1e88e5; }\n"
+"QComboBox::down-arrow:on { border-top-color: #1565c0; }\n"
+"QComboBox QAbstractItemView {\n"
+"    border: 2px solid #64b5f6;\n"
+"  "
+                        "  border-radius: 6px;\n"
+"    background-color: #ffffff;\n"
+"    selection-background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #6ec6ff, stop:1 #1e88e5);\n"
+"    selection-color: white;\n"
+"    outline: none;\n"
+"    padding: 5px;\n"
+"    font-weight: bold;\n"
+"}\n"
+"QComboBox QAbstractItemView::item { height: 40px; padding-left: 10px; }\n"
+"QComboBox QAbstractItemView::item:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #81d4fa, stop:1 #1976d2); color: white; }\n"
+"QLineEdit {\n"
+"    border: 2px solid #64b5f6;\n"
+"    border-radius: 8px;\n"
+"    padding: 8px;\n"
+"    background-color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    min-height: 50px;\n"
+"}\n"
+"QLineEdit:focus { border: 2px solid #1e88e5; }\n"
+"QTextEdit {\n"
+"    border: 2px solid #64b5f6;\n"
+"    border-radius: 8px;\n"
+"    background-color: #ffffff;\n"
+"    font-weight: bold;\n"
+"    padding: 5px;\n"
+"}\n"
+"QPushButton {\n"
+"    border-radius: 12px;\n"
+"    border: 1px solid #64b5f6;\n"
+"    color: #ffffff;"
+                        "\n"
+"    font-weight: bold;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #6ec6ff, stop:1 #1e88e5);\n"
+"    min-width: 154px;\n"
+"    min-height: 68px;\n"
+"}\n"
+"QPushButton:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #81d4fa, stop:1 #1976d2); }\n"
+"QPushButton:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #1e88e5, stop:1 #1565c0); }\n"
+"#returnbutton {\n"
+"    border-radius: 14px;\n"
+"    border: 1px solid #e74c3c;\n"
+"    color: #ffffff;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ff7f7f, stop:1 #e53935);\n"
+"}\n"
+"#returnbutton:hover { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #ff8a80, stop:1 #f44336); }\n"
+"#returnbutton:pressed { background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #e53935, stop:1 #c62828); }\n"
+"   "));
         label = new QLabel(doctor_choose);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 20, 281, 71));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("AcadEref"));
-        font1.setPointSize(22);
-        label->setFont(font1);
+        label->setGeometry(QRect(40, 10, 200, 71));
+        QFont font;
+        font.setFamily(QString::fromUtf8("Microsoft YaHei"));
+        font.setPointSize(14);
+        font.setBold(true);
+        font.setWeight(75);
+        label->setFont(font);
+        choose_doctor = new QComboBox(doctor_choose);
+        choose_doctor->setObjectName(QString::fromUtf8("choose_doctor"));
+        choose_doctor->setGeometry(QRect(40, 80, 201, 70));
         label_2 = new QLabel(doctor_choose);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 150, 281, 71));
-        label_2->setFont(font1);
+        label_2->setGeometry(QRect(40, 190, 200, 71));
+        label_2->setFont(font);
         input_schedule = new QLineEdit(doctor_choose);
         input_schedule->setObjectName(QString::fromUtf8("input_schedule"));
-        input_schedule->setGeometry(QRect(10, 220, 221, 61));
+        input_schedule->setGeometry(QRect(40, 260, 201, 70));
         see_doctor = new QTextEdit(doctor_choose);
         see_doctor->setObjectName(QString::fromUtf8("see_doctor"));
-        see_doctor->setGeometry(QRect(240, 10, 331, 331));
-        returnbutton = new QPushButton(doctor_choose);
-        returnbutton->setObjectName(QString::fromUtf8("returnbutton"));
-        returnbutton->setGeometry(QRect(80, 390, 141, 51));
+        see_doctor->setGeometry(QRect(280, 30, 441, 361));
+        see_doctor->setReadOnly(true);
         surebutton = new QPushButton(doctor_choose);
         surebutton->setObjectName(QString::fromUtf8("surebutton"));
-        surebutton->setGeometry(QRect(340, 390, 141, 51));
+        surebutton->setGeometry(QRect(110, 420, 161, 70));
+        returnbutton = new QPushButton(doctor_choose);
+        returnbutton->setObjectName(QString::fromUtf8("returnbutton"));
+        returnbutton->setGeometry(QRect(440, 420, 161, 70));
 
         retranslateUi(doctor_choose);
 
@@ -73,11 +151,11 @@ public:
 
     void retranslateUi(QWidget *doctor_choose)
     {
-        doctor_choose->setWindowTitle(QApplication::translate("doctor_choose", "Form", nullptr));
+        doctor_choose->setWindowTitle(QApplication::translate("doctor_choose", "\345\214\273\347\224\237\351\200\211\346\213\251", nullptr));
         label->setText(QApplication::translate("doctor_choose", "\350\257\267\351\200\211\346\213\251\345\214\273\347\224\237\345\247\223\345\220\215", nullptr));
         label_2->setText(QApplication::translate("doctor_choose", "\350\257\267\350\276\223\345\205\245\351\242\204\347\272\246\346\227\266\351\227\264", nullptr));
+        surebutton->setText(QApplication::translate("doctor_choose", "\347\241\256\350\256\244\346\214\202\345\217\267", nullptr));
         returnbutton->setText(QApplication::translate("doctor_choose", "\350\277\224\345\233\236", nullptr));
-        surebutton->setText(QApplication::translate("doctor_choose", "\347\241\256\345\256\232", nullptr));
     } // retranslateUi
 
 };

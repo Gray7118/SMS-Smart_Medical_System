@@ -78,7 +78,7 @@ void SplashScreen::initUI()
     // 下部区域 - 文字信息
     m_bottomWidget = new QWidget(this);
     m_bottomWidget->setStyleSheet("background: transparent;");
-    m_bottomWidget->setFixedHeight(150); // 固定高度确保文字区域稳定
+    m_bottomWidget->setFixedHeight(200); // 固定高度确保文字区域稳定
 
     QVBoxLayout *bottomLayout = new QVBoxLayout(m_bottomWidget);
     bottomLayout->setContentsMargins(40, 10, 40, 30);

@@ -11,8 +11,77 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>健康测试结果</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QWidget#healthtestoutcome {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #e3f2fd,
+            stop:1 #ffffff
+        );
+        font-family: &quot;Microsoft YaHei&quot;;
+    }
+    QTextEdit#testoutcome_info {
+        border: 2px solid #64b5f6;
+        border-radius: 8px;
+        background-color: #ffffff;
+    }
+    QPushButton {
+        border-radius: 12px;
+        border: 1px solid #64b5f6;
+        color: #ffffff;
+        font-weight: bold;
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #6ec6ff,
+            stop:1 #1e88e5
+        );
+        padding: 8px 16px;
+        min-width: 154px;
+        min-height: 68px;
+        font-size: 16px;
+    }
+    QPushButton:hover {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #81d4fa,
+            stop:1 #1976d2
+        );
+    }
+    QPushButton:pressed {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #1e88e5,
+            stop:1 #1565c0
+        );
+    }
+   </string>
+  </property>
+  <widget class="QLabel" name="label_healthtestoutcome">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>10</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>健康测试结果</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <widget class="QTextEdit" name="testoutcome_info">
    <property name="geometry">
     <rect>
@@ -23,32 +92,20 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_healthtestoutcome">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>10</y>
-     <width>191</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>健康测试结果</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="testoutcome">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>210</x>
      <y>460</y>
-     <width>121</width>
+     <width>199</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>199</width>
+     <height>50</height>
+    </size>
    </property>
    <property name="text">
     <string>确定</string>

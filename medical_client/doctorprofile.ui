@@ -56,11 +56,31 @@
             stop:1 #1565c0
         );
     }
-    /* 只修改退出按钮样式 */
+    /* 退出按钮样式：完全覆盖 */
     #quitButton {
-        background-color: #e74c3c;
+        border-radius: 14px;
+        border: 1px solid #e57373;
+        color: #ffffff;
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #ff7f7f,
+            stop:1 #e53935
+        );
     }
-    #quitButton:hover { background-color: #c0392b; }
+    #quitButton:hover {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #ff8a80,
+            stop:1 #f44336
+        );
+    }
+    #quitButton:pressed {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #e53935,
+            stop:1 #c62828
+        );
+    }
    </string>
   </property>
 
@@ -228,7 +248,7 @@
         </size>
        </property>
        <property name="text">
-        <string>退出</string>
+        <string>退出系统</string>
        </property>
       </widget>
      </item>
