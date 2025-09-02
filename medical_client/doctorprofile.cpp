@@ -2,7 +2,7 @@
 #include "ui_doctorprofile.h"
 #include <QQuickWidget>
 #include <QQmlContext>
-#include "chat.h"
+#include "ChatMainWindow.h"
 
 DoctorProfile::DoctorProfile(QTcpSocket *socket, User *user, QWidget *parent) :
     QWidget(parent),
@@ -43,41 +43,29 @@ void DoctorProfile::on_quitButton_clicked()
 
 void DoctorProfile::on_chatButton_clicked()
 {
-    this->hide();
-    SelectReceiver *sr = new SelectReceiver(socket, user);
-    sr->show();
+    qDebug() << "点击聊天按钮";
 
-    connect(sr, &SelectReceiver::returnToProfile, this, [this](){
+    // 直接创建窗口，不使用静态或成员变量
+    ChatMainWindow *mainWindow = new ChatMainWindow(socket, user, this);
+    mainWindow->setWindowTitle("医生聊天界面 - " + user->username);
+    mainWindow->setWindowFlags(Qt::Window);
+
+    // 居中显示
+    mainWindow->move(839, 341);
+
+    // 显示窗口
+    mainWindow->show();
+    mainWindow->raise();
+    mainWindow->activateWindow();
+
+    // 连接返回信号
+    connect(mainWindow, &ChatMainWindow::returnToProfile, this, [this, mainWindow](){
         this->show();
+        mainWindow->deleteLater();
     });
 
-    connect(sr, &SelectReceiver::completeSelect, this, [this](QString receiver){
-        // 用 QWidget 容器显示 QML
-        // QWidget *chatWindow = new QWidget;
-        // chatWindow->setWindowTitle("Chat");
-
-        // QVBoxLayout *layout = new QVBoxLayout(chatWindow);
-
-        // QQuickWidget *view = new QQuickWidget;
-        // view->setSource(QUrl("qrc:/QML/ChatView.qml"));  // 你的Chat QML文件路径
-        // view->setResizeMode(QQuickWidget::SizeRootObjectToView);
-
-        // layout->addWidget(view);
-        // chatWindow->setLayout(layout);
-
-        // chatWindow->resize(600, 800);
-        // chatWindow->show();
-
-        // connect(chatWindow, &QWidget::destroyed, this, [this](){
-        //     this->show();
-        // });
-       Chat *c = new Chat(this->socket, this->user, receiver);
-       c->show();
-
-       connect(c, &Chat::returnToProfile, this, [this](){
-           this->show();
-       });
-    });
+    // 窗口关闭时自动删除
+    mainWindow->setAttribute(Qt::WA_DeleteOnClose);
 }
 
 void DoctorProfile::on_appointmentButton_clicked() // 过时

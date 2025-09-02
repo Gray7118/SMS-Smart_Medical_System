@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChatMainWindow</class>
+ <widget class="QWidget" name="ChatMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>寰宇医桥 - 医患沟通平台</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 主窗口渐变背景 */
+QWidget#ChatMainWindow {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #d0f0ff,
+        stop:1 #ffffff
+    );
+}
+
+/* 标题样式 */
+#headerLabel {
+    color: #1e88e5;
+    font-size: 36px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px #81d4fa;
+    qproperty-alignment: AlignCenter;
+}
+
+/* 当前聊天标签 */
+#currentChatLabel {
+    color: #1e88e5;
+    font-size: 20px;
+    font-weight: bold;
+    qproperty-alignment: AlignCenter;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* 联系人列表样式 */
+QListWidget#contactListWidget {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #81d4fa;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 14px;
+    color: #0f1f38;
+    outline: none;
+}
+
+QListWidget#contactListWidget::item {
+    padding: 12px;
+    border-bottom: 1px solid #e3f2fd;
+    background-color: transparent;
+}
+
+QListWidget#contactListWidget::item:selected {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #6ec6ff,
+        stop:1 #1e88e5
+    );
+    color: white;
+    border-radius: 8px;
+}
+
+QListWidget#contactListWidget::item:hover {
+    background-color: #e3f2fd;
+    border-radius: 8px;
+}
+
+/* 聊天显示区域 */
+QTextEdit#chatTextEdit {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #81d4fa;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 14px;
+    color: #0f1f38;
+    selection-background-color: #4fc3f7;
+    selection-color: #ffffff;
+    min-height: 450px;
+}
+
+/* 消息输入框 */
+QLineEdit#msgLineEdit {
+    border: 2px solid #81d4fa;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #0f1f38;
+    selection-background-color: #4fc3f7;
+    selection-color: #ffffff;
+}
+
+QLineEdit#msgLineEdit:focus {
+    border: 2px solid #1e88e5;
+}
+
+QLineEdit#msgLineEdit:disabled {
+    background-color: #f5f5f5;
+    color: #9e9e9e;
+}
+
+/* 按钮高级渐变科技风 */
+QPushButton {
+    border-radius: 14px;
+    border: 1px solid #64b5f6;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 24px;
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #6ec6ff,
+        stop:1 #1e88e5
+    );
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #81d4fa,
+        stop:1 #1976d2
+    );
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #1e88e5,
+        stop:1 #1565c0
+    );
+}
+
+QPushButton:disabled {
+    background-color: #bdbdbd;
+    border-color: #9e9e9e;
+    color: #757575;
+}
+
+/* 视频通话按钮特殊样式 */
+#videoCallButton {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #4caf50,
+        stop:1 #2e7d32
+    );
+    border-color: #66bb6a;
+}
+
+#videoCallButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #66bb6a,
+        stop:1 #1b5e20
+    );
+}
+
+/* 返回按钮样式 */
+#returnButton {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #ff7f7f,
+        stop:1 #e53935
+    );
+    border-color: #e57373;
+}
+
+#returnButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #ff8a80,
+        stop:1 #f44336
+    );
+}
+
+/* 聊天容器样式 */
+#chatContainer {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    padding: 25px;
+    margin: 20px;
+    border: 1px solid #bbdefb;
+}
+
+/* 分割线样式 */
+QSplitter::handle {
+    background-color: #bbdefb;
+    width: 2px;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    border: none;
+    background: #e3f2fd;
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #64b5f6;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #1e88e5;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QListWidget" name="contactListWidget">
+     <property name="minimumSize">
+      <size>
+       <width>250</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>16777215</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="chatContainer" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="headerLabel">
+        <property name="text">
+         <string>寰宇医桥 - 医患沟通平台</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_1">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>2</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="currentChatLabel">
+        <property name="text">
+         <string>当前聊天：李医生</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_0">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="chatTextEdit">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>10</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="msgLineEdit">
+        <property name="placeholderText">
+         <string>请输入消息内容...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>8</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="buttonLayout">
+        <item>
+         <widget class="QPushButton" name="sendButton">
+          <property name="text">
+           <string>发送</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_1">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="videoCallButton">
+          <property name="text">
+           <string>视频通话</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="returnButton">
+          <property name="text">
+           <string>返回</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

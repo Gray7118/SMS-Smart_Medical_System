@@ -439,7 +439,7 @@ Widget::Widget(QWidget *parent)
     );
 
     // 连接服务器
-    QString ip = QString("127.0.0.1");
+    QString ip = QString("172.20.10.10");
     QString port = QString("8888");
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress(ip), port.toShort());
@@ -470,7 +470,7 @@ Widget::Widget(User *user, QWidget *parent)
     );
 
     // 连接服务器
-    QString ip = QString("127.0.0.1");
+    QString ip = QString("172.20.10.10");
     QString port = QString("8888");
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress(ip), port.toShort());

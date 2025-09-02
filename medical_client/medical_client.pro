@@ -4,22 +4,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
-# The following define makes your compiler emit warnings if you use
-# any Qt feature that has been marked deprecated (the exact warnings
-# depend on your compiler). Please consult the documentation of the
-# deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
-
-# You can also make your code fail to compile if it uses deprecated APIs.
-# In order to do so, uncomment the following line.
-# You can also select to disable deprecated APIs only up to a certain version of Qt.
-#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
     simplevideocall.cpp \
     aihealthservice.cpp \
     appointmentchoose.cpp \
-    chat.cpp \
+    # chat.cpp \  # 移除旧的
     department_choose.cpp \
     departmentchoose.cpp \
     doctor_choose.cpp \
@@ -39,7 +30,7 @@ SOURCES += \
     schedulechoose.cpp \
     seedoctorinfo.cpp \
     seepatientinfo.cpp \
-    selectreceiver.cpp \
+    # selectreceiver.cpp \  # 移除旧的
     signup.cpp \
     splashscreen.cpp \
     user.cpp \
@@ -48,14 +39,15 @@ SOURCES += \
     navigation/mainwindow.cpp \
     navigation/mydialog.cpp\
     email/demos/demo2/sendemail.cpp \
-    email/demos/demo2/qss.cpp
+    email/demos/demo2/qss.cpp \
+    chatmainwindow.cpp  # 添加新的
 
 
 HEADERS += \
     simplevideocall.h \
     aihealthservice.h \
     appointmentchoose.h \
-    chat.h \
+    # chat.h \  # 移除旧的
     demo_vars.h \
     department_choose.h \
     departmentchoose.h \
@@ -75,7 +67,7 @@ HEADERS += \
     schedulechoose.h \
     seedoctorinfo.h \
     seepatientinfo.h \
-    selectreceiver.h \
+    # selectreceiver.h \  # 移除旧的
     signup.h \
     splashscreen.h \
     user.h \
@@ -84,11 +76,12 @@ HEADERS += \
     navigation/mainwindow.h \
     navigation/mydialog.h \
     navigation/mystruct.h\
-    email/demos/demo2/sendemail.h
+    email/demos/demo2/sendemail.h \
+    ChatMainWindow.h  # 添加新的
 
 FORMS += \
     appointmentchoose.ui \
-    chat.ui \
+    # chat.ui \  # 移除旧的
     department_choose.ui \
     departmentchoose.ui \
     doctor_choose.ui \
@@ -104,12 +97,13 @@ FORMS += \
     schedulechoose.ui \
     seedoctorinfo.ui \
     seepatientinfo.ui \
-    selectreceiver.ui \
+    # selectreceiver.ui \  # 移除旧的
     signUp.ui \
     widget.ui \
     navigation/mainwindow.ui \
     navigation/mydialog.ui\
-    email/demos/demo2/sendemail.ui
+    email/demos/demo2/sendemail.ui \
+    chatmainwindow.ui  # 添加新的
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -125,8 +119,5 @@ RESOURCES += \
 unix: LIBS += -L$$PWD/email/demos/demo2 -lSmtpMime
 INCLUDEPATH += $$PWD/email/demos/demo2
 DEPENDPATH += $$PWD/email/demos/demo2
-
-DISTFILES +=
-
 
 DISTFILES +=

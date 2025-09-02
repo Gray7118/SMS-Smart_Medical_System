@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
+    <width>900</width>
     <height>1000</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>850</width>
+    <width>900</width>
     <height>1000</height>
    </size>
   </property>
@@ -20,95 +20,99 @@
    <string>即时聊天平台</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-    /* 主窗口样式 */
-    QWidget {
-        background-color: #f0f5ff;
-        font-family: 'Microsoft YaHei';
-    }
+   <string notr="true">/* 主窗口样式 */
+QWidget {
+    background-color: #f0f5ff;
+    font-family: 'Microsoft YaHei';
+}
 
-    /* 标题样式 */
-    #headerLabel {
-        color: #1a3a5a;
-        font-size: 24px;
-        font-weight: bold;
-        qproperty-alignment: AlignCenter;
-    }
+/* 标题样式 */
+#headerLabel {
+    color: #1a3a5a;
+    font-size: 24px;
+    font-weight: bold;
+    qproperty-alignment: AlignCenter;
+}
 
-    /* 聊天显示区域 */
-    QTextEdit#chatTextEdit {
-        background-color: white;
-        border: 2px solid #c5d9f1;
-        border-radius: 10px;
-        padding: 15px;
-        font-size: 16px;
-        color: #333333;
-        selection-background-color: #4a90e2;
-        selection-color: white;
-        min-height: 500px;
-    }
+/* 聊天显示区域 */
+QTextEdit#chatTextEdit {
+    background-color: white;
+    border: 2px solid #c5d9f1;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: #333333;
+    selection-background-color: #4a90e2;
+    selection-color: white;
+    min-height: 500px;
+}
 
-    /* 消息输入框 */
-    QLineEdit#msgLineEdit {
-        border: 2px solid #c5d9f1;
-        border-radius: 10px;
-        padding: 15px;
-        font-size: 16px;
-        color: #222222;
-        background-color: white;
-    }
+/* 消息输入框 */
+QLineEdit#msgLineEdit {
+    border: 2px solid #c5d9f1;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    color: #222222;
+    background-color: white;
+}
 
-    QLineEdit#msgLineEdit:focus {
-        border: 2px solid #4a90e2;
-    }
+QLineEdit#msgLineEdit:focus {
+    border: 2px solid #4a90e2;
+}
 
-    /* 按钮通用样式 */
-    QPushButton {
-        background-color: #4a90e2;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 14px 28px;
-        font-size: 18px;
-        font-weight: bold;
-        min-width: 120px;
-    }
+/* 主要操作按钮样式（发送和视频通话） */
+#sendButton, #videoCallButton {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 100px;
+}
 
-    QPushButton:hover {
-        background-color: #3a7bc8;
-    }
+#sendButton:hover, #videoCallButton:hover {
+    background-color: #3a7bc8;
+}
 
-    QPushButton:pressed {
-        background-color: #2c6bb6;
-    }
+#sendButton:pressed, #videoCallButton:pressed {
+    background-color: #2c6bb6;
+}
 
-    /* 返回按钮特殊样式 */
-    #returnButton {
-        background-color: #8a8a8a;
-    }
+/* 返回按钮样式 */
+#returnButton {
+    background-color: #8a8a8a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 100px;
+}
 
-    #returnButton:hover {
-        background-color: #7a7a8a;
-    }
+#returnButton:hover {
+    background-color: #7a7a8a;
+}
 
-    /* 聊天容器样式 */
-    #chatContainer {
-        background-color: white;
-        border-radius: 15px;
-        padding: 25px;
-        margin: 25px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-    }
-   </string>
+/* 聊天容器样式 */
+#chatContainer {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}</string>
   </property>
   <widget class="QWidget" name="chatContainer" native="true">
    <property name="geometry">
     <rect>
      <x>50</x>
      <y>30</y>
-     <width>750</width>
+     <width>800</width>
      <height>900</height>
-
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -122,11 +126,9 @@
     <item>
      <widget class="QLabel" name="recerverLabel">
       <property name="styleSheet">
-       <string notr="true">
-        font-size: 18px;
-        color: #444444;
-        qproperty-alignment: AlignCenter;
-       </string>
+       <string notr="true">font-size: 18px;
+color: #444444;
+qproperty-alignment: AlignCenter;</string>
       </property>
       <property name="text">
        <string>您正在和 xxx (xx) 沟通：</string>
@@ -205,13 +207,33 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer_1">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="videoCallButton">
+        <property name="text">
+         <string>视频通话</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
           <height>20</height>
          </size>
         </property>
@@ -219,9 +241,6 @@
       </item>
       <item>
        <widget class="QPushButton" name="returnButton">
-        <property name="styleSheet">
-         <string notr="true">#returnButton</string>
-        </property>
         <property name="text">
          <string>返回</string>
         </property>

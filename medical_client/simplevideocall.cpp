@@ -2,6 +2,8 @@
 #include "simplevideocall.h"
 #include <QMessageBox>
 #include <QDebug>
+#include <QGraphicsDropShadowEffect>
+
 #include <QCameraInfo>
 
 
@@ -36,62 +38,112 @@ SimpleVideoCall::~SimpleVideoCall()
 void SimpleVideoCall::setupUI()
 {
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(10);
+    mainLayout->setContentsMargins(10, 10, 10, 10);
 
     // 状态标签
     m_statusLabel = new QLabel("视频通话中...");
     m_statusLabel->setAlignment(Qt::AlignCenter);
-    m_statusLabel->setStyleSheet("font-size: 14px; font-weight: bold; padding: 10px;");
+    m_statusLabel->setFixedHeight(24); // 压缩高度
+    m_statusLabel->setStyleSheet(
+        "QLabel {"
+        "font-size:14px;"
+        "font-weight:bold;"
+        "color:#333333;"
+        "border:1px solid #cccccc;"
+        "border-radius:6px;"
+        "background-color:#f0f0f0;"
+        "padding:2px 4px;"
+        "}"
+    );
     mainLayout->addWidget(m_statusLabel);
 
     // 视频显示区域
     QHBoxLayout *videoLayout = new QHBoxLayout();
+    videoLayout->setSpacing(20);
 
     // 本地视频区域
     QVBoxLayout *localLayout = new QVBoxLayout();
+    localLayout->setSpacing(5);
+
     QLabel *localTitle = new QLabel("我的画面");
     localTitle->setAlignment(Qt::AlignCenter);
-    localTitle->setStyleSheet("font-weight: bold;");
+    localTitle->setFixedHeight(20); // 压缩高度
+    localTitle->setStyleSheet("font-weight:bold; font-size:13px;");
     localLayout->addWidget(localTitle);
 
     m_localImageLabel = new QLabel();
-    m_localImageLabel->setFixedSize(300, 225);
-    m_localImageLabel->setStyleSheet("border: 2px solid gray; background-color: black;");
+    m_localImageLabel->setMinimumSize(360, 270); // 初始尺寸
+    m_localImageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding); // 可随窗口放大
+    m_localImageLabel->setStyleSheet(
+        "border:2px solid gray;"
+        "background-color:black;"
+        "border-radius:8px;"
+    );
     m_localImageLabel->setAlignment(Qt::AlignCenter);
     m_localImageLabel->setText("摄像头启动中...");
     m_localImageLabel->setScaledContents(true);
+
+    // 添加阴影效果
+    QGraphicsDropShadowEffect *localShadow = new QGraphicsDropShadowEffect();
+    localShadow->setBlurRadius(10);
+    localShadow->setOffset(0,0);
+    m_localImageLabel->setGraphicsEffect(localShadow);
+
     localLayout->addWidget(m_localImageLabel);
 
     // 远程视频区域
     QVBoxLayout *remoteLayout = new QVBoxLayout();
+    remoteLayout->setSpacing(5);
+
     QLabel *remoteTitle = new QLabel(QString("%1的画面").arg(m_partnerName));
     remoteTitle->setAlignment(Qt::AlignCenter);
-    remoteTitle->setStyleSheet("font-weight: bold;");
+    remoteTitle->setFixedHeight(20); // 压缩高度
+    remoteTitle->setStyleSheet("font-weight:bold; font-size:13px;");
     remoteLayout->addWidget(remoteTitle);
 
     m_remoteImageLabel = new QLabel();
-    m_remoteImageLabel->setFixedSize(400, 300);
-    m_remoteImageLabel->setStyleSheet("border: 2px solid blue; background-color: black;");
+    m_remoteImageLabel->setMinimumSize(480, 360); // 初始尺寸
+    m_remoteImageLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding); // 可随窗口放大
+    m_remoteImageLabel->setStyleSheet(
+        "border:2px solid blue;"
+        "background-color:black;"
+        "border-radius:8px;"
+    );
     m_remoteImageLabel->setAlignment(Qt::AlignCenter);
     m_remoteImageLabel->setText("等待对方画面...");
     m_remoteImageLabel->setScaledContents(true);
+
+    // 添加阴影效果
+    QGraphicsDropShadowEffect *remoteShadow = new QGraphicsDropShadowEffect();
+    remoteShadow->setBlurRadius(10);
+    remoteShadow->setOffset(0,0);
+    m_remoteImageLabel->setGraphicsEffect(remoteShadow);
+
     remoteLayout->addWidget(m_remoteImageLabel);
 
-    videoLayout->addLayout(localLayout);
-    videoLayout->addLayout(remoteLayout);
-    mainLayout->addLayout(videoLayout);
+    // 添加布局并设置权重，让视频框占满可用空间
+    videoLayout->addLayout(localLayout, 1);
+    videoLayout->addLayout(remoteLayout, 1);
+    mainLayout->addLayout(videoLayout, 1); // 占用更多垂直空间
 
     // 控制按钮
     QHBoxLayout *controlLayout = new QHBoxLayout();
     controlLayout->addStretch();
 
     m_hangupButton = new QPushButton("结束通话");
+    m_hangupButton->setFixedHeight(28); // 压缩高度
     m_hangupButton->setStyleSheet(
         "QPushButton {"
-        "background-color: #ff4444; color: white; font-weight: bold; "
-        "padding: 10px 20px; border-radius: 5px; font-size: 14px;"
+        "background-color:#ff5555;"
+        "color:white;"
+        "font-weight:bold;"
+        "padding:4px 12px;"
+        "border-radius:6px;"
+        "font-size:13px;"
         "}"
         "QPushButton:hover {"
-        "background-color: #cc0000;"
+        "background-color:#dd3333;"
         "}"
     );
     connect(m_hangupButton, &QPushButton::clicked, this, &SimpleVideoCall::onHangupClicked);
