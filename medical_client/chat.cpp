@@ -26,19 +26,17 @@ Chat::Chat(QTcpSocket *socket, User *user, QString receiver, QWidget *parent) :
    Message msg(user, new User(receiver, QString(), user->role == 0 ? 1 : 0), QString(), MessageType::GET_HISTORY);
    socket->write(Message::messageToByteArray(msg));
 
-    // 修改信号连接方式 - 替换原来的lambda连接
-    connect(socket, &QTcpSocket::readyRead, this, &Chat::handleSocketReadyRead);
+   // 修改信号连接方式
+   connect(socket, &QTcpSocket::readyRead, this, &Chat::handleSocketReadyRead);
 
+   // 回车键直接发送
+   connect(ui->msgLineEdit, &QLineEdit::returnPressed, this, &Chat::on_sendButton_clicked);
 
-    // 回车键直接发送
-    connect(ui->msgLineEdit, &QLineEdit::returnPressed, this, &Chat::on_sendButton_clicked);
-    // 在这里添加视频通话按钮
-    QPushButton *videoCallButton = new QPushButton("视频通话", this);
-    videoCallButton->setGeometry(160, 790, 100, 50);  // 调整位置，避免与现有按钮重叠
-    videoCallButton->setStyleSheet("background-color: #2196F3; color: white; font-weight: bold;");
-    connect(videoCallButton, &QPushButton::clicked, this, &Chat::startVideoCall);
-    // 初始化视频通话窗口指针
-    m_videoCallWindow = nullptr;
+   // 连接视频通话按钮
+   connect(ui->videoCallButton, &QPushButton::clicked, this, &Chat::startVideoCall);
+
+   // 初始化视频通话窗口指针
+   m_videoCallWindow = nullptr;
 }
 
 Chat::~Chat()

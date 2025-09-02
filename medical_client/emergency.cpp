@@ -58,6 +58,7 @@ void EmergencySymptoms::onConfirmClicked()
 
 
 #include "emergency.h"
+#include "ChatMainWindow.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QMessageBox>
@@ -221,10 +222,10 @@ void EmergencySymptoms::onConfirmClicked()
     /*Message msg(user, new User, symptomsStr, MessageType::EMERGENCY);
     socket->write(Message::messageToByteArray(msg));*/
 
-    // 跳转到选人页面
+    // 直接跳转到主聊天窗口，不再使用 SelectReceiver
     this->hide();
-    SelectReceiver *selectReceiver = new SelectReceiver(socket, user);
-    selectReceiver->show();
+    ChatMainWindow *mainWindow = new ChatMainWindow(socket, user);
+    mainWindow->show();
 }
 
 QString EmergencySymptoms::checkSuspectedDiseases(const QStringList &selectedSymptoms)
