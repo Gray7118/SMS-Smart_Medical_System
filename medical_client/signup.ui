@@ -25,12 +25,41 @@
         font-family: &quot;Microsoft YaHei&quot;;
     }
 
-    /* 标题 */
-    #label_title {
-        color: #1e88e5;
-        font-size: 26px;   /* 放大字体 */
-        font-weight: bold; /* 加粗 */
-    }
+/* 标题改为黑色 */
+#label_title {
+    color: #000000; /* 黑色 */
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* 取消按钮改为红色风格，其余保持原样 */
+#quitButton {
+    border-radius: 12px;
+    border: 1px solid #e53935;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #ef5350,
+        stop:1 #d32f2f
+    );
+}
+
+#quitButton:hover {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #e57373,
+        stop:1 #c62828
+    );
+}
+
+#quitButton:pressed {
+    background-color: qlineargradient(
+        x1:0, y1:0, x2:0, y2:1,
+        stop:0 #d32f2f,
+        stop:1 #b71c1c
+    );
+}
 
     /* 提示标签（保留原名tip1Label/tip2Label） */
     QLabel {
