@@ -7,11 +7,87 @@
     <x>0</x>
     <y>0</y>
     <width>710</width>
-    <height>556</height>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>邮件（Email）</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    /* 主窗口渐变背景 */
+    QWidget#SendEmail {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #d0f0ff,
+            stop:1 #ffffff
+        );
+    }
+
+    /* 按钮高级渐变科技风 */
+    QPushButton {
+        border-radius: 14px;
+        border: 1px solid #64b5f6;
+        color: #ffffff;
+        font-weight: bold;
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #6ec6ff,
+            stop:1 #1e88e5
+        );
+    }
+    QPushButton:hover {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #81d4fa,
+            stop:1 #1976d2
+        );
+    }
+    QPushButton:pressed {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #1e88e5,
+            stop:1 #1565c0
+        );
+    }
+
+    /* 输入框样式 */
+    QLineEdit {
+        border: 2px solid #81d4fa;
+        border-radius: 12px;
+        padding: 10px;
+        background-color: #ffffff;
+        color: #0f1f38;
+        selection-background-color: #4fc3f7;
+        selection-color: #ffffff;
+    }
+    QLineEdit:focus {
+        border: 2px solid #1e88e5;
+    }
+
+    /* 多行文本框 */
+    QTextEdit, QTextBrowser {
+        border: 2px solid #81d4fa;
+        border-radius: 12px;
+        padding: 8px;
+        background-color: #ffffff;
+        color: #0f1f38;
+    }
+
+    /* 列表控件 */
+    QListWidget {
+        border: 2px solid #81d4fa;
+        border-radius: 12px;
+        padding: 5px;
+        background-color: #ffffff;
+        color: #0f1f38;
+    }
+
+    /* 复选框统一样式 */
+    QCheckBox {
+        spacing: 5px;
+    }
+   </string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -77,38 +153,13 @@
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
        <property name="text">
         <string>启用用户认证(User Authentication):</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="auth">
-       <property name="minimumSize">
-        <size>
-         <width>21</width>
-         <height>21</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>21</width>
-         <height>21</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="tristate">
-        <bool>false</bool>
-       </property>
-      </widget>
+      <widget class="QCheckBox" name="auth"/>
      </item>
     </layout>
    </item>
@@ -122,20 +173,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="username">
-       <property name="minimumSize">
-        <size>
-         <width>211</width>
-         <height>27</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>211</width>
-         <height>27</height>
-        </size>
-       </property>
-      </widget>
+      <widget class="QLineEdit" name="username"/>
      </item>
      <item>
       <widget class="QLabel" name="label_6">
@@ -170,18 +208,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label_8">
-       <property name="minimumSize">
-        <size>
-         <width>81</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
        <property name="text">
         <string>发件人(Sender):</string>
        </property>
@@ -196,18 +222,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QLabel" name="label_9">
-       <property name="minimumSize">
-        <size>
-         <width>81</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
        <property name="text">
         <string>收件人(Recipients):</string>
        </property>
@@ -222,18 +236,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
       <widget class="QLabel" name="label_10">
-       <property name="minimumSize">
-        <size>
-         <width>81</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
        <property name="text">
         <string>主题(Subject):</string>
        </property>
@@ -245,11 +247,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextEdit" name="texteditor">
-     <property name="textInteractionFlags">
-      <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-     </property>
-    </widget>
+    <widget class="QTextEdit" name="texteditor"/>
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -257,6 +255,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout_7">
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>附件(Attachments):</string>
          </property>
@@ -264,18 +268,6 @@
        </item>
        <item>
         <widget class="QPushButton" name="addAttachment">
-         <property name="minimumSize">
-          <size>
-           <width>97</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>200</width>
-           <height>16777215</height>
-          </size>
-         </property>
          <property name="text">
           <string>上传(Add File)</string>
          </property>

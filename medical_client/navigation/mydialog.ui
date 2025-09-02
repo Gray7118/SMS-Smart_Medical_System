@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Intruduction</string>
+   <string>简介(Intruduction)</string>
   </property>
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">

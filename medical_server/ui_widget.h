@@ -11,8 +11,12 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -20,60 +24,202 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
+    QVBoxLayout *mainLayout;
+    QLabel *titleLabel;
+    QHBoxLayout *contentLayout;
+    QGroupBox *leftGroupBox;
+    QVBoxLayout *leftLayout;
+    QLabel *networkInfoLabel;
     QTextEdit *textEdit;
-    QLabel *label;
+    QSpacerItem *verticalSpacer_1;
+    QLabel *allUserLabel;
     QTextEdit *allUserTextEdit;
-    QLabel *label_2;
+    QGroupBox *rightGroupBox;
+    QVBoxLayout *rightLayout;
+    QLabel *allDoctorLabel;
     QTextEdit *allDoctorTextEdit;
-    QLabel *label_3;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *allPatientLabel;
     QTextEdit *allPatientTextEdit;
-    QLabel *label_4;
-    QLabel *label_5;
+    QGroupBox *caseGroupBox;
+    QVBoxLayout *caseLayout;
+    QLabel *allCaseLabel;
     QTextEdit *allCaseTextEdit;
+    QLabel *statusBar;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QString::fromUtf8("Widget"));
-        Widget->resize(1409, 1150);
-        textEdit = new QTextEdit(Widget);
+        Widget->resize(1200, 900);
+        Widget->setMinimumSize(QSize(1000, 800));
+        Widget->setStyleSheet(QString::fromUtf8("\n"
+"    /* \344\270\273\347\252\227\345\217\243\346\240\267\345\274\217 */\n"
+"    QWidget {\n"
+"        background-color: #f0f5ff;\n"
+"        font-family: 'Microsoft YaHei';\n"
+"    }\n"
+"\n"
+"    /* \351\235\242\346\235\277\346\240\267\345\274\217 */\n"
+"    QGroupBox {\n"
+"        background-color: white;\n"
+"        border: 1px solid #d1e3f8;\n"
+"        border-radius: 8px;\n"
+"        padding: 15px;\n"
+"        margin-top: 10px;\n"
+"    }\n"
+"\n"
+"    QGroupBox::title {\n"
+"        subcontrol-origin: margin;\n"
+"        left: 10px;\n"
+"        padding: 0 3px;\n"
+"        color: #2b5876;\n"
+"        font-weight: bold;\n"
+"        font-size: 14px;\n"
+"    }\n"
+"\n"
+"    /* \346\240\207\347\255\276\346\240\267\345\274\217 */\n"
+"    QLabel {\n"
+"        color: #2b5876;\n"
+"        font-size: 14px;\n"
+"        font-weight: bold;\n"
+"        margin-bottom: 5px;\n"
+"    }\n"
+"\n"
+"    /* \346\226\207\346\234\254\347\274\226\350\276\221\346\241\206\346\240\267\345\274\217 */\n"
+"    QTextEdit {\n"
+"        bac"
+                        "kground-color: white;\n"
+"        border: 1px solid #d1e3f8;\n"
+"        border-radius: 6px;\n"
+"        padding: 10px;\n"
+"        font-size: 13px;\n"
+"        color: #333333;\n"
+"        selection-background-color: #4a90e2;\n"
+"        selection-color: white;\n"
+"    }\n"
+"\n"
+"    /* \347\212\266\346\200\201\346\240\217\346\240\267\345\274\217 */\n"
+"    QLabel#statusBar {\n"
+"        background-color: #e6f0ff;\n"
+"        border-top: 1px solid #d1e3f8;\n"
+"        padding: 8px;\n"
+"        font-size: 12px;\n"
+"    }\n"
+"   "));
+        mainLayout = new QVBoxLayout(Widget);
+        mainLayout->setObjectName(QString::fromUtf8("mainLayout"));
+        titleLabel = new QLabel(Widget);
+        titleLabel->setObjectName(QString::fromUtf8("titleLabel"));
+        titleLabel->setStyleSheet(QString::fromUtf8("\n"
+"       font-size: 18px;\n"
+"       font-weight: bold;\n"
+"       color: #2b5876;\n"
+"       qproperty-alignment: AlignCenter;\n"
+"       margin-bottom: 15px;\n"
+"      "));
+
+        mainLayout->addWidget(titleLabel);
+
+        contentLayout = new QHBoxLayout();
+        contentLayout->setObjectName(QString::fromUtf8("contentLayout"));
+        leftGroupBox = new QGroupBox(Widget);
+        leftGroupBox->setObjectName(QString::fromUtf8("leftGroupBox"));
+        leftLayout = new QVBoxLayout(leftGroupBox);
+        leftLayout->setObjectName(QString::fromUtf8("leftLayout"));
+        networkInfoLabel = new QLabel(leftGroupBox);
+        networkInfoLabel->setObjectName(QString::fromUtf8("networkInfoLabel"));
+
+        leftLayout->addWidget(networkInfoLabel);
+
+        textEdit = new QTextEdit(leftGroupBox);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(30, 80, 571, 201));
-        label = new QLabel(Widget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 20, 511, 51));
-        QFont font;
-        font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font.setPointSize(14);
-        label->setFont(font);
-        allUserTextEdit = new QTextEdit(Widget);
+        textEdit->setMinimumSize(QSize(0, 180));
+        textEdit->setReadOnly(true);
+
+        leftLayout->addWidget(textEdit);
+
+        verticalSpacer_1 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        leftLayout->addItem(verticalSpacer_1);
+
+        allUserLabel = new QLabel(leftGroupBox);
+        allUserLabel->setObjectName(QString::fromUtf8("allUserLabel"));
+
+        leftLayout->addWidget(allUserLabel);
+
+        allUserTextEdit = new QTextEdit(leftGroupBox);
         allUserTextEdit->setObjectName(QString::fromUtf8("allUserTextEdit"));
-        allUserTextEdit->setGeometry(QRect(40, 400, 561, 161));
-        label_2 = new QLabel(Widget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(40, 330, 511, 51));
-        label_2->setFont(font);
-        allDoctorTextEdit = new QTextEdit(Widget);
+        allUserTextEdit->setMinimumSize(QSize(0, 150));
+        allUserTextEdit->setReadOnly(true);
+
+        leftLayout->addWidget(allUserTextEdit);
+
+
+        contentLayout->addWidget(leftGroupBox);
+
+        rightGroupBox = new QGroupBox(Widget);
+        rightGroupBox->setObjectName(QString::fromUtf8("rightGroupBox"));
+        rightLayout = new QVBoxLayout(rightGroupBox);
+        rightLayout->setObjectName(QString::fromUtf8("rightLayout"));
+        allDoctorLabel = new QLabel(rightGroupBox);
+        allDoctorLabel->setObjectName(QString::fromUtf8("allDoctorLabel"));
+
+        rightLayout->addWidget(allDoctorLabel);
+
+        allDoctorTextEdit = new QTextEdit(rightGroupBox);
         allDoctorTextEdit->setObjectName(QString::fromUtf8("allDoctorTextEdit"));
-        allDoctorTextEdit->setGeometry(QRect(40, 670, 561, 161));
-        label_3 = new QLabel(Widget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(40, 600, 511, 51));
-        label_3->setFont(font);
-        allPatientTextEdit = new QTextEdit(Widget);
+        allDoctorTextEdit->setMinimumSize(QSize(0, 200));
+        allDoctorTextEdit->setReadOnly(true);
+
+        rightLayout->addWidget(allDoctorTextEdit);
+
+        verticalSpacer_2 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        rightLayout->addItem(verticalSpacer_2);
+
+        allPatientLabel = new QLabel(rightGroupBox);
+        allPatientLabel->setObjectName(QString::fromUtf8("allPatientLabel"));
+
+        rightLayout->addWidget(allPatientLabel);
+
+        allPatientTextEdit = new QTextEdit(rightGroupBox);
         allPatientTextEdit->setObjectName(QString::fromUtf8("allPatientTextEdit"));
-        allPatientTextEdit->setGeometry(QRect(40, 940, 561, 161));
-        label_4 = new QLabel(Widget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(40, 870, 511, 51));
-        label_4->setFont(font);
-        label_5 = new QLabel(Widget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(740, 10, 511, 51));
-        label_5->setFont(font);
-        allCaseTextEdit = new QTextEdit(Widget);
+        allPatientTextEdit->setMinimumSize(QSize(0, 200));
+        allPatientTextEdit->setReadOnly(true);
+
+        rightLayout->addWidget(allPatientTextEdit);
+
+
+        contentLayout->addWidget(rightGroupBox);
+
+        caseGroupBox = new QGroupBox(Widget);
+        caseGroupBox->setObjectName(QString::fromUtf8("caseGroupBox"));
+        caseLayout = new QVBoxLayout(caseGroupBox);
+        caseLayout->setObjectName(QString::fromUtf8("caseLayout"));
+        allCaseLabel = new QLabel(caseGroupBox);
+        allCaseLabel->setObjectName(QString::fromUtf8("allCaseLabel"));
+
+        caseLayout->addWidget(allCaseLabel);
+
+        allCaseTextEdit = new QTextEdit(caseGroupBox);
         allCaseTextEdit->setObjectName(QString::fromUtf8("allCaseTextEdit"));
-        allCaseTextEdit->setGeometry(QRect(740, 80, 571, 441));
+        allCaseTextEdit->setMinimumSize(QSize(0, 500));
+        allCaseTextEdit->setReadOnly(true);
+
+        caseLayout->addWidget(allCaseTextEdit);
+
+
+        contentLayout->addWidget(caseGroupBox);
+
+
+        mainLayout->addLayout(contentLayout);
+
+        statusBar = new QLabel(Widget);
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+
+        mainLayout->addWidget(statusBar);
+
 
         retranslateUi(Widget);
 
@@ -82,12 +228,17 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QApplication::translate("Widget", "Widget", nullptr));
-        label->setText(QApplication::translate("Widget", "\346\230\276\347\244\272\347\275\221\347\273\234\350\277\236\346\216\245\344\277\241\346\201\257", nullptr));
-        label_2->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\347\224\250\346\210\267\344\277\241\346\201\257", nullptr));
-        label_3->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\345\214\273\347\224\237\344\277\241\346\201\257", nullptr));
-        label_4->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\346\202\243\350\200\205\344\277\241\346\201\257", nullptr));
-        label_5->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\347\227\205\344\276\213\344\277\241\346\201\257", nullptr));
+        Widget->setWindowTitle(QApplication::translate("Widget", "\345\214\273\347\226\227\344\277\241\346\201\257\347\233\221\346\216\247\345\271\263\345\217\260", nullptr));
+        titleLabel->setText(QApplication::translate("Widget", "\345\214\273\347\226\227\344\277\241\346\201\257\347\233\221\346\216\247\345\271\263\345\217\260", nullptr));
+        leftGroupBox->setTitle(QApplication::translate("Widget", "\347\263\273\347\273\237\344\277\241\346\201\257", nullptr));
+        networkInfoLabel->setText(QApplication::translate("Widget", "\347\275\221\347\273\234\350\277\236\346\216\245\344\277\241\346\201\257", nullptr));
+        allUserLabel->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\347\224\250\346\210\267\344\277\241\346\201\257", nullptr));
+        rightGroupBox->setTitle(QApplication::translate("Widget", "\345\214\273\347\226\227\346\225\260\346\215\256", nullptr));
+        allDoctorLabel->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\345\214\273\347\224\237\344\277\241\346\201\257", nullptr));
+        allPatientLabel->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\346\202\243\350\200\205\344\277\241\346\201\257", nullptr));
+        caseGroupBox->setTitle(QApplication::translate("Widget", "\347\227\205\344\276\213\344\277\241\346\201\257", nullptr));
+        allCaseLabel->setText(QApplication::translate("Widget", "\346\211\200\346\234\211\347\227\205\344\276\213\344\277\241\346\201\257", nullptr));
+        statusBar->setText(QApplication::translate("Widget", "\346\234\215\345\212\241\345\231\250\350\277\220\350\241\214\344\270\255 | IP: 127.0.0.1 | \347\253\257\345\217\243: 8888 | \345\234\250\347\272\277\347\224\250\346\210\267: 0", nullptr));
     } // retranslateUi
 
 };

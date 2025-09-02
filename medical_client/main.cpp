@@ -10,16 +10,16 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
-    // 加载 QSS 文件
-    QFile file(":/MacOS.qss");   // 如果放在资源文件里用 :/ 前缀
+//    // 加载 QSS 文件
+//    QFile file(":/MacOS.qss");   // 如果放在资源文件里用 :/ 前缀
 
-    if (!file.open(QFile::ReadOnly)) {
-        qDebug() << "无法打开 QSS 文件";
-    } else {
-        QString styleSheet = file.readAll();
-        a.setStyleSheet(styleSheet);
-        file.close();
-    }
+//    if (!file.open(QFile::ReadOnly)) {
+//        qDebug() << "无法打开 QSS 文件";
+//    } else {
+//        QString styleSheet = file.readAll();
+//        a.setStyleSheet(styleSheet);
+//        file.close();
+//    }
 
     // 启动动画
     SplashScreen splash;
