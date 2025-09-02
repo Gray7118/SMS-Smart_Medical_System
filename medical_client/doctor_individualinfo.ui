@@ -6,169 +6,186 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
-    <height>516</height>
+    <width>700</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>信息完善</string>
   </property>
-  <widget class="QLabel" name="info_change">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>20</y>
-     <width>241</width>
-     <height>51</height>
-    </rect>
+  <property name="styleSheet">
+   <string notr="true">
+    QWidget#doctor_individualinfo {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #e3f2fd,
+            stop:1 #ffffff
+        );
+        font-family: "Microsoft YaHei";
+    }
+    QLineEdit {
+        border: 1px solid #64b5f6;
+        border-radius: 8px;
+        padding: 6px;
+        background: #ffffff;
+    }
+    QLabel {
+        font-size: 28px;
+    }
+    QPushButton {
+        border-radius: 12px;
+        border: 1px solid #64b5f6;
+        color: #ffffff;
+        font-weight: bold;
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #6ec6ff,
+            stop:1 #1e88e5
+        );
+        padding: 8px 16px;
+        min-width: 120px;
+        min-height: 40px;
+    }
+    QPushButton:hover {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #81d4fa,
+            stop:1 #1976d2
+        );
+    }
+    QPushButton:pressed {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #1e88e5,
+            stop:1 #1565c0
+        );
+    }
+    #info_change {
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+   </string>
+  </property>
+
+  <!-- 主体布局 -->
+  <layout class="QVBoxLayout" name="mainVerticalLayout">
+   <property name="spacing">
+    <number>20</number>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>18</pointsize>
-    </font>
+   <property name="margin">
+    <number>30</number>
    </property>
-   <property name="text">
-    <string>信息完善</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="doctor_info_sure">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>440</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>确定</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="doctor_info_return">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>440</y>
-     <width>101</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>返回</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="gender">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>106</y>
-     <width>341</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="age_label">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>153</y>
-     <width>131</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>年龄</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="gender_label">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>72</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>性别</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="phonenumber">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>280</y>
-     <width>341</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="age">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>188</y>
-     <width>341</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="phone_label">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>235</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>电话</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="department_label">
-   <property name="geometry">
-    <rect>
-     <x>91</x>
-     <y>316</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>科室</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="department">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>360</y>
-     <width>341</width>
-     <height>41</height>
-    </rect>
-   </property>
-  </widget>
+
+   <!-- 顶部标题 -->
+   <item>
+    <widget class="QLabel" name="info_change">
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>信息完善</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignHCenter|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <!-- 表单区 -->
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="labelAlignment">
+      <set>Qt::AlignRight|Qt::AlignVCenter</set>
+     </property>
+     <property name="formAlignment">
+      <set>Qt::AlignHCenter|Qt::AlignTop</set>
+     </property>
+
+     <item row="0" column="0">
+      <widget class="QLabel" name="gender_label">
+       <property name="text">
+        <string>性别</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="gender"/>
+     </item>
+
+     <item row="1" column="0">
+      <widget class="QLabel" name="age_label">
+       <property name="text">
+        <string>年龄</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="age"/>
+     </item>
+
+     <item row="2" column="0">
+      <widget class="QLabel" name="phone_label">
+       <property name="text">
+        <string>电话</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="phonenumber"/>
+     </item>
+
+     <item row="3" column="0">
+      <widget class="QLabel" name="department_label">
+       <property name="text">
+        <string>科室</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="department"/>
+     </item>
+    </layout>
+   </item>
+
+   <!-- 底部按钮 -->
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <spacer name="horizontalSpacerLeft">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="doctor_info_sure">
+       <property name="text">
+        <string>确定</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="doctor_info_return">
+       <property name="text">
+        <string>返回</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacerRight">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
