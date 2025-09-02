@@ -6,67 +6,165 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>655</width>
-    <height>547</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>医生信息查询</string>
   </property>
-  <widget class="QLabel" name="label_seedoctorinfo">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>30</y>
-     <width>201</width>
-     <height>51</height>
-    </rect>
+  <property name="styleSheet">
+   <string notr="true">
+    /* 主窗口背景 */
+    QWidget#seedoctorinfo {
+        background-color: qlineargradient(
+            x1:0, y1:0, x2:0, y2:1,
+            stop:0 #e3f2fd,
+            stop:1 #ffffff
+        );
+        font-family: "Microsoft YaHei";
+    }
+
+    /* 标题样式 */
+    QLabel#titleLabel {
+        color: #2c3e50;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* 信息显示区域 */
+    QTextEdit#mydoctor_info {
+        background-color: white;
+        border: 1px solid #d1d9e6;
+        border-radius: 8px;
+        padding: 15px;
+        font-size: 14px;
+        color: #34495e;
+    }
+
+    /* 按钮基础样式 */
+    QPushButton {
+        border-radius: 8px;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 12px 30px;  /* 增加内边距使按钮更大 */
+        min-width: 200px;    /* 增加最小宽度 */
+        min-height: 45px;    /* 增加最小高度 */
+        font-size: 16px;     /* 增大字体 */
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #42a5f5,
+                                   stop:1 #1976d2);  /* 增强基础渐变对比 */
+    }
+
+    /* 查询按钮 */
+    #doctorinfo_search {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #42a5f5,
+                                   stop:1 #1976d2);
+    }
+    #doctorinfo_search:hover {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #2196f3,
+                                   stop:1 #1565c0);
+    }
+    #doctorinfo_search:pressed {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #1976d2,
+                                   stop:1 #0d47a1);
+    }
+
+    /* 返回按钮 */
+    #doctorinfo_return {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #78909c,
+                                   stop:1 #455a64);  /* 增强基础渐变对比 */
+    }
+    #doctorinfo_return:hover {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #607d8b,
+                                   stop:1 #37474f);
+    }
+    #doctorinfo_return:pressed {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #455a64,
+                                   stop:1 #263238);
+    }
+   </string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>20</number>
    </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
+   <property name="margin">
+    <number>20</number>
    </property>
-   <property name="text">
-    <string>医生信息</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="doctorinfo_return">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>440</y>
-     <width>141</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>返回</string>
-   </property>
-  </widget>
-  <widget class="QTextEdit" name="mydoctor_info">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>100</y>
-     <width>541</width>
-     <height>311</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="doctorinfo_search">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>440</y>
-     <width>131</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>查询</string>
-   </property>
-  </widget>
+   <item>
+    <widget class="QLabel" name="titleLabel">
+     <property name="text">
+      <string>医生详细信息</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei</family>
+       <pointsize>20</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="mydoctor_info">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>点击"查询"按钮获取医生信息...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="doctorinfo_search">
+       <property name="text">
+        <string>查询</string>
+       </property>
+       <property name="objectName">
+        <string>doctorinfo_search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="doctorinfo_return">
+       <property name="text">
+        <string>返回</string>
+       </property>
+       <property name="objectName">
+        <string>doctorinfo_return</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
